@@ -1,6 +1,7 @@
 package configediter;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -101,7 +102,23 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
         
-        GetMyDocuments ();
+        //start reading the config File
+        getMyDocuments ();
+        
+        competrSpeed = readConfigInt("competitor_speed");
+        constCost = readConfigInt("construction_cost");
+        diffLevel = readConfigInt("diff_level");
+        industDens = readConfigInt("industry_density");
+        initInter = readConfigInt("initial_interest");
+        industries = readConfigInt("number_industries");
+        towns = readConfigInt("number_towns");
+        seas = readConfigInt("quantity_sea_lakes");
+        subsidy = readConfigInt("subsidy_multiplier");
+        terrain = readConfigInt("terrain_type");
+        townCoun = readConfigInt("town_council_tolerance");
+        vehicleBr = readConfigInt("vehicle_breakdowns");
+        vehicleCost = readConfigInt("vehicle_costs");
+        
     }
 
     /**
@@ -887,8 +904,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //Variables for Difficulty tab, left side
-    int competrSpeed = readConfigInt("competitor_speed");
-    System.out.println(competrSpeed + "");
+    int competrSpeed;
     int constCost;
     int diffLevel;
     boolean disasters;
@@ -909,7 +925,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     int vehicleCost;
     
     String openTTDfolder;
-    
+        
     private void getMyDocuments () {
      JFileChooser fr = new JFileChooser();
      FileSystemView fw = fr.getFileSystemView();
@@ -920,13 +936,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int indexfound;
         int found = 0;
         String [] parts;
-        try ( BufferedReader bf = new BufferedReader(new FileReader(openTTDfolder)) ) {
-            int linecount = 0;
+        System.out.print(openTTDfolder);
+        try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
             String line;
             while ((line = bf.readLine()) != null) {
-                linecount++;
                 indexfound = line.indexOf(s);
-
                 if (indexfound > -1) {
                     parts = line.split(" ");
                     found = Integer.parseInt(parts [2]);
