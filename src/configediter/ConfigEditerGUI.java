@@ -108,9 +108,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         competrSpeed = readConfigInt("competitor_speed");
         constCost = readConfigInt("construction_cost");
         diffLevel = readConfigInt("diff_level");
+        disasters = readConfigInt("disasters");
+        economy = readConfigInt("economy");
         industDens = readConfigInt("industry_density");
         initInter = readConfigInt("initial_interest");
+        lineReverse = readConfigInt("line_reverse_mode");
+        maxLoan = readConfigInt("max_loan");
+        maxComp = readConfigInt("max_no_competitors");
         industries = readConfigInt("number_industries");
+        
         towns = readConfigInt("number_towns");
         seas = readConfigInt("quantity_sea_lakes");
         subsidy = readConfigInt("subsidy_multiplier");
@@ -118,6 +124,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCoun = readConfigInt("town_council_tolerance");
         vehicleBr = readConfigInt("vehicle_breakdowns");
         vehicleCost = readConfigInt("vehicle_costs");
+        
         
     }
 
@@ -907,12 +914,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     int competrSpeed;
     int constCost;
     int diffLevel;
-    boolean disasters;
-    boolean economy;
+    int disasters; //false and true
+    int economy; //false and true
     int industDens;
     int initInter;
-    boolean lineReverse;
-    double maxLoan;
+    int lineReverse; //false and true
+    int maxLoan;
+    int maxComp;
     int industries;
     
     //Variables for Difficulty tab, right side
@@ -944,6 +952,27 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 if (indexfound > -1) {
                     parts = line.split(" ");
                     found = Integer.parseInt(parts [2]);
+                }
+            }
+            bf.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return found;
+    }
+    
+    private boolean readConfigBoo (String s) {
+        int indexfound;
+        boolean found = true;
+        String [] parts;
+        System.out.print(openTTDfolder);
+        try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
+            String line;
+            while ((line = bf.readLine()) != null) {
+                indexfound = line.indexOf(s);
+                if (indexfound > -1) {
+                    parts = line.split(" ");
+                    found = Boolean.parseBoolean(parts [2]);
                 }
             }
             bf.close();
