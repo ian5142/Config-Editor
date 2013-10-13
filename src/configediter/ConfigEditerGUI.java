@@ -922,7 +922,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     int maxLoan;
     int maxComp;
     int industries;
-    
+    int index2;
+    int index3;
     //Variables for Difficulty tab, right side
     int towns;
     int seas;
@@ -941,10 +942,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     }
     
     private int readConfigInt (String s) {
+        index2++;
+        System.out.println(index2 + "");
         int indexfound;
         int found = 0;
         String [] parts;
-        System.out.print(openTTDfolder);
         try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
             String line;
             while ((line = bf.readLine()) != null) {
@@ -958,6 +960,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        index3++;
+        System.out.println(index3 + "");
         return found;
     }
     
