@@ -18,25 +18,21 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="lineReverseGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup9">
+    <Component class="javax.swing.ButtonGroup" name="industriesGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup10">
+    <Component class="javax.swing.ButtonGroup" name="townsGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup11">
+    <Component class="javax.swing.ButtonGroup" name="seasGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup12">
+    <Component class="javax.swing.ButtonGroup" name="subsidyGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup13">
+    <Component class="javax.swing.ButtonGroup" name="terrainGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup14">
+    <Component class="javax.swing.ButtonGroup" name="townCounGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup15">
+    <Component class="javax.swing.ButtonGroup" name="vehicleBrGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup16">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup17">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup18">
+    <Component class="javax.swing.ButtonGroup" name="vehicleCostGroup">
     </Component>
   </NonVisualComponents>
   <Properties>

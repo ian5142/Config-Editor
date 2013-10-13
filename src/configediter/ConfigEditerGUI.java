@@ -52,14 +52,46 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         lineReverseGroup.add(lineReverse_TRUE);
         lineReverseGroup.add(lineReverse_FALSE);
         
-        buttonGroup9.add(industries_NONE);
-        buttonGroup9.add(industries_VL);
-        buttonGroup9.add(industries_L);
-        buttonGroup9.add(industries_N);
-        buttonGroup9.add(industries_H);
+        industriesGroup.add(industries_NONE);
+        industriesGroup.add(industries_VL);
+        industriesGroup.add(industries_L);
+        industriesGroup.add(industries_N);
+        industriesGroup.add(industries_H);
         
         //buttonGroups for difficulty tab, right side
-        buttonGroup10.add(towns_VL);
+        townsGroup.add(towns_VL);
+        townsGroup.add(towns_L);
+        townsGroup.add(towns_N);
+        townsGroup.add(towns_H);
+        townsGroup.add(towns_CUST);
+        
+        seasGroup.add(seas_VL);
+        seasGroup.add(seas_L);
+        seasGroup.add(seas_M);
+        seasGroup.add(seas_H);
+        seasGroup.add(seas_CUST);
+        
+        subsidyGroup.add(subsidy_15);
+        subsidyGroup.add(subsidy_20);
+        subsidyGroup.add(subsidy_30);
+        subsidyGroup.add(subsidy_40);
+        
+        terrainGroup.add(terrain_VF);
+        terrainGroup.add(terrain_F);
+        terrainGroup.add(terrain_H);
+        terrainGroup.add(terrain_M);
+        
+        townCounGroup.add(townCoun_PER);
+        townCounGroup.add(townCoun_TOL);
+        townCounGroup.add(townCoun_HOS);
+        
+        vehicleBrGroup.add(vehicleBr_NONE);
+        vehicleBrGroup.add(vehicleBr_RED);
+        vehicleBrGroup.add(vehicleBr_N);
+        
+        vehicleCostGroup.add(vehicleCost_L);
+        vehicleCostGroup.add(vehicleCost_M);
+        vehicleCostGroup.add(vehicleCost_H);
     }
 
     /**
@@ -79,16 +111,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         industDensGroup = new javax.swing.ButtonGroup();
         initInterGroup = new javax.swing.ButtonGroup();
         lineReverseGroup = new javax.swing.ButtonGroup();
-        buttonGroup9 = new javax.swing.ButtonGroup();
-        buttonGroup10 = new javax.swing.ButtonGroup();
-        buttonGroup11 = new javax.swing.ButtonGroup();
-        buttonGroup12 = new javax.swing.ButtonGroup();
-        buttonGroup13 = new javax.swing.ButtonGroup();
-        buttonGroup14 = new javax.swing.ButtonGroup();
-        buttonGroup15 = new javax.swing.ButtonGroup();
-        buttonGroup16 = new javax.swing.ButtonGroup();
-        buttonGroup17 = new javax.swing.ButtonGroup();
-        buttonGroup18 = new javax.swing.ButtonGroup();
+        industriesGroup = new javax.swing.ButtonGroup();
+        townsGroup = new javax.swing.ButtonGroup();
+        seasGroup = new javax.swing.ButtonGroup();
+        subsidyGroup = new javax.swing.ButtonGroup();
+        terrainGroup = new javax.swing.ButtonGroup();
+        townCounGroup = new javax.swing.ButtonGroup();
+        vehicleBrGroup = new javax.swing.ButtonGroup();
+        vehicleCostGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -748,16 +778,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup10;
-    private javax.swing.ButtonGroup buttonGroup11;
-    private javax.swing.ButtonGroup buttonGroup12;
-    private javax.swing.ButtonGroup buttonGroup13;
-    private javax.swing.ButtonGroup buttonGroup14;
-    private javax.swing.ButtonGroup buttonGroup15;
-    private javax.swing.ButtonGroup buttonGroup16;
-    private javax.swing.ButtonGroup buttonGroup17;
-    private javax.swing.ButtonGroup buttonGroup18;
-    private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.ButtonGroup compSpdGroup;
     private javax.swing.JRadioButton compSpd_F;
     private javax.swing.JRadioButton compSpd_M;
@@ -785,6 +805,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton industDens_N;
     private javax.swing.JRadioButton industDens_NONE;
     private javax.swing.JRadioButton industDens_VL;
+    private javax.swing.ButtonGroup industriesGroup;
     private javax.swing.JRadioButton industries_H;
     private javax.swing.JRadioButton industries_L;
     private javax.swing.JRadioButton industries_N;
@@ -822,32 +843,39 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton lineReverse_TRUE;
     private javax.swing.JTextField maxComp_TEXT;
     private javax.swing.JTextField maxLoan_TEXT;
+    private javax.swing.ButtonGroup seasGroup;
     private javax.swing.JRadioButton seas_CUST;
     private javax.swing.JRadioButton seas_H;
     private javax.swing.JRadioButton seas_L;
     private javax.swing.JRadioButton seas_M;
     private javax.swing.JTextField seas_TEXT;
     private javax.swing.JRadioButton seas_VL;
+    private javax.swing.ButtonGroup subsidyGroup;
     private javax.swing.JRadioButton subsidy_15;
     private javax.swing.JRadioButton subsidy_20;
     private javax.swing.JRadioButton subsidy_30;
     private javax.swing.JRadioButton subsidy_40;
+    private javax.swing.ButtonGroup terrainGroup;
     private javax.swing.JRadioButton terrain_F;
     private javax.swing.JRadioButton terrain_H;
     private javax.swing.JRadioButton terrain_M;
     private javax.swing.JRadioButton terrain_VF;
+    private javax.swing.ButtonGroup townCounGroup;
     private javax.swing.JRadioButton townCoun_HOS;
     private javax.swing.JRadioButton townCoun_PER;
     private javax.swing.JRadioButton townCoun_TOL;
+    private javax.swing.ButtonGroup townsGroup;
     private javax.swing.JRadioButton towns_CUST;
     private javax.swing.JRadioButton towns_H;
     private javax.swing.JRadioButton towns_L;
     private javax.swing.JRadioButton towns_N;
     private javax.swing.JTextField towns_TEXT;
     private javax.swing.JRadioButton towns_VL;
+    private javax.swing.ButtonGroup vehicleBrGroup;
     private javax.swing.JRadioButton vehicleBr_N;
     private javax.swing.JRadioButton vehicleBr_NONE;
     private javax.swing.JRadioButton vehicleBr_RED;
+    private javax.swing.ButtonGroup vehicleCostGroup;
     private javax.swing.JRadioButton vehicleCost_H;
     private javax.swing.JRadioButton vehicleCost_L;
     private javax.swing.JRadioButton vehicleCost_M;
