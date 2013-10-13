@@ -1,5 +1,10 @@
 package configediter;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
@@ -764,19 +769,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConfigEditerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConfigEditerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConfigEditerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ConfigEditerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ConfigEditerGUI().setVisible(true);
             }
@@ -887,8 +887,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //Variables for Difficulty tab, left side
-    int competrSpeed;
-            //ReadConfigInt("competitor_speed");
+    int competrSpeed = readConfigInt("competitor_speed");
+    System.out.println(competrSpeed + "");
     int constCost;
     int diffLevel;
     boolean disasters;
@@ -908,21 +908,34 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     int vehicleBr;
     int vehicleCost;
     
-    String OpenTTDfolder;
+    String openTTDfolder;
     
-    private void GetMyDocuments () {
+    private void getMyDocuments () {
      JFileChooser fr = new JFileChooser();
      FileSystemView fw = fr.getFileSystemView();
-     OpenTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD";
+     openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
     }
     
-//    private int ReadConfigInt (String s) {
-//        int found;
-//        String [] parts;
-//        
-//        try {
-//            Buffered
-//        }
-//        return found;
-//    }
+    private int readConfigInt (String s) {
+        int indexfound;
+        int found = 0;
+        String [] parts;
+        try ( BufferedReader bf = new BufferedReader(new FileReader(openTTDfolder)) ) {
+            int linecount = 0;
+            String line;
+            while ((line = bf.readLine()) != null) {
+                linecount++;
+                indexfound = line.indexOf(s);
+
+                if (indexfound > -1) {
+                    parts = line.split(" ");
+                    found = Integer.parseInt(parts [2]);
+                }
+            }
+            bf.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return found;
+    }
 }
