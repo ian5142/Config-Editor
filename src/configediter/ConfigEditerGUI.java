@@ -58,7 +58,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         industriesGroup.add(industries_N);
         industriesGroup.add(industries_H);
         
-        //buttonGroups for difficulty tab, right side
+        //Buttongroups for difficulty tab, right side
         townsGroup.add(towns_VL);
         townsGroup.add(towns_L);
         townsGroup.add(towns_N);
@@ -880,4 +880,31 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton vehicleCost_L;
     private javax.swing.JRadioButton vehicleCost_M;
     // End of variables declaration//GEN-END:variables
+
+    //Variables for Difficulty tab, left side
+    int competrSpeed = ReadConfigInt("competitor_speed");
+    int constCost;
+    int diffLevel;
+    boolean disasters;
+    boolean economy;
+    int industDens;
+    int initInter;
+    boolean lineReverse;
+    double maxLoan;
+    int industries;
+    
+    //Variables for Difficulty tab, right side
+    int towns;
+    int seas;
+    int subsidy;
+    int terrain;
+    int townCoun;
+    int vehicleBr;
+    int vehicleCost;
+    
+    private int ReadConfigInt (String s) {
+        int found;
+        
+        return found;
+    }
 }
