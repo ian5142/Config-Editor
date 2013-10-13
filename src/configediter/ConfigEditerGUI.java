@@ -1,5 +1,8 @@
 package configediter;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -92,6 +95,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_L);
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
+        
+        GetMyDocuments ();
     }
 
     /**
@@ -882,7 +887,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //Variables for Difficulty tab, left side
-    int competrSpeed = ReadConfigInt("competitor_speed");
+    int competrSpeed;
+            //ReadConfigInt("competitor_speed");
     int constCost;
     int diffLevel;
     boolean disasters;
@@ -902,9 +908,21 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     int vehicleBr;
     int vehicleCost;
     
-    private int ReadConfigInt (String s) {
-        int found;
-        
-        return found;
+    String OpenTTDfolder;
+    
+    private void GetMyDocuments () {
+     JFileChooser fr = new JFileChooser();
+     FileSystemView fw = fr.getFileSystemView();
+     OpenTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD";
     }
+    
+//    private int ReadConfigInt (String s) {
+//        int found;
+//        String [] parts;
+//        
+//        try {
+//            Buffered
+//        }
+//        return found;
+//    }
 }
