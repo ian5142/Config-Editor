@@ -125,7 +125,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleBr = readConfigInt("vehicle_breakdowns");
         vehicleCost = readConfigInt("vehicle_costs");
         
-        
+        initDisplay();
     }
 
     /**
@@ -255,168 +255,488 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jTabbedPane1.addTab("Misc", jPanel1);
 
         compSpd_VS.setText("very slow");
+        compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_VSActionPerformed(evt);
+            }
+        });
 
         compSpd_S.setText("slow");
+        compSpd_S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_SActionPerformed(evt);
+            }
+        });
 
         compSpd_M.setText("medium");
+        compSpd_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_MActionPerformed(evt);
+            }
+        });
 
         compSpd_VF.setText("very fast");
+        compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_VFActionPerformed(evt);
+            }
+        });
 
         compSpd_F.setText("fast");
+        compSpd_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_FActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Competr. speed");
 
         jLabel10.setText("const. cost");
 
         constCost_M.setText("medium");
+        constCost_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_MActionPerformed(evt);
+            }
+        });
 
         constCost_L.setText("low");
+        constCost_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_LActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("diff. level");
 
         diffLevel_M.setText("medium");
+        diffLevel_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diffLevel_MActionPerformed(evt);
+            }
+        });
 
         constCost_H.setText("high");
+        constCost_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_HActionPerformed(evt);
+            }
+        });
 
         diffLevel_E.setText("easy");
+        diffLevel_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diffLevel_EActionPerformed(evt);
+            }
+        });
 
         diffLevel_H.setText("hard");
+        diffLevel_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diffLevel_HActionPerformed(evt);
+            }
+        });
 
         disasters_OFF.setText("off");
+        disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disasters_OFFActionPerformed(evt);
+            }
+        });
 
         disasters_ON.setText("on");
+        disasters_ON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disasters_ONActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("disasters");
 
         jLabel13.setText("economy");
 
         economy_VAR.setText("variable");
+        economy_VAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                economy_VARActionPerformed(evt);
+            }
+        });
 
         economy_SM.setText("smooth");
+        economy_SM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                economy_SMActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("indust. density");
 
         industDens_L.setText("low");
+        industDens_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_LActionPerformed(evt);
+            }
+        });
 
         industDens_MIN.setText("minimal");
+        industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_MINActionPerformed(evt);
+            }
+        });
 
         industDens_NONE.setText("none");
+        industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_NONEActionPerformed(evt);
+            }
+        });
 
         industDens_H.setText("high");
+        industDens_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_HActionPerformed(evt);
+            }
+        });
 
         industDens_VL.setText("very low");
+        industDens_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_VLActionPerformed(evt);
+            }
+        });
 
         industDens_N.setText("normal");
+        industDens_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_NActionPerformed(evt);
+            }
+        });
 
         initInter_4.setText("4 %");
+        initInter_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_4ActionPerformed(evt);
+            }
+        });
 
         initInter_3.setText("3 %");
+        initInter_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_3ActionPerformed(evt);
+            }
+        });
 
         initInter_2.setText("2 %");
+        initInter_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_2ActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("init. interest");
 
         jLabel16.setText("line reverse mode");
 
         lineReverse_FALSE.setText("false");
+        lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lineReverse_FALSEActionPerformed(evt);
+            }
+        });
 
         lineReverse_TRUE.setText("true");
+        lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lineReverse_TRUEActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("Max loan (100 000-500 000)");
 
         maxLoan_TEXT.setText("custom");
+        maxLoan_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxLoan_TEXTActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Max # of compet. (0-14)");
 
         maxComp_TEXT.setText("custom");
+        maxComp_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxComp_TEXTActionPerformed(evt);
+            }
+        });
 
         jLabel19.setText("# of industries");
 
         industries_N.setText("normal");
+        industries_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industries_NActionPerformed(evt);
+            }
+        });
 
         industries_VL.setText("very low");
+        industries_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industries_VLActionPerformed(evt);
+            }
+        });
 
         industries_NONE.setText("none");
+        industries_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industries_NONEActionPerformed(evt);
+            }
+        });
 
         industries_H.setText("high");
+        industries_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industries_HActionPerformed(evt);
+            }
+        });
 
         industries_L.setText("low");
+        industries_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industries_LActionPerformed(evt);
+            }
+        });
 
         jLabel20.setText("# of towns");
 
         towns_H.setText("high");
+        towns_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_HActionPerformed(evt);
+            }
+        });
 
         towns_L.setText("low");
+        towns_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_LActionPerformed(evt);
+            }
+        });
 
         towns_VL.setText("very low");
+        towns_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_VLActionPerformed(evt);
+            }
+        });
 
         towns_CUST.setText("custom");
+        towns_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_CUSTActionPerformed(evt);
+            }
+        });
 
         towns_N.setText("normal");
+        towns_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_NActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("# of seas / lakes");
 
         seas_H.setText("high");
+        seas_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_HActionPerformed(evt);
+            }
+        });
 
         seas_L.setText("low");
+        seas_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_LActionPerformed(evt);
+            }
+        });
 
         seas_VL.setText("very low");
+        seas_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_VLActionPerformed(evt);
+            }
+        });
 
         seas_CUST.setText("custom");
+        seas_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_CUSTActionPerformed(evt);
+            }
+        });
 
         seas_M.setText("medium");
+        seas_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_MActionPerformed(evt);
+            }
+        });
 
         subsidy_30.setText("x 3.0");
+        subsidy_30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_30ActionPerformed(evt);
+            }
+        });
 
         subsidy_20.setText("x 2.0");
+        subsidy_20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_20ActionPerformed(evt);
+            }
+        });
 
         subsidy_15.setText("x 1.5");
+        subsidy_15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_15ActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("subsidy multilplier");
 
         subsidy_40.setText("x 4.0");
+        subsidy_40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_40ActionPerformed(evt);
+            }
+        });
 
         terrain_H.setText("hilly");
+        terrain_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_HActionPerformed(evt);
+            }
+        });
 
         terrain_VF.setText("very flat");
+        terrain_VF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_VFActionPerformed(evt);
+            }
+        });
 
         jLabel23.setText("terrain type");
 
         terrain_M.setText("mountainous");
+        terrain_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_MActionPerformed(evt);
+            }
+        });
 
         terrain_F.setText("flat");
+        terrain_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_FActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("town council tolerance");
 
         townCoun_PER.setText("permissive");
+        townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_PERActionPerformed(evt);
+            }
+        });
 
         townCoun_TOL.setText("tolerant");
+        townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_TOLActionPerformed(evt);
+            }
+        });
 
         townCoun_HOS.setText("hostile");
+        townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_HOSActionPerformed(evt);
+            }
+        });
 
         jLabel25.setText("vehicle breakdowns");
 
         vehicleBr_N.setText("normal");
+        vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_NActionPerformed(evt);
+            }
+        });
 
         vehicleBr_RED.setText("reduced");
+        vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_REDActionPerformed(evt);
+            }
+        });
 
         vehicleBr_NONE.setText("none");
+        vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_NONEActionPerformed(evt);
+            }
+        });
 
         vehicleCost_H.setText("high");
+        vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_HActionPerformed(evt);
+            }
+        });
 
         vehicleCost_M.setText("medium");
+        vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_MActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("vehicle cost");
 
         vehicleCost_L.setText("low");
+        vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_LActionPerformed(evt);
+            }
+        });
 
         initInter_CUST_Text.setText("custom");
+        initInter_CUST_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_CUST_TextActionPerformed(evt);
+            }
+        });
 
         initInter_CUST.setText("custom");
+        initInter_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_CUSTActionPerformed(evt);
+            }
+        });
 
         towns_TEXT.setText("custom");
+        towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_TEXTActionPerformed(evt);
+            }
+        });
 
         seas_TEXT.setText("custom");
+        seas_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_TEXTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -777,6 +1097,261 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void compSpd_VSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compSpd_VSActionPerformed
+
+    private void compSpd_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_SActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compSpd_SActionPerformed
+
+    private void compSpd_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compSpd_MActionPerformed
+
+    private void compSpd_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_FActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compSpd_FActionPerformed
+
+    private void compSpd_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compSpd_VFActionPerformed
+
+    private void constCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_constCost_LActionPerformed
+
+    private void constCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_constCost_MActionPerformed
+
+    private void constCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_constCost_HActionPerformed
+
+    private void diffLevel_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_EActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diffLevel_EActionPerformed
+
+    private void diffLevel_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diffLevel_MActionPerformed
+
+    private void diffLevel_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diffLevel_HActionPerformed
+
+    private void disasters_ONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_ONActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disasters_ONActionPerformed
+
+    private void disasters_OFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_OFFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disasters_OFFActionPerformed
+
+    private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_economy_SMActionPerformed
+
+    private void economy_VARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_VARActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_economy_VARActionPerformed
+
+    private void industDens_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NONEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_NONEActionPerformed
+
+    private void industDens_MINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_MINActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_MINActionPerformed
+
+    private void industDens_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_VLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_VLActionPerformed
+
+    private void industDens_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_LActionPerformed
+
+    private void industDens_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_NActionPerformed
+
+    private void industDens_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industDens_HActionPerformed
+
+    private void initInter_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initInter_2ActionPerformed
+
+    private void initInter_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initInter_3ActionPerformed
+
+    private void initInter_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initInter_4ActionPerformed
+
+    private void initInter_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_CUSTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initInter_CUSTActionPerformed
+
+    private void initInter_CUST_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_CUST_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initInter_CUST_TextActionPerformed
+
+    private void lineReverse_TRUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_TRUEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lineReverse_TRUEActionPerformed
+
+    private void lineReverse_FALSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_FALSEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lineReverse_FALSEActionPerformed
+
+    private void maxLoan_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxLoan_TEXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxLoan_TEXTActionPerformed
+
+    private void maxComp_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_TEXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxComp_TEXTActionPerformed
+
+    private void industries_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_NONEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industries_NONEActionPerformed
+
+    private void industries_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_VLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industries_VLActionPerformed
+
+    private void industries_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industries_LActionPerformed
+
+    private void industries_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industries_NActionPerformed
+
+    private void industries_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_industries_HActionPerformed
+
+    private void towns_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_VLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_VLActionPerformed
+
+    private void towns_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_LActionPerformed
+
+    private void towns_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_NActionPerformed
+
+    private void towns_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_HActionPerformed
+
+    private void towns_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_CUSTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_CUSTActionPerformed
+
+    private void towns_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_TEXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_towns_TEXTActionPerformed
+
+    private void seas_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_VLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_VLActionPerformed
+
+    private void seas_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_LActionPerformed
+
+    private void seas_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_MActionPerformed
+
+    private void seas_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_HActionPerformed
+
+    private void seas_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_CUSTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_CUSTActionPerformed
+
+    private void seas_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_TEXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seas_TEXTActionPerformed
+
+    private void subsidy_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subsidy_15ActionPerformed
+
+    private void subsidy_20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subsidy_20ActionPerformed
+
+    private void subsidy_30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subsidy_30ActionPerformed
+
+    private void subsidy_40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subsidy_40ActionPerformed
+
+    private void terrain_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_VFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terrain_VFActionPerformed
+
+    private void terrain_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_FActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terrain_FActionPerformed
+
+    private void terrain_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terrain_HActionPerformed
+
+    private void terrain_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terrain_MActionPerformed
+
+    private void townCoun_PERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_PERActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_townCoun_PERActionPerformed
+
+    private void townCoun_TOLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_TOLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_townCoun_TOLActionPerformed
+
+    private void townCoun_HOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_HOSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_townCoun_HOSActionPerformed
+
+    private void vehicleBr_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NONEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleBr_NONEActionPerformed
+
+    private void vehicleBr_REDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_REDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleBr_REDActionPerformed
+
+    private void vehicleBr_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleBr_NActionPerformed
+
+    private void vehicleCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleCost_LActionPerformed
+
+    private void vehicleCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleCost_MActionPerformed
+
+    private void vehicleCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_HActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleCost_HActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -984,5 +1559,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         return found;
+    }
+    
+    /**
+     * Takes the variables and enables the correct radio button or puts in the right number in the text box.
+     */
+    private void initDisplay () {
+        if ()
     }
 }

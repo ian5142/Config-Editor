@@ -544,26 +544,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="very slow"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compSpd_VSActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="compSpd_S">
               <Properties>
                 <Property name="text" type="java.lang.String" value="slow"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compSpd_SActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="compSpd_M">
               <Properties>
                 <Property name="text" type="java.lang.String" value="medium"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compSpd_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="compSpd_VF">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very fast"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compSpd_VFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="compSpd_F">
               <Properties>
                 <Property name="text" type="java.lang.String" value="fast"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compSpd_FActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -579,11 +594,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="medium"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="constCost_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="constCost_L">
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="constCost_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -594,31 +615,49 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="medium"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="constCost_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="constCost_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="diffLevel_E">
               <Properties>
                 <Property name="text" type="java.lang.String" value="easy"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_EActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="diffLevel_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="hard"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="disasters_OFF">
               <Properties>
                 <Property name="text" type="java.lang.String" value="off"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="disasters_OFFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="disasters_ON">
               <Properties>
                 <Property name="text" type="java.lang.String" value="on"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="disasters_ONActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -634,11 +673,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="variable"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_VARActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="economy_SM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="smooth"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_SMActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -649,46 +694,73 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industDens_MIN">
               <Properties>
                 <Property name="text" type="java.lang.String" value="minimal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_MINActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industDens_NONE">
               <Properties>
                 <Property name="text" type="java.lang.String" value="none"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_NONEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industDens_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industDens_VL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_VLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industDens_N">
               <Properties>
                 <Property name="text" type="java.lang.String" value="normal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industDens_NActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="4 %"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="3 %"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_3ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="2 %"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
@@ -704,11 +776,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineReverse_FALSEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="lineReverse_TRUE">
               <Properties>
                 <Property name="text" type="java.lang.String" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineReverse_TRUEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -719,6 +797,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxLoan_TEXTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
@@ -729,6 +810,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxComp_TEXTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
@@ -739,26 +823,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="normal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_NActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industries_VL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_VLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industries_NONE">
               <Properties>
                 <Property name="text" type="java.lang.String" value="none"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_NONEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industries_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="industries_L">
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
@@ -769,26 +868,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_L">
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_VL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_VLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_CUST">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_CUSTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_N">
               <Properties>
                 <Property name="text" type="java.lang.String" value="normal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_NActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
@@ -799,41 +913,65 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="seas_L">
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="seas_VL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_VLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="seas_CUST">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_CUSTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="seas_M">
               <Properties>
                 <Property name="text" type="java.lang.String" value="medium"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="subsidy_30">
               <Properties>
                 <Property name="text" type="java.lang.String" value="x 3.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subsidy_30ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="subsidy_20">
               <Properties>
                 <Property name="text" type="java.lang.String" value="x 2.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subsidy_20ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="subsidy_15">
               <Properties>
                 <Property name="text" type="java.lang.String" value="x 1.5"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subsidy_15ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -844,16 +982,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="x 4.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subsidy_40ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="terrain_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="hilly"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terrain_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="terrain_VF">
               <Properties>
                 <Property name="text" type="java.lang.String" value="very flat"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terrain_VFActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
@@ -864,11 +1011,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="mountainous"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terrain_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="terrain_F">
               <Properties>
                 <Property name="text" type="java.lang.String" value="flat"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terrain_FActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
@@ -879,16 +1032,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="permissive"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="townCoun_PERActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="townCoun_TOL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="tolerant"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="townCoun_TOLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="townCoun_HOS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="hostile"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="townCoun_HOSActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
@@ -899,26 +1061,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="normal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleBr_NActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="vehicleBr_RED">
               <Properties>
                 <Property name="text" type="java.lang.String" value="reduced"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleBr_REDActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="vehicleBr_NONE">
               <Properties>
                 <Property name="text" type="java.lang.String" value="none"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleBr_NONEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="vehicleCost_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleCost_HActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="vehicleCost_M">
               <Properties>
                 <Property name="text" type="java.lang.String" value="medium"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleCost_MActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
@@ -929,26 +1106,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="low"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleCost_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="initInter_CUST_Text">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_CUST_TextActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_CUST">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_CUSTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="towns_TEXT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_TEXTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="seas_TEXT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_TEXTActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
