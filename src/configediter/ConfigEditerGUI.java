@@ -46,7 +46,30 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
      * Creates new form ConfigEditerGUI
      */
     public ConfigEditerGUI() {
-
+        
+        //start reading the config File
+        getMyDocuments ();
+        
+        compSpd = readConfigInt("competitor_speed");
+        constCost = readConfigInt("construction_cost");
+        diffLevel = readConfigInt("diff_level");
+        disasters = readConfigInt("disasters");
+//        economy = readConfigInt("economy");
+        industDens = readConfigInt("industry_density");
+        initInter = readConfigInt("initial_interest");
+        lineReverse = readConfigInt("line_reverse_mode");
+        maxLoan = readConfigInt("max_loan");
+        maxComp = readConfigInt("max_no_competitors");
+        industries = readConfigInt("number_industries");
+        
+        towns = readConfigInt("number_towns");
+        seas = readConfigInt("quantity_sea_lakes");
+        subsidy = readConfigInt("subsidy_multiplier");
+        terrain = readConfigInt("terrain_type");
+        townCoun = readConfigInt("town_council_tolerance");
+        vehicleBr = readConfigInt("vehicle_breakdowns");
+        vehicleCost = readConfigInt("vehicle_costs");
+        
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -125,28 +148,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
         
-        //start reading the config File
-        getMyDocuments ();
-        
-        compSpd = readConfigInt("competitor_speed");
-        constCost = readConfigInt("construction_cost");
-        diffLevel = readConfigInt("diff_level");
-        disasters = readConfigInt("disasters");
-//        economy = readConfigInt("economy");
-        industDens = readConfigInt("industry_density");
-        initInter = readConfigInt("initial_interest");
-        lineReverse = readConfigInt("line_reverse_mode");
-        maxLoan = readConfigInt("max_loan");
-        maxComp = readConfigInt("max_no_competitors");
-        industries = readConfigInt("number_industries");
-        
-        towns = readConfigInt("number_towns");
-        seas = readConfigInt("quantity_sea_lakes");
-        subsidy = readConfigInt("subsidy_multiplier");
-        terrain = readConfigInt("terrain_type");
-        townCoun = readConfigInt("town_council_tolerance");
-        vehicleBr = readConfigInt("vehicle_breakdowns");
-        vehicleCost = readConfigInt("vehicle_costs");
         
     }
 
@@ -179,161 +180,161 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         System.out.println(compSpd + " D");
-        if(compSpd == 0) {
+        if(compSpd != 0) {
+            compSpd_VS = new javax.swing.JRadioButton();
+        }
+        else{
             compSpd_VS = new javax.swing.JRadioButton("0",true);
-            System.out.println(compSpd + " D");
-            if(compSpd == 1) {
-                compSpd_S = new javax.swing.JRadioButton("1",true);
-                System.out.println(compSpd + " D");
-                if(compSpd == 2) {
-                    compSpd_M = new javax.swing.JRadioButton("2", true);
-                    System.out.println(compSpd + " D");
-                    if(compSpd == 4) {
-                        compSpd_VF = new javax.swing.JRadioButton("4", true);
-                        System.out.println(compSpd + " D");
-                        if(compSpd == 3) {
-                            compSpd_F = new javax.swing.JRadioButton("3", true);
-                            jLabel9 = new javax.swing.JLabel();
-                            jLabel10 = new javax.swing.JLabel();
-                            constCost_M = new javax.swing.JRadioButton();
-                            constCost_L = new javax.swing.JRadioButton();
-                            jLabel11 = new javax.swing.JLabel();
-                            diffLevel_M = new javax.swing.JRadioButton();
-                            constCost_H = new javax.swing.JRadioButton();
-                            diffLevel_E = new javax.swing.JRadioButton();
-                            diffLevel_H = new javax.swing.JRadioButton();
-                            disasters_OFF = new javax.swing.JRadioButton();
-                            disasters_ON = new javax.swing.JRadioButton();
-                            jLabel12 = new javax.swing.JLabel();
-                            jLabel13 = new javax.swing.JLabel();
-                            economy_VAR = new javax.swing.JRadioButton();
-                            economy_SM = new javax.swing.JRadioButton();
-                            jLabel14 = new javax.swing.JLabel();
-                            industDens_L = new javax.swing.JRadioButton();
-                            industDens_MIN = new javax.swing.JRadioButton();
-                            industDens_NONE = new javax.swing.JRadioButton();
-                            industDens_H = new javax.swing.JRadioButton();
-                            industDens_VL = new javax.swing.JRadioButton();
-                            industDens_N = new javax.swing.JRadioButton();
-                            initInter_4 = new javax.swing.JRadioButton();
-                            initInter_3 = new javax.swing.JRadioButton();
-                            initInter_2 = new javax.swing.JRadioButton();
-                            jLabel15 = new javax.swing.JLabel();
-                            jLabel16 = new javax.swing.JLabel();
-                            lineReverse_FALSE = new javax.swing.JRadioButton();
-                            lineReverse_TRUE = new javax.swing.JRadioButton();
-                            jLabel17 = new javax.swing.JLabel();
-                            maxLoan_TEXT = new javax.swing.JTextField();
-                            jLabel18 = new javax.swing.JLabel();
-                            maxComp_TEXT = new javax.swing.JTextField();
-                            jLabel19 = new javax.swing.JLabel();
-                            industries_N = new javax.swing.JRadioButton();
-                            industries_VL = new javax.swing.JRadioButton();
-                            industries_NONE = new javax.swing.JRadioButton();
-                            industries_H = new javax.swing.JRadioButton();
-                            industries_L = new javax.swing.JRadioButton();
-                            jLabel20 = new javax.swing.JLabel();
-                            towns_H = new javax.swing.JRadioButton();
-                            towns_L = new javax.swing.JRadioButton();
-                            towns_VL = new javax.swing.JRadioButton();
-                            towns_CUST = new javax.swing.JRadioButton();
-                            towns_N = new javax.swing.JRadioButton();
-                            jLabel21 = new javax.swing.JLabel();
-                            seas_H = new javax.swing.JRadioButton();
-                            seas_L = new javax.swing.JRadioButton();
-                            seas_VL = new javax.swing.JRadioButton();
-                            seas_CUST = new javax.swing.JRadioButton();
-                            seas_M = new javax.swing.JRadioButton();
-                            subsidy_30 = new javax.swing.JRadioButton();
-                            subsidy_20 = new javax.swing.JRadioButton();
-                            subsidy_15 = new javax.swing.JRadioButton();
-                            jLabel22 = new javax.swing.JLabel();
-                            subsidy_40 = new javax.swing.JRadioButton();
-                            terrain_H = new javax.swing.JRadioButton();
-                            terrain_VF = new javax.swing.JRadioButton();
-                            jLabel23 = new javax.swing.JLabel();
-                            terrain_M = new javax.swing.JRadioButton();
-                            terrain_F = new javax.swing.JRadioButton();
-                            jLabel24 = new javax.swing.JLabel();
-                            townCoun_PER = new javax.swing.JRadioButton();
-                            townCoun_TOL = new javax.swing.JRadioButton();
-                            townCoun_HOS = new javax.swing.JRadioButton();
-                            jLabel25 = new javax.swing.JLabel();
-                            vehicleBr_N = new javax.swing.JRadioButton();
-                            vehicleBr_RED = new javax.swing.JRadioButton();
-                            vehicleBr_NONE = new javax.swing.JRadioButton();
-                            vehicleCost_H = new javax.swing.JRadioButton();
-                            vehicleCost_M = new javax.swing.JRadioButton();
-                            jLabel26 = new javax.swing.JLabel();
-                            vehicleCost_L = new javax.swing.JRadioButton();
-                            initInter_CUST_Text = new javax.swing.JTextField();
-                            initInter_CUST = new javax.swing.JRadioButton();
-                            towns_TEXT = new javax.swing.JTextField();
-                            seas_TEXT = new javax.swing.JTextField();
-
-                            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-                            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                            jPanel1.setLayout(jPanel1Layout);
-                            jPanel1Layout.setHorizontalGroup(
-                                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGap(0, 653, Short.MAX_VALUE)
-                            );
-                            jPanel1Layout.setVerticalGroup(
-                                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGap(0, 449, Short.MAX_VALUE)
-                            );
-
-                            jTabbedPane1.addTab("Misc", jPanel1);
-
-                        }
-                        else{
-                            compSpd_VS = new javax.swing.JRadioButton();
-                        }
-                        compSpd_VS.setText("very slow");
-                        compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                compSpd_VSActionPerformed(evt);
-                            }
-                        });
-
-                    }
-                    else{
-                        compSpd_S = new javax.swing.JRadioButton("1");
-                    }
-                    compSpd_S.setText("slow");
-                    compSpd_S.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            compSpd_SActionPerformed(evt);
-                        }
-                    });
-
-                }
-                else{
-                    compSpd_M = new javax.swing.JRadioButton("2");
-                }
-                compSpd_M.setText("medium");
-                compSpd_M.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        compSpd_MActionPerformed(evt);
-                    }
-                });
-
-            }
-            else{
-                compSpd_VF = new javax.swing.JRadioButton("4");
-            }
-            compSpd_VF.setText("very fast");
-            compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_VFActionPerformed(evt);
-                }
-            });
-
+        }
+        System.out.println(compSpd + " D");
+        if(compSpd == 1) {
+            compSpd_S = new javax.swing.JRadioButton("1",true);
+        }
+        else{
+            compSpd_S = new javax.swing.JRadioButton();
+        }
+        System.out.println(compSpd + " D");
+        if(compSpd == 2) {
+            compSpd_M = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            compSpd_M = new javax.swing.JRadioButton();
+        }
+        System.out.println(compSpd + " D");
+        if(compSpd == 4) {
+            compSpd_VF = new javax.swing.JRadioButton("4", true);
+        }
+        else{
+            compSpd_VF = new javax.swing.JRadioButton("4");
+        }
+        System.out.println(compSpd + " D");
+        if(compSpd == 3) {
+            compSpd_F = new javax.swing.JRadioButton("3", true);
         }
         else{
             compSpd_F = new javax.swing.JRadioButton();
         }
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        constCost_M = new javax.swing.JRadioButton();
+        constCost_L = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        diffLevel_M = new javax.swing.JRadioButton();
+        constCost_H = new javax.swing.JRadioButton();
+        diffLevel_E = new javax.swing.JRadioButton();
+        diffLevel_H = new javax.swing.JRadioButton();
+        disasters_OFF = new javax.swing.JRadioButton();
+        disasters_ON = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        economy_VAR = new javax.swing.JRadioButton();
+        economy_SM = new javax.swing.JRadioButton();
+        jLabel14 = new javax.swing.JLabel();
+        industDens_L = new javax.swing.JRadioButton();
+        industDens_MIN = new javax.swing.JRadioButton();
+        industDens_NONE = new javax.swing.JRadioButton();
+        industDens_H = new javax.swing.JRadioButton();
+        industDens_VL = new javax.swing.JRadioButton();
+        industDens_N = new javax.swing.JRadioButton();
+        initInter_4 = new javax.swing.JRadioButton();
+        initInter_3 = new javax.swing.JRadioButton();
+        initInter_2 = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lineReverse_FALSE = new javax.swing.JRadioButton();
+        lineReverse_TRUE = new javax.swing.JRadioButton();
+        jLabel17 = new javax.swing.JLabel();
+        maxLoan_TEXT = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        maxComp_TEXT = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        industries_N = new javax.swing.JRadioButton();
+        industries_VL = new javax.swing.JRadioButton();
+        industries_NONE = new javax.swing.JRadioButton();
+        industries_H = new javax.swing.JRadioButton();
+        industries_L = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
+        towns_H = new javax.swing.JRadioButton();
+        towns_L = new javax.swing.JRadioButton();
+        towns_VL = new javax.swing.JRadioButton();
+        towns_CUST = new javax.swing.JRadioButton();
+        towns_N = new javax.swing.JRadioButton();
+        jLabel21 = new javax.swing.JLabel();
+        seas_H = new javax.swing.JRadioButton();
+        seas_L = new javax.swing.JRadioButton();
+        seas_VL = new javax.swing.JRadioButton();
+        seas_CUST = new javax.swing.JRadioButton();
+        seas_M = new javax.swing.JRadioButton();
+        subsidy_30 = new javax.swing.JRadioButton();
+        subsidy_20 = new javax.swing.JRadioButton();
+        subsidy_15 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
+        subsidy_40 = new javax.swing.JRadioButton();
+        terrain_H = new javax.swing.JRadioButton();
+        terrain_VF = new javax.swing.JRadioButton();
+        jLabel23 = new javax.swing.JLabel();
+        terrain_M = new javax.swing.JRadioButton();
+        terrain_F = new javax.swing.JRadioButton();
+        jLabel24 = new javax.swing.JLabel();
+        townCoun_PER = new javax.swing.JRadioButton();
+        townCoun_TOL = new javax.swing.JRadioButton();
+        townCoun_HOS = new javax.swing.JRadioButton();
+        jLabel25 = new javax.swing.JLabel();
+        vehicleBr_N = new javax.swing.JRadioButton();
+        vehicleBr_RED = new javax.swing.JRadioButton();
+        vehicleBr_NONE = new javax.swing.JRadioButton();
+        vehicleCost_H = new javax.swing.JRadioButton();
+        vehicleCost_M = new javax.swing.JRadioButton();
+        jLabel26 = new javax.swing.JLabel();
+        vehicleCost_L = new javax.swing.JRadioButton();
+        initInter_CUST_Text = new javax.swing.JTextField();
+        initInter_CUST = new javax.swing.JRadioButton();
+        towns_TEXT = new javax.swing.JTextField();
+        seas_TEXT = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 653, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Misc", jPanel1);
+
+        compSpd_VS.setText("very slow");
+        compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_VSActionPerformed(evt);
+            }
+        });
+
+        compSpd_S.setText("slow");
+        compSpd_S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_SActionPerformed(evt);
+            }
+        });
+
+        compSpd_M.setText("medium");
+        compSpd_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_MActionPerformed(evt);
+            }
+        });
+
+        compSpd_VF.setText("very fast");
+        compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_VFActionPerformed(evt);
+            }
+        });
+
         compSpd_F.setText("fast");
         compSpd_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1558,6 +1559,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 if (indexfound > -1) {
                     parts = line.split(" ");
                     found = Integer.parseInt(parts [2]);
+                    System.out.println(found + " read");
                 }
             }
             bf.close();
@@ -1566,6 +1568,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         index3++;
         System.out.println(index3 + "");
+        System.out.println(compSpd + " compSpd");
         return found;
     }
     
