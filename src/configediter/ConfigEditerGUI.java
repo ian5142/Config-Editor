@@ -179,35 +179,30 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        System.out.println(compSpd + " D");
-        if(compSpd != 0) {
-            compSpd_VS = new javax.swing.JRadioButton();
-        }
-        else{
+        if(compSpd == 0) {
             compSpd_VS = new javax.swing.JRadioButton("0",true);
         }
-        System.out.println(compSpd + " D");
+        else{
+            compSpd_VS = new javax.swing.JRadioButton();
+        }
         if(compSpd == 1) {
             compSpd_S = new javax.swing.JRadioButton("1",true);
         }
         else{
             compSpd_S = new javax.swing.JRadioButton();
         }
-        System.out.println(compSpd + " D");
         if(compSpd == 2) {
             compSpd_M = new javax.swing.JRadioButton("2", true);
         }
         else{
             compSpd_M = new javax.swing.JRadioButton();
         }
-        System.out.println(compSpd + " D");
         if(compSpd == 4) {
             compSpd_VF = new javax.swing.JRadioButton("4", true);
         }
         else{
             compSpd_VF = new javax.swing.JRadioButton("4");
         }
-        System.out.println(compSpd + " D");
         if(compSpd == 3) {
             compSpd_F = new javax.swing.JRadioButton("3", true);
         }
