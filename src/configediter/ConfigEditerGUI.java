@@ -23,7 +23,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int constCost;
         int diffLevel;
         int disasters; //false and true
-//        int economy; //false and true
+        int economy; //false and true
         int industDens;
         int initInter;
         int lineReverse; //false and true
@@ -54,7 +54,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         constCost = readConfigInt("construction_cost");
         diffLevel = readConfigInt("diff_level");
         disasters = readConfigInt("disasters");
-//        economy = readConfigInt("economy");
+        economy = readConfigInt("economy");
         industDens = readConfigInt("industry_density");
         initInter = readConfigInt("initial_interest");
         lineReverse = readConfigInt("line_reverse_mode");
@@ -83,7 +83,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         constCostGroup.add(constCost_H);
         
         diffLevelGroup.add(diffLevel_E);
-        diffLevelGroup.add(diffLevel_M);
+        diffLevelGroup.add(diffLevel_N);
         diffLevelGroup.add(diffLevel_H);
         
         disastersGroup.add(disasters_ON);
@@ -211,15 +211,55 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        constCost_M = new javax.swing.JRadioButton();
-        constCost_L = new javax.swing.JRadioButton();
+        if(constCost == 1) {
+            constCost_M = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            constCost_M = new javax.swing.JRadioButton();
+        }
+        if(constCost == 0) {
+            constCost_L = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            constCost_L = new javax.swing.JRadioButton();
+        }
         jLabel11 = new javax.swing.JLabel();
-        diffLevel_M = new javax.swing.JRadioButton();
-        constCost_H = new javax.swing.JRadioButton();
-        diffLevel_E = new javax.swing.JRadioButton();
-        diffLevel_H = new javax.swing.JRadioButton();
-        disasters_OFF = new javax.swing.JRadioButton();
-        disasters_ON = new javax.swing.JRadioButton();
+        if(diffLevel == 1) {
+            diffLevel_N = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            diffLevel_N = new javax.swing.JRadioButton();
+        }
+        if(constCost == 2) {
+            constCost_H = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            constCost_H = new javax.swing.JRadioButton();
+        }
+        if(diffLevel == 0) {
+            diffLevel_E = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            diffLevel_E = new javax.swing.JRadioButton();
+        }
+        if(diffLevel == 2) {
+            diffLevel_H = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            diffLevel_H = new javax.swing.JRadioButton();
+        }
+        if(disasters == 0) {
+            disasters_OFF = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            disasters_OFF = new javax.swing.JRadioButton();
+        }
+        if(disasters == 0) {
+            disasters_ON = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            disasters_ON = new javax.swing.JRadioButton();
+        }
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         economy_VAR = new javax.swing.JRadioButton();
@@ -286,6 +326,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         initInter_CUST = new javax.swing.JRadioButton();
         towns_TEXT = new javax.swing.JTextField();
         seas_TEXT = new javax.swing.JTextField();
+        diffLevel_TEXT = new javax.swing.JTextField();
+        if(diffLevel == 3) {
+            diffLevel_CUST = new javax.swing.JRadioButton("3", true);
+        }
+        else{
+            diffLevel_CUST = new javax.swing.JRadioButton();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -357,10 +404,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jLabel11.setText("diff. level");
 
-        diffLevel_M.setText("medium");
-        diffLevel_M.addActionListener(new java.awt.event.ActionListener() {
+        diffLevel_N.setText("normal");
+        diffLevel_N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_MActionPerformed(evt);
+                diffLevel_NActionPerformed(evt);
             }
         });
 
@@ -786,6 +833,20 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        diffLevel_TEXT.setText("custom");
+        diffLevel_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diffLevel_TEXTActionPerformed(evt);
+            }
+        });
+
+        diffLevel_CUST.setText("custom");
+        diffLevel_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diffLevel_CUSTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -880,19 +941,25 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(diffLevel_E)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(diffLevel_M)
-                                .addGap(6, 6, 6))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(constCost_L)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(constCost_M)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(diffLevel_CUST)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(diffLevel_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(diffLevel_E)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(diffLevel_N)))
+                                .addGap(6, 6, 6)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(constCost_H)
                             .addComponent(diffLevel_H))))
@@ -1012,8 +1079,37 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel22)
                             .addComponent(subsidy_15)
                             .addComponent(subsidy_20)
-                            .addComponent(subsidy_30))
+                            .addComponent(subsidy_30)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(compSpd_VS)
+                            .addComponent(compSpd_S)
+                            .addComponent(compSpd_M)
+                            .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(compSpd_F)
+                            .addComponent(compSpd_VF))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(constCost_L)
+                            .addComponent(constCost_M)
+                            .addComponent(constCost_H))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(diffLevel_E)
+                                .addComponent(diffLevel_N)
+                                .addComponent(diffLevel_H))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(diffLevel_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(diffLevel_CUST))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(subsidy_40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1044,33 +1140,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(vehicleCost_M)
                             .addComponent(vehicleCost_H)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(compSpd_VS)
-                            .addComponent(compSpd_S)
-                            .addComponent(compSpd_M)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(compSpd_F)
-                            .addComponent(compSpd_VF))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(constCost_L)
-                            .addComponent(constCost_M)
-                            .addComponent(constCost_H))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(diffLevel_E)
-                                                .addComponent(diffLevel_M)
-                                                .addComponent(diffLevel_H))
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel12)
                                             .addComponent(disasters_ON)
@@ -1078,7 +1151,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel13))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
+                                        .addGap(25, 25, 25)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(economy_SM)
                                             .addComponent(economy_VAR))
@@ -1126,7 +1199,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(industries_N)
                             .addComponent(industries_H))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
@@ -1181,9 +1254,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_diffLevel_EActionPerformed
 
-    private void diffLevel_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_MActionPerformed
+    private void diffLevel_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_NActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_MActionPerformed
+    }//GEN-LAST:event_diffLevel_NActionPerformed
 
     private void diffLevel_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_HActionPerformed
         // TODO add your handling code here:
@@ -1400,6 +1473,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void vehicleCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_HActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleCost_HActionPerformed
+
+    private void diffLevel_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_CUSTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diffLevel_CUSTActionPerformed
+
+    private void diffLevel_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_TEXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diffLevel_TEXTActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1441,9 +1522,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton constCost_L;
     private javax.swing.JRadioButton constCost_M;
     private javax.swing.ButtonGroup diffLevelGroup;
+    private javax.swing.JRadioButton diffLevel_CUST;
     private javax.swing.JRadioButton diffLevel_E;
     private javax.swing.JRadioButton diffLevel_H;
-    private javax.swing.JRadioButton diffLevel_M;
+    private javax.swing.JRadioButton diffLevel_N;
+    private javax.swing.JTextField diffLevel_TEXT;
     private javax.swing.ButtonGroup disastersGroup;
     private javax.swing.JRadioButton disasters_OFF;
     private javax.swing.JRadioButton disasters_ON;
@@ -1563,7 +1646,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         index3++;
         System.out.println(index3 + "");
-        System.out.println(compSpd + " compSpd");
         return found;
     }
     
@@ -1571,7 +1653,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int indexfound;
         boolean found = true;
         String [] parts;
-        System.out.print(openTTDfolder);
         try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
             String line;
             while ((line = bf.readLine()) != null) {
