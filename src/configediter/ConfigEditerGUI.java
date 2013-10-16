@@ -54,7 +54,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         constCost = readConfigInt("construction_cost");
         diffLevel = readConfigInt("diff_level");
         disasters = readConfigInt("disasters");
-        economy = readConfigInt("economy");
+        economy = readConfigInt("economy =");
         industDens = readConfigInt("industry_density");
         initInter = readConfigInt("initial_interest");
         lineReverse = readConfigInt("line_reverse_mode");
@@ -262,8 +262,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        economy_VAR = new javax.swing.JRadioButton();
-        economy_SM = new javax.swing.JRadioButton();
+        if(economy == 1) {
+            economy_VAR = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            economy_VAR = new javax.swing.JRadioButton();
+        }
+        if(economy == 0) {
+            economy_SM = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            economy_SM = new javax.swing.JRadioButton();
+        }
         jLabel14 = new javax.swing.JLabel();
         industDens_L = new javax.swing.JRadioButton();
         industDens_MIN = new javax.swing.JRadioButton();
@@ -327,513 +337,518 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         towns_TEXT = new javax.swing.JTextField();
         seas_TEXT = new javax.swing.JTextField();
         diffLevel_TEXT = new javax.swing.JTextField();
-        if(diffLevel == 3) {
-            diffLevel_CUST = new javax.swing.JRadioButton("3", true);
+        if (diffLevel == 3) {
+            if(diffLevel == 3) {
+                diffLevel_CUST = new javax.swing.JRadioButton("3", true);
+            }
+            else{
+                diffLevel_CUST = new javax.swing.JRadioButton();
+            }
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 653, Short.MAX_VALUE)
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 449, Short.MAX_VALUE)
+            );
+
+            jTabbedPane1.addTab("Misc", jPanel1);
+
+            compSpd_VS.setText("very slow");
+            compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    compSpd_VSActionPerformed(evt);
+                }
+            });
+
+            compSpd_S.setText("slow");
+            compSpd_S.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    compSpd_SActionPerformed(evt);
+                }
+            });
+
+            compSpd_M.setText("medium");
+            compSpd_M.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    compSpd_MActionPerformed(evt);
+                }
+            });
+
+            compSpd_VF.setText("very fast");
+            compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    compSpd_VFActionPerformed(evt);
+                }
+            });
+
+            compSpd_F.setText("fast");
+            compSpd_F.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    compSpd_FActionPerformed(evt);
+                }
+            });
+
+            jLabel9.setText("Competr. speed");
+
+            jLabel10.setText("const. cost");
+
+            constCost_M.setText("medium");
+            constCost_M.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    constCost_MActionPerformed(evt);
+                }
+            });
+
+            constCost_L.setText("low");
+            constCost_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    constCost_LActionPerformed(evt);
+                }
+            });
+
+            jLabel11.setText("diff. level");
+
+            diffLevel_N.setText("normal");
+            diffLevel_N.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    diffLevel_NActionPerformed(evt);
+                }
+            });
+
+            constCost_H.setText("high");
+            constCost_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    constCost_HActionPerformed(evt);
+                }
+            });
+
+            diffLevel_E.setText("easy");
+            diffLevel_E.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    diffLevel_EActionPerformed(evt);
+                }
+            });
+
+            diffLevel_H.setText("hard");
+            diffLevel_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    diffLevel_HActionPerformed(evt);
+                }
+            });
+
+            disasters_OFF.setText("off");
+            disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    disasters_OFFActionPerformed(evt);
+                }
+            });
+
+            disasters_ON.setText("on");
+            disasters_ON.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    disasters_ONActionPerformed(evt);
+                }
+            });
+
+            jLabel12.setText("disasters");
+
+            jLabel13.setText("economy");
+
+            economy_VAR.setText("variable");
+            economy_VAR.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    economy_VARActionPerformed(evt);
+                }
+            });
+
+            economy_SM.setText("smooth");
+            economy_SM.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    economy_SMActionPerformed(evt);
+                }
+            });
+
+            jLabel14.setText("indust. density");
+
+            industDens_L.setText("low");
+            industDens_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_LActionPerformed(evt);
+                }
+            });
+
+            industDens_MIN.setText("minimal");
+            industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_MINActionPerformed(evt);
+                }
+            });
+
+            industDens_NONE.setText("none");
+            industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_NONEActionPerformed(evt);
+                }
+            });
+
+            industDens_H.setText("high");
+            industDens_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_HActionPerformed(evt);
+                }
+            });
+
+            industDens_VL.setText("very low");
+            industDens_VL.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_VLActionPerformed(evt);
+                }
+            });
+
+            industDens_N.setText("normal");
+            industDens_N.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industDens_NActionPerformed(evt);
+                }
+            });
+
+            initInter_4.setText("4 %");
+            initInter_4.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    initInter_4ActionPerformed(evt);
+                }
+            });
+
+            initInter_3.setText("3 %");
+            initInter_3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    initInter_3ActionPerformed(evt);
+                }
+            });
+
+            initInter_2.setText("2 %");
+            initInter_2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    initInter_2ActionPerformed(evt);
+                }
+            });
+
+            jLabel15.setText("init. interest");
+
+            jLabel16.setText("line reverse mode");
+
+            lineReverse_FALSE.setText("false");
+            lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    lineReverse_FALSEActionPerformed(evt);
+                }
+            });
+
+            lineReverse_TRUE.setText("true");
+            lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    lineReverse_TRUEActionPerformed(evt);
+                }
+            });
+
+            jLabel17.setText("Max loan (100 000-500 000)");
+
+            maxLoan_TEXT.setText("custom");
+            maxLoan_TEXT.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    maxLoan_TEXTActionPerformed(evt);
+                }
+            });
+
+            jLabel18.setText("Max # of compet. (0-14)");
+
+            maxComp_TEXT.setText("custom");
+            maxComp_TEXT.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    maxComp_TEXTActionPerformed(evt);
+                }
+            });
+
+            jLabel19.setText("# of industries");
+
+            industries_N.setText("normal");
+            industries_N.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industries_NActionPerformed(evt);
+                }
+            });
+
+            industries_VL.setText("very low");
+            industries_VL.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industries_VLActionPerformed(evt);
+                }
+            });
+
+            industries_NONE.setText("none");
+            industries_NONE.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industries_NONEActionPerformed(evt);
+                }
+            });
+
+            industries_H.setText("high");
+            industries_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industries_HActionPerformed(evt);
+                }
+            });
+
+            industries_L.setText("low");
+            industries_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    industries_LActionPerformed(evt);
+                }
+            });
+
+            jLabel20.setText("# of towns");
+
+            towns_H.setText("high");
+            towns_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_HActionPerformed(evt);
+                }
+            });
+
+            towns_L.setText("low");
+            towns_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_LActionPerformed(evt);
+                }
+            });
+
+            towns_VL.setText("very low");
+            towns_VL.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_VLActionPerformed(evt);
+                }
+            });
+
+            towns_CUST.setText("custom");
+            towns_CUST.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_CUSTActionPerformed(evt);
+                }
+            });
+
+            towns_N.setText("normal");
+            towns_N.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_NActionPerformed(evt);
+                }
+            });
+
+            jLabel21.setText("# of seas / lakes");
+
+            seas_H.setText("high");
+            seas_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_HActionPerformed(evt);
+                }
+            });
+
+            seas_L.setText("low");
+            seas_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_LActionPerformed(evt);
+                }
+            });
+
+            seas_VL.setText("very low");
+            seas_VL.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_VLActionPerformed(evt);
+                }
+            });
+
+            seas_CUST.setText("custom");
+            seas_CUST.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_CUSTActionPerformed(evt);
+                }
+            });
+
+            seas_M.setText("medium");
+            seas_M.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_MActionPerformed(evt);
+                }
+            });
+
+            subsidy_30.setText("x 3.0");
+            subsidy_30.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    subsidy_30ActionPerformed(evt);
+                }
+            });
+
+            subsidy_20.setText("x 2.0");
+            subsidy_20.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    subsidy_20ActionPerformed(evt);
+                }
+            });
+
+            subsidy_15.setText("x 1.5");
+            subsidy_15.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    subsidy_15ActionPerformed(evt);
+                }
+            });
+
+            jLabel22.setText("subsidy multilplier");
+
+            subsidy_40.setText("x 4.0");
+            subsidy_40.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    subsidy_40ActionPerformed(evt);
+                }
+            });
+
+            terrain_H.setText("hilly");
+            terrain_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    terrain_HActionPerformed(evt);
+                }
+            });
+
+            terrain_VF.setText("very flat");
+            terrain_VF.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    terrain_VFActionPerformed(evt);
+                }
+            });
+
+            jLabel23.setText("terrain type");
+
+            terrain_M.setText("mountainous");
+            terrain_M.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    terrain_MActionPerformed(evt);
+                }
+            });
+
+            terrain_F.setText("flat");
+            terrain_F.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    terrain_FActionPerformed(evt);
+                }
+            });
+
+            jLabel24.setText("town council tolerance");
+
+            townCoun_PER.setText("permissive");
+            townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    townCoun_PERActionPerformed(evt);
+                }
+            });
+
+            townCoun_TOL.setText("tolerant");
+            townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    townCoun_TOLActionPerformed(evt);
+                }
+            });
+
+            townCoun_HOS.setText("hostile");
+            townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    townCoun_HOSActionPerformed(evt);
+                }
+            });
+
+            jLabel25.setText("vehicle breakdowns");
+
+            vehicleBr_N.setText("normal");
+            vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleBr_NActionPerformed(evt);
+                }
+            });
+
+            vehicleBr_RED.setText("reduced");
+            vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleBr_REDActionPerformed(evt);
+                }
+            });
+
+            vehicleBr_NONE.setText("none");
+            vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleBr_NONEActionPerformed(evt);
+                }
+            });
+
+            vehicleCost_H.setText("high");
+            vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleCost_HActionPerformed(evt);
+                }
+            });
+
+            vehicleCost_M.setText("medium");
+            vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleCost_MActionPerformed(evt);
+                }
+            });
+
+            jLabel26.setText("vehicle cost");
+
+            vehicleCost_L.setText("low");
+            vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    vehicleCost_LActionPerformed(evt);
+                }
+            });
+
+            initInter_CUST_Text.setText("custom");
+            initInter_CUST_Text.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    initInter_CUST_TextActionPerformed(evt);
+                }
+            });
+
+            initInter_CUST.setText("custom");
+            initInter_CUST.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    initInter_CUSTActionPerformed(evt);
+                }
+            });
+
+            towns_TEXT.setText("custom");
+            towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    towns_TEXTActionPerformed(evt);
+                }
+            });
+
+            seas_TEXT.setText("custom");
+            seas_TEXT.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    seas_TEXTActionPerformed(evt);
+                }
+            });
+
+            diffLevel_TEXT.setText("3");
         }
-        else{
-            diffLevel_CUST = new javax.swing.JRadioButton();
+        else {
+            diffLevel_TEXT.setText("custom");
         }
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Misc", jPanel1);
-
-        compSpd_VS.setText("very slow");
-        compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compSpd_VSActionPerformed(evt);
-            }
-        });
-
-        compSpd_S.setText("slow");
-        compSpd_S.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compSpd_SActionPerformed(evt);
-            }
-        });
-
-        compSpd_M.setText("medium");
-        compSpd_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compSpd_MActionPerformed(evt);
-            }
-        });
-
-        compSpd_VF.setText("very fast");
-        compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compSpd_VFActionPerformed(evt);
-            }
-        });
-
-        compSpd_F.setText("fast");
-        compSpd_F.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compSpd_FActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Competr. speed");
-
-        jLabel10.setText("const. cost");
-
-        constCost_M.setText("medium");
-        constCost_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                constCost_MActionPerformed(evt);
-            }
-        });
-
-        constCost_L.setText("low");
-        constCost_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                constCost_LActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("diff. level");
-
-        diffLevel_N.setText("normal");
-        diffLevel_N.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_NActionPerformed(evt);
-            }
-        });
-
-        constCost_H.setText("high");
-        constCost_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                constCost_HActionPerformed(evt);
-            }
-        });
-
-        diffLevel_E.setText("easy");
-        diffLevel_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_EActionPerformed(evt);
-            }
-        });
-
-        diffLevel_H.setText("hard");
-        diffLevel_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_HActionPerformed(evt);
-            }
-        });
-
-        disasters_OFF.setText("off");
-        disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disasters_OFFActionPerformed(evt);
-            }
-        });
-
-        disasters_ON.setText("on");
-        disasters_ON.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disasters_ONActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setText("disasters");
-
-        jLabel13.setText("economy");
-
-        economy_VAR.setText("variable");
-        economy_VAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                economy_VARActionPerformed(evt);
-            }
-        });
-
-        economy_SM.setText("smooth");
-        economy_SM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                economy_SMActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setText("indust. density");
-
-        industDens_L.setText("low");
-        industDens_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_LActionPerformed(evt);
-            }
-        });
-
-        industDens_MIN.setText("minimal");
-        industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_MINActionPerformed(evt);
-            }
-        });
-
-        industDens_NONE.setText("none");
-        industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_NONEActionPerformed(evt);
-            }
-        });
-
-        industDens_H.setText("high");
-        industDens_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_HActionPerformed(evt);
-            }
-        });
-
-        industDens_VL.setText("very low");
-        industDens_VL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_VLActionPerformed(evt);
-            }
-        });
-
-        industDens_N.setText("normal");
-        industDens_N.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industDens_NActionPerformed(evt);
-            }
-        });
-
-        initInter_4.setText("4 %");
-        initInter_4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                initInter_4ActionPerformed(evt);
-            }
-        });
-
-        initInter_3.setText("3 %");
-        initInter_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                initInter_3ActionPerformed(evt);
-            }
-        });
-
-        initInter_2.setText("2 %");
-        initInter_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                initInter_2ActionPerformed(evt);
-            }
-        });
-
-        jLabel15.setText("init. interest");
-
-        jLabel16.setText("line reverse mode");
-
-        lineReverse_FALSE.setText("false");
-        lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lineReverse_FALSEActionPerformed(evt);
-            }
-        });
-
-        lineReverse_TRUE.setText("true");
-        lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lineReverse_TRUEActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setText("Max loan (100 000-500 000)");
-
-        maxLoan_TEXT.setText("custom");
-        maxLoan_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxLoan_TEXTActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setText("Max # of compet. (0-14)");
-
-        maxComp_TEXT.setText("custom");
-        maxComp_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxComp_TEXTActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("# of industries");
-
-        industries_N.setText("normal");
-        industries_N.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industries_NActionPerformed(evt);
-            }
-        });
-
-        industries_VL.setText("very low");
-        industries_VL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industries_VLActionPerformed(evt);
-            }
-        });
-
-        industries_NONE.setText("none");
-        industries_NONE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industries_NONEActionPerformed(evt);
-            }
-        });
-
-        industries_H.setText("high");
-        industries_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industries_HActionPerformed(evt);
-            }
-        });
-
-        industries_L.setText("low");
-        industries_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                industries_LActionPerformed(evt);
-            }
-        });
-
-        jLabel20.setText("# of towns");
-
-        towns_H.setText("high");
-        towns_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_HActionPerformed(evt);
-            }
-        });
-
-        towns_L.setText("low");
-        towns_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_LActionPerformed(evt);
-            }
-        });
-
-        towns_VL.setText("very low");
-        towns_VL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_VLActionPerformed(evt);
-            }
-        });
-
-        towns_CUST.setText("custom");
-        towns_CUST.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_CUSTActionPerformed(evt);
-            }
-        });
-
-        towns_N.setText("normal");
-        towns_N.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_NActionPerformed(evt);
-            }
-        });
-
-        jLabel21.setText("# of seas / lakes");
-
-        seas_H.setText("high");
-        seas_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_HActionPerformed(evt);
-            }
-        });
-
-        seas_L.setText("low");
-        seas_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_LActionPerformed(evt);
-            }
-        });
-
-        seas_VL.setText("very low");
-        seas_VL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_VLActionPerformed(evt);
-            }
-        });
-
-        seas_CUST.setText("custom");
-        seas_CUST.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_CUSTActionPerformed(evt);
-            }
-        });
-
-        seas_M.setText("medium");
-        seas_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_MActionPerformed(evt);
-            }
-        });
-
-        subsidy_30.setText("x 3.0");
-        subsidy_30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subsidy_30ActionPerformed(evt);
-            }
-        });
-
-        subsidy_20.setText("x 2.0");
-        subsidy_20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subsidy_20ActionPerformed(evt);
-            }
-        });
-
-        subsidy_15.setText("x 1.5");
-        subsidy_15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subsidy_15ActionPerformed(evt);
-            }
-        });
-
-        jLabel22.setText("subsidy multilplier");
-
-        subsidy_40.setText("x 4.0");
-        subsidy_40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subsidy_40ActionPerformed(evt);
-            }
-        });
-
-        terrain_H.setText("hilly");
-        terrain_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terrain_HActionPerformed(evt);
-            }
-        });
-
-        terrain_VF.setText("very flat");
-        terrain_VF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terrain_VFActionPerformed(evt);
-            }
-        });
-
-        jLabel23.setText("terrain type");
-
-        terrain_M.setText("mountainous");
-        terrain_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terrain_MActionPerformed(evt);
-            }
-        });
-
-        terrain_F.setText("flat");
-        terrain_F.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terrain_FActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setText("town council tolerance");
-
-        townCoun_PER.setText("permissive");
-        townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                townCoun_PERActionPerformed(evt);
-            }
-        });
-
-        townCoun_TOL.setText("tolerant");
-        townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                townCoun_TOLActionPerformed(evt);
-            }
-        });
-
-        townCoun_HOS.setText("hostile");
-        townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                townCoun_HOSActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("vehicle breakdowns");
-
-        vehicleBr_N.setText("normal");
-        vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleBr_NActionPerformed(evt);
-            }
-        });
-
-        vehicleBr_RED.setText("reduced");
-        vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleBr_REDActionPerformed(evt);
-            }
-        });
-
-        vehicleBr_NONE.setText("none");
-        vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleBr_NONEActionPerformed(evt);
-            }
-        });
-
-        vehicleCost_H.setText("high");
-        vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCost_HActionPerformed(evt);
-            }
-        });
-
-        vehicleCost_M.setText("medium");
-        vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCost_MActionPerformed(evt);
-            }
-        });
-
-        jLabel26.setText("vehicle cost");
-
-        vehicleCost_L.setText("low");
-        vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCost_LActionPerformed(evt);
-            }
-        });
-
-        initInter_CUST_Text.setText("custom");
-        initInter_CUST_Text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                initInter_CUST_TextActionPerformed(evt);
-            }
-        });
-
-        initInter_CUST.setText("custom");
-        initInter_CUST.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                initInter_CUSTActionPerformed(evt);
-            }
-        });
-
-        towns_TEXT.setText("custom");
-        towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                towns_TEXTActionPerformed(evt);
-            }
-        });
-
-        seas_TEXT.setText("custom");
-        seas_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seas_TEXTActionPerformed(evt);
-            }
-        });
-
-        diffLevel_TEXT.setText("custom");
         diffLevel_TEXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diffLevel_TEXTActionPerformed(evt);
@@ -1043,7 +1058,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addComponent(vehicleCost_M)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vehicleCost_H)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1625,27 +1640,38 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     }
     
     private int readConfigInt (String s) {
-        index2++;
-        System.out.println(index2 + "");
         int indexfound;
         int found = 0;
         String [] parts;
-        try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
+        if ( s.equals("economy =")) {
+            try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
+            String line;
+            while (((line = bf.readLine() ) != null) && !(line.indexOf("smooth_economy") > -1) ) {
+                if (line.startsWith(s)) {
+                    parts = line.split(" = ");
+                    found = Integer.parseInt(parts [1]);
+                }
+            }
+            bf.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
             String line;
             while ((line = bf.readLine()) != null) {
                 indexfound = line.indexOf(s);
                 if (indexfound > -1) {
                     parts = line.split(" ");
                     found = Integer.parseInt(parts [2]);
-                    System.out.println(found + " read");
                 }
             }
             bf.close();
-        } catch (IOException ex) {
-            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        index3++;
-        System.out.println(index3 + "");
         return found;
     }
     

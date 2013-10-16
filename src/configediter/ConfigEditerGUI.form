@@ -355,7 +355,7 @@
                               <Component id="vehicleCost_H" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -760,6 +760,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_VARActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;1&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    economy_VAR = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(economy == 1) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="economy_SM">
               <Properties>
@@ -768,6 +773,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_SMActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;0&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    economy_SM = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(economy == 0) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -1228,11 +1238,16 @@
             </Component>
             <Component class="javax.swing.JTextField" name="diffLevel_TEXT">
               <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="}&#xa;else {&#xa;diffLevel_TEXT.setText(&quot;custom&quot;);&#xa;}">
+                  <Connection code="&quot;3&quot;" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_TEXTActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="if (diffLevel == 3) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="diffLevel_CUST">
               <Properties>
