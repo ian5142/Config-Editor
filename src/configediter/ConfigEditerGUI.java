@@ -1,9 +1,17 @@
 package configediter;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -34,7 +42,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int index3;
         //Variables for Difficulty tab, right side
         int towns;
-        int towns_CUSTOM;
+        int towns_CUSTOM = 1;
         int seas;
         int seas_CUSTOM;
         int subsidy;
@@ -44,11 +52,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int vehicleCost;
 
         String openTTDfolder;
+        String openTTDfolder2;
     /**
      * Creates new form ConfigEditerGUI
      */
     public ConfigEditerGUI() {
-        
+        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
         //start reading the config File
         getMyDocuments ();
         
@@ -359,8 +368,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         towns_TEXT = new javax.swing.JTextField();
         seas_TEXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        save_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -787,6 +802,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jLabel1.setText("click enter after changing values in text box");
 
+        save_Button.setText("Save");
+        save_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_ButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -947,74 +969,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addComponent(vehicleCost_M)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vehicleCost_H)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(save_Button)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(towns_VL)
-                                .addComponent(towns_L)
-                                .addComponent(towns_N))
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(towns_H)
-                                    .addComponent(towns_CUST)
-                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(seas_VL)
-                                .addComponent(jLabel21)
-                                .addComponent(seas_L)
-                                .addComponent(seas_M)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(seas_H)
-                            .addComponent(seas_CUST)
-                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(subsidy_15)
-                            .addComponent(subsidy_20)
-                            .addComponent(subsidy_30))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subsidy_40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(terrain_VF)
-                            .addComponent(jLabel23)
-                            .addComponent(terrain_F)
-                            .addComponent(terrain_H))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terrain_M)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(townCoun_PER)
-                            .addComponent(townCoun_TOL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(townCoun_HOS)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(vehicleBr_NONE)
-                            .addComponent(vehicleBr_RED))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vehicleBr_N)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26)
-                            .addComponent(vehicleCost_L)
-                            .addComponent(vehicleCost_M)
-                            .addComponent(vehicleCost_H)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compSpd_VS)
                             .addComponent(compSpd_S)
@@ -1081,8 +1047,70 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel18)
                             .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(towns_VL)
+                                .addComponent(towns_L)
+                                .addComponent(towns_N))
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(towns_H)
+                                    .addComponent(towns_CUST)
+                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(seas_VL)
+                                .addComponent(jLabel21)
+                                .addComponent(seas_L)
+                                .addComponent(seas_M)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seas_H)
+                            .addComponent(seas_CUST)
+                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(subsidy_15)
+                            .addComponent(subsidy_20)
+                            .addComponent(subsidy_30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subsidy_40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(terrain_VF)
+                            .addComponent(jLabel23)
+                            .addComponent(terrain_F)
+                            .addComponent(terrain_H))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(terrain_M)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(townCoun_PER)
+                            .addComponent(townCoun_TOL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(townCoun_HOS)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(vehicleBr_NONE)
+                            .addComponent(vehicleBr_RED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vehicleBr_N)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(vehicleCost_L)
+                            .addComponent(vehicleCost_M)
+                            .addComponent(vehicleCost_H))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(save_Button)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
@@ -1095,7 +1123,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1374,6 +1404,17 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         vehicleCost = 2;
     }//GEN-LAST:event_vehicleCost_HActionPerformed
+
+    private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
+        // TODO add your handling code here:
+        writeConfig();
+    }//GEN-LAST:event_save_ButtonActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        writeConfig();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosed
     /**
      * @param args the command line arguments
      */
@@ -1458,6 +1499,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton lineReverse_TRUE;
     private javax.swing.JTextField maxComp_TEXT;
     private javax.swing.JTextField maxLoan_TEXT;
+    private javax.swing.JButton save_Button;
     private javax.swing.ButtonGroup seasGroup;
     private javax.swing.JRadioButton seas_CUST;
     private javax.swing.JRadioButton seas_H;
@@ -1502,8 +1544,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
      JFileChooser fr = new JFileChooser();
      FileSystemView fw = fr.getFileSystemView();
      openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
+     openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
     }
     
+    /**
+     * 
+     * @param s
+     * @return returns a integer found in a string
+     */
     private int readConfigInt (String s) {
         int indexfound;
         int found = 0;
@@ -1513,8 +1561,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             String line;
             while (((line = bf.readLine() ) != null) && !(line.indexOf("smooth_economy") > -1) ) {
                 if (line.startsWith(s)) {
-                    parts = line.split(" = ");
-                    found = Integer.parseInt(parts [1]);
+                    parts = line.split(" ");
+                    found = Integer.parseInt(parts [2]);
                 }
             }
             bf.close();
@@ -1540,6 +1588,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         return found;
     }
     
+    /**
+     * 
+     * @param s
+     * @return returns a boolean value read from a string
+     */
     private boolean readConfigBoo (String s) {
         int indexfound;
         boolean found = true;
@@ -1558,5 +1611,152 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         return found;
+    }
+    
+    private void writeConfig () {
+//        ArrayList<ArrayList<String>> data2= new ArrayList<>();
+//        ArrayList<String> line2 = new ArrayList<>();
+//        line2.add("competitor_speed = " + compSpd);
+//        line2.add("construction_cost = " + constCost);
+//        line2.add("diff_level = " + diffLevel);
+//        line2.add("disasters = " + disasters);
+//        line2.add("economy = " + economy);
+//        line2.add("industry_density = " + industDens);
+//        line2.add("initial_interest = " + initInter);
+//        line2.add("line_reverse_mode = " + lineReverse);
+//        line2.add("max_loan = " + maxLoan);
+//        line2.add("max_no_competitors = " + maxComp);
+//        
+//        line2.add("number_towns = " + towns);
+//        line2.add("quantity_sea_lakes = " + seas);
+//        line2.add("subsidy_multiplier = " + subsidy);
+//        line2.add("terrain_type = " + terrain);
+//        line2.add("town_council_tolerance = " + townCoun);
+//        line2.add("vehicle_breakdowns = " + vehicleBr);
+//        line2.add("vehicle_costs = " + vehicleCost);
+//        if (towns_CUSTOM != 0) {
+//            line2.add("custom_town_number = " + towns_CUST);
+//        }
+        
+        try {
+            List<List<String>> data = new ArrayList<>(); 
+            try (Scanner in = new Scanner(new FileReader(openTTDfolder))) {
+                while (in.hasNextLine()) {
+                    String line = in.nextLine();
+                    try (Scanner lineScanner = new Scanner(line).useDelimiter(" ");) {
+                        ArrayList<String> array = new ArrayList<>();
+                        while (lineScanner.hasNext()) {
+                            array.add(lineScanner.next());
+                        }
+                        data.add(array);
+                    }
+                }
+                if (in.ioException() != null) {  
+                }
+            }
+            int lineNumber = 0;
+            int size = data.size();
+            int i = 0;
+            
+            while(size > 0) {
+                System.out.println("index: " + i);
+                i++;
+                System.out.println(data.get(lineNumber).get(0) + "");
+                if (data.get(lineNumber).get(0).equals("competitor_speed")) {
+                    data.get(lineNumber).add(2,compSpd + "");
+                    System.out.println(data.get(lineNumber).get(0) + "");
+                }
+//                else if (data.get(lineNumber).get(0).equals("construction_cost")) {
+//                    data.get(lineNumber).add(2,constCost + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("diff_level")) {
+//                    data.get(lineNumber).add(2,diffLevel + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("disasters")) {
+//                    data.get(lineNumber).add(2,disasters + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("economy")) {
+//                    data.get(lineNumber).add(2,economy + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("industry_density")) {
+//                    data.get(lineNumber).add(2,industDens + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("initial_interest")) {
+//                    data.get(lineNumber).add(2,initInter + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
+//                    data.get(lineNumber).add(2,lineReverse + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("max_loan")) {
+//                    data.get(lineNumber).add(2,maxLoan + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
+//                    data.get(lineNumber).add(2,maxComp + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("number_towns")) {
+//                    data.get(lineNumber).add(2,towns + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
+//                    data.get(lineNumber).add(2,seas + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
+//                    data.get(lineNumber).add(2,subsidy + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("terrain_type")) {
+//                    data.get(lineNumber).add(2,terrain + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
+//                    data.get(lineNumber).add(2,townCoun + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
+//                    data.get(lineNumber).add(2,vehicleBr + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
+//                    data.get(lineNumber).add(2,vehicleCost + "");
+//                }
+//                else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
+//                    data.get(lineNumber).add(2,towns_CUST + "");
+//                }
+                lineNumber ++;
+                size --;
+            }
+            
+            BufferedWriter bf = null;
+            File temp = new File (openTTDfolder2 + "\\temp.cfg");
+            File config = new File (openTTDfolder);
+            
+            try {
+                bf = new BufferedWriter (new FileWriter(temp, false));
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int length = data.size() -1;
+            int index = 1;
+            bf.write(data.get(0).get(0));
+            bf.newLine();
+            int sizeData;
+            while (length > 0) {
+                sizeData = data.get(index).size();
+                if (sizeData == 3) {
+                    bf.write(data.get(index).get(0) + " " + data.get(index).get(1) + " " + data.get(index).get(2) + " " + data.get(index).get(3));
+                    bf.newLine();
+                }
+                else if (sizeData == 1) {
+                    bf.write(data.get(index).get(0) + "");
+                    bf.newLine();
+                }
+                index ++;
+                length --;
+            }
+            bf.close();
+            
+            boolean delete = config.delete();
+            Path source = FileSystems.getDefault().getPath("",openTTDfolder2 + "\\temp.cfg");
+            Path move = Files.move(source, source.resolveSibling(openTTDfolder));
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("finished");
     }
 }
