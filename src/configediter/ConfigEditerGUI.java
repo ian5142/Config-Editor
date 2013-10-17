@@ -34,7 +34,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int index3;
         //Variables for Difficulty tab, right side
         int towns;
+        int towns_CUSTOM;
         int seas;
+        int seas_CUSTOM;
         int subsidy;
         int terrain;
         int townCoun;
@@ -63,6 +65,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         industries = readConfigInt("number_industries");
         
         towns = readConfigInt("number_towns");
+        if (towns == 4) {
+            towns_CUSTOM = readConfigInt("custom_town_number");
+        }
         seas = readConfigInt("quantity_sea_lakes");
         subsidy = readConfigInt("subsidy_multiplier");
         terrain = readConfigInt("terrain_type");
@@ -166,6 +171,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleBrGroup = new javax.swing.ButtonGroup();
         vehicleCostGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
             compSpd_VS = new javax.swing.JRadioButton("0",true);
@@ -352,9 +358,22 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCost_L = new javax.swing.JRadioButton();
         towns_TEXT = new javax.swing.JTextField();
         seas_TEXT = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 653, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Misc", jPanel1);
 
         compSpd_VS.setText("very slow");
         compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
@@ -766,6 +785,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("click enter after changing values in text box");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -794,20 +815,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(compSpd_M))
                             .addComponent(compSpd_VF)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(industDens_NONE)
-                            .addComponent(industDens_L))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(industDens_N)
-                            .addComponent(industDens_MIN))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(industDens_H)
-                            .addComponent(industDens_VL)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -843,8 +850,24 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lineReverse_FALSE)
-                            .addComponent(lineReverse_TRUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lineReverse_TRUE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(industDens_NONE)
+                                .addComponent(industDens_L))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(industDens_N)
+                                .addComponent(industDens_MIN))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(industDens_H)
+                                .addComponent(industDens_VL)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -924,13 +947,73 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addComponent(vehicleCost_M)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vehicleCost_H)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(towns_VL)
+                                .addComponent(towns_L)
+                                .addComponent(towns_N))
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(towns_H)
+                                    .addComponent(towns_CUST)
+                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(seas_VL)
+                                .addComponent(jLabel21)
+                                .addComponent(seas_L)
+                                .addComponent(seas_M)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seas_H)
+                            .addComponent(seas_CUST)
+                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(subsidy_15)
+                            .addComponent(subsidy_20)
+                            .addComponent(subsidy_30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subsidy_40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(terrain_VF)
+                            .addComponent(jLabel23)
+                            .addComponent(terrain_F)
+                            .addComponent(terrain_H))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(terrain_M)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(townCoun_PER)
+                            .addComponent(townCoun_TOL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(townCoun_HOS)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(vehicleBr_NONE)
+                            .addComponent(vehicleBr_RED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vehicleBr_N)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(vehicleCost_L)
+                            .addComponent(vehicleCost_M)
+                            .addComponent(vehicleCost_H)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compSpd_VS)
@@ -996,84 +1079,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(towns_VL)
-                                .addComponent(towns_L)
-                                .addComponent(towns_N))
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(towns_H)
-                                    .addComponent(towns_CUST)
-                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(seas_VL)
-                                .addComponent(jLabel21)
-                                .addComponent(seas_L)
-                                .addComponent(seas_M)))
+                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(seas_H)
-                            .addComponent(seas_CUST)
-                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(subsidy_15)
-                            .addComponent(subsidy_20)
-                            .addComponent(subsidy_30))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subsidy_40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(terrain_VF)
-                            .addComponent(jLabel23)
-                            .addComponent(terrain_F)
-                            .addComponent(terrain_H))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terrain_M)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(townCoun_PER)
-                            .addComponent(townCoun_TOL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(townCoun_HOS)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(vehicleBr_NONE)
-                            .addComponent(vehicleBr_RED))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vehicleBr_N)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26)
-                            .addComponent(vehicleCost_L)
-                            .addComponent(vehicleCost_M)
-                            .addComponent(vehicleCost_H))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Misc", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1091,218 +1103,276 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void compSpd_VSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VSActionPerformed
         // TODO add your handling code here:
+        compSpd = 0;
     }//GEN-LAST:event_compSpd_VSActionPerformed
 
     private void compSpd_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_SActionPerformed
         // TODO add your handling code here:
+        compSpd = 1;
     }//GEN-LAST:event_compSpd_SActionPerformed
 
     private void compSpd_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_MActionPerformed
         // TODO add your handling code here:
+        compSpd = 2;
     }//GEN-LAST:event_compSpd_MActionPerformed
 
     private void compSpd_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_FActionPerformed
         // TODO add your handling code here:
+        compSpd = 3;
     }//GEN-LAST:event_compSpd_FActionPerformed
 
     private void compSpd_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VFActionPerformed
         // TODO add your handling code here:
+        compSpd = 4;
     }//GEN-LAST:event_compSpd_VFActionPerformed
 
     private void constCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_LActionPerformed
         // TODO add your handling code here:
+        constCost = 0;
     }//GEN-LAST:event_constCost_LActionPerformed
 
     private void constCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_MActionPerformed
         // TODO add your handling code here:
+        constCost = 1;
     }//GEN-LAST:event_constCost_MActionPerformed
 
     private void constCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_HActionPerformed
         // TODO add your handling code here:
+        constCost = 2;
     }//GEN-LAST:event_constCost_HActionPerformed
 
     private void disasters_ONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_ONActionPerformed
         // TODO add your handling code here:
+        disasters = 1;
     }//GEN-LAST:event_disasters_ONActionPerformed
 
     private void disasters_OFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_OFFActionPerformed
         // TODO add your handling code here:
+        disasters = 0;
     }//GEN-LAST:event_disasters_OFFActionPerformed
 
     private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
         // TODO add your handling code here:
+        economy = 0;
     }//GEN-LAST:event_economy_SMActionPerformed
 
     private void economy_VARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_VARActionPerformed
         // TODO add your handling code here:
+        economy = 1;
     }//GEN-LAST:event_economy_VARActionPerformed
 
     private void industDens_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NONEActionPerformed
         // TODO add your handling code here:
+        industDens = 0;
     }//GEN-LAST:event_industDens_NONEActionPerformed
 
     private void industDens_MINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_MINActionPerformed
         // TODO add your handling code here:
+        industDens = 1;
     }//GEN-LAST:event_industDens_MINActionPerformed
 
     private void industDens_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_VLActionPerformed
         // TODO add your handling code here:
+        industDens = 2;
     }//GEN-LAST:event_industDens_VLActionPerformed
 
     private void industDens_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_LActionPerformed
         // TODO add your handling code here:
+        industDens = 3;
     }//GEN-LAST:event_industDens_LActionPerformed
 
     private void industDens_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NActionPerformed
         // TODO add your handling code here:
+        industDens = 4;
     }//GEN-LAST:event_industDens_NActionPerformed
 
     private void industDens_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_HActionPerformed
         // TODO add your handling code here:
+        industDens = 5;
     }//GEN-LAST:event_industDens_HActionPerformed
 
     private void initInter_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_2ActionPerformed
         // TODO add your handling code here:
+        initInter = 2;
     }//GEN-LAST:event_initInter_2ActionPerformed
 
     private void initInter_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_3ActionPerformed
         // TODO add your handling code here:
+        initInter = 3;
     }//GEN-LAST:event_initInter_3ActionPerformed
 
     private void initInter_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_4ActionPerformed
         // TODO add your handling code here:
+        initInter = 4;
     }//GEN-LAST:event_initInter_4ActionPerformed
 
     private void lineReverse_TRUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_TRUEActionPerformed
         // TODO add your handling code here:
+        lineReverse = 1;
     }//GEN-LAST:event_lineReverse_TRUEActionPerformed
 
     private void lineReverse_FALSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_FALSEActionPerformed
         // TODO add your handling code here:
+        lineReverse = 0;
     }//GEN-LAST:event_lineReverse_FALSEActionPerformed
 
     private void maxLoan_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxLoan_TEXTActionPerformed
         // TODO add your handling code here:
+        String str = maxLoan_TEXT.getText();
+        maxLoan = Integer.parseInt(str);
     }//GEN-LAST:event_maxLoan_TEXTActionPerformed
 
     private void maxComp_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_TEXTActionPerformed
         // TODO add your handling code here:
+        String str2 = maxComp_TEXT.getText();
+        maxComp = Integer.parseInt(str2);
     }//GEN-LAST:event_maxComp_TEXTActionPerformed
 
     private void towns_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_VLActionPerformed
         // TODO add your handling code here:
+        towns = 0;
     }//GEN-LAST:event_towns_VLActionPerformed
 
     private void towns_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_LActionPerformed
         // TODO add your handling code here:
+        towns = 1;
     }//GEN-LAST:event_towns_LActionPerformed
 
     private void towns_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_NActionPerformed
         // TODO add your handling code here:
+        towns = 2;
     }//GEN-LAST:event_towns_NActionPerformed
 
     private void towns_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_HActionPerformed
         // TODO add your handling code here:
+        towns = 3;
     }//GEN-LAST:event_towns_HActionPerformed
 
     private void towns_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_CUSTActionPerformed
         // TODO add your handling code here:
+        towns = 4;
     }//GEN-LAST:event_towns_CUSTActionPerformed
 
     private void towns_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_TEXTActionPerformed
         // TODO add your handling code here:
+        String str3 = towns_TEXT.getText();
+        towns_CUSTOM = Integer.parseInt(str3);
     }//GEN-LAST:event_towns_TEXTActionPerformed
 
     private void seas_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_VLActionPerformed
         // TODO add your handling code here:
+        seas = 0;
     }//GEN-LAST:event_seas_VLActionPerformed
 
     private void seas_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_LActionPerformed
         // TODO add your handling code here:
+        seas = 1;
     }//GEN-LAST:event_seas_LActionPerformed
 
     private void seas_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_MActionPerformed
         // TODO add your handling code here:
+        seas = 2;
     }//GEN-LAST:event_seas_MActionPerformed
 
     private void seas_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_HActionPerformed
         // TODO add your handling code here:
+        seas = 3;
     }//GEN-LAST:event_seas_HActionPerformed
 
     private void seas_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_CUSTActionPerformed
         // TODO add your handling code here:
+        seas = 4;
     }//GEN-LAST:event_seas_CUSTActionPerformed
 
     private void seas_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_TEXTActionPerformed
         // TODO add your handling code here:
+        String str4 = seas_TEXT.getText();
+        seas_CUSTOM = Integer.parseInt(str4);
     }//GEN-LAST:event_seas_TEXTActionPerformed
 
     private void subsidy_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_15ActionPerformed
         // TODO add your handling code here:
+        subsidy = 0;
     }//GEN-LAST:event_subsidy_15ActionPerformed
 
     private void subsidy_20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_20ActionPerformed
         // TODO add your handling code here:
+        subsidy = 1;
     }//GEN-LAST:event_subsidy_20ActionPerformed
 
     private void subsidy_30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_30ActionPerformed
         // TODO add your handling code here:
+        subsidy = 2;
     }//GEN-LAST:event_subsidy_30ActionPerformed
 
     private void subsidy_40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_40ActionPerformed
         // TODO add your handling code here:
+        subsidy = 3;
     }//GEN-LAST:event_subsidy_40ActionPerformed
 
     private void terrain_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_VFActionPerformed
         // TODO add your handling code here:
+        terrain = 0;
     }//GEN-LAST:event_terrain_VFActionPerformed
 
     private void terrain_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_FActionPerformed
         // TODO add your handling code here:
+        terrain = 1;
     }//GEN-LAST:event_terrain_FActionPerformed
 
     private void terrain_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_HActionPerformed
         // TODO add your handling code here:
+        terrain = 2;
     }//GEN-LAST:event_terrain_HActionPerformed
 
     private void terrain_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_MActionPerformed
         // TODO add your handling code here:
+        terrain = 3;
     }//GEN-LAST:event_terrain_MActionPerformed
 
     private void townCoun_PERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_PERActionPerformed
         // TODO add your handling code here:
+        townCoun = 0;
     }//GEN-LAST:event_townCoun_PERActionPerformed
 
     private void townCoun_TOLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_TOLActionPerformed
         // TODO add your handling code here:
+        townCoun = 1;
     }//GEN-LAST:event_townCoun_TOLActionPerformed
 
     private void townCoun_HOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_HOSActionPerformed
         // TODO add your handling code here:
+        townCoun = 2;
     }//GEN-LAST:event_townCoun_HOSActionPerformed
 
     private void vehicleBr_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NONEActionPerformed
         // TODO add your handling code here:
+        vehicleBr = 0;
     }//GEN-LAST:event_vehicleBr_NONEActionPerformed
 
     private void vehicleBr_REDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_REDActionPerformed
         // TODO add your handling code here:
+        vehicleBr = 1;
     }//GEN-LAST:event_vehicleBr_REDActionPerformed
 
     private void vehicleBr_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NActionPerformed
         // TODO add your handling code here:
+        vehicleBr = 2;
     }//GEN-LAST:event_vehicleBr_NActionPerformed
 
     private void vehicleCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_LActionPerformed
         // TODO add your handling code here:
+        vehicleCost = 0;
     }//GEN-LAST:event_vehicleCost_LActionPerformed
 
     private void vehicleCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_MActionPerformed
         // TODO add your handling code here:
+        vehicleCost = 1;
     }//GEN-LAST:event_vehicleCost_MActionPerformed
 
     private void vehicleCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_HActionPerformed
         // TODO add your handling code here:
+        vehicleCost = 2;
     }//GEN-LAST:event_vehicleCost_HActionPerformed
     /**
      * @param args the command line arguments
@@ -1363,6 +1433,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton initInter_2;
     private javax.swing.JRadioButton initInter_3;
     private javax.swing.JRadioButton initInter_4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
