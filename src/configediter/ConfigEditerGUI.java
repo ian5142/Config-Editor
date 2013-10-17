@@ -275,12 +275,42 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             economy_SM = new javax.swing.JRadioButton();
         }
         jLabel14 = new javax.swing.JLabel();
-        industDens_L = new javax.swing.JRadioButton();
-        industDens_MIN = new javax.swing.JRadioButton();
-        industDens_NONE = new javax.swing.JRadioButton();
-        industDens_H = new javax.swing.JRadioButton();
-        industDens_VL = new javax.swing.JRadioButton();
-        industDens_N = new javax.swing.JRadioButton();
+        if(industDens == 3) {
+            industDens_L = new javax.swing.JRadioButton("3", true);
+        }
+        else{
+            industDens_L = new javax.swing.JRadioButton();
+        }
+        if(industDens == 1) {
+            industDens_MIN = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            industDens_MIN = new javax.swing.JRadioButton();
+        }
+        if(industDens == 0) {
+            industDens_NONE = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            industDens_NONE = new javax.swing.JRadioButton();
+        }
+        if(industDens == 5) {
+            industDens_H = new javax.swing.JRadioButton("5", true);
+        }
+        else{
+            industDens_H = new javax.swing.JRadioButton();
+        }
+        if(industDens == 2) {
+            industDens_VL = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            industDens_VL = new javax.swing.JRadioButton();
+        }
+        if(industDens == 4) {
+            industDens_N = new javax.swing.JRadioButton("4", true);
+        }
+        else{
+            industDens_N = new javax.swing.JRadioButton();
+        }
         initInter_4 = new javax.swing.JRadioButton();
         initInter_3 = new javax.swing.JRadioButton();
         initInter_2 = new javax.swing.JRadioButton();
