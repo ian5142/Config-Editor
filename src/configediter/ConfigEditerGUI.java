@@ -82,10 +82,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         constCostGroup.add(constCost_M);
         constCostGroup.add(constCost_H);
         
-        diffLevelGroup.add(diffLevel_E);
-        diffLevelGroup.add(diffLevel_N);
-        diffLevelGroup.add(diffLevel_H);
-        
         disastersGroup.add(disasters_ON);
         disastersGroup.add(disasters_OFF);
         
@@ -102,16 +98,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         initInterGroup.add(initInter_2);
         initInterGroup.add(initInter_3);
         initInterGroup.add(initInter_4);
-        initInterGroup.add(initInter_CUST);
         
         lineReverseGroup.add(lineReverse_TRUE);
         lineReverseGroup.add(lineReverse_FALSE);
-        
-        industriesGroup.add(industries_NONE);
-        industriesGroup.add(industries_VL);
-        industriesGroup.add(industries_L);
-        industriesGroup.add(industries_N);
-        industriesGroup.add(industries_H);
         
         //Buttongroups for difficulty tab, right side
         townsGroup.add(towns_VL);
@@ -223,30 +212,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         else{
             constCost_L = new javax.swing.JRadioButton();
         }
-        jLabel11 = new javax.swing.JLabel();
-        if(diffLevel == 1) {
-            diffLevel_N = new javax.swing.JRadioButton("1", true);
-        }
-        else{
-            diffLevel_N = new javax.swing.JRadioButton();
-        }
         if(constCost == 2) {
             constCost_H = new javax.swing.JRadioButton("2", true);
         }
         else{
             constCost_H = new javax.swing.JRadioButton();
-        }
-        if(diffLevel == 0) {
-            diffLevel_E = new javax.swing.JRadioButton("0", true);
-        }
-        else{
-            diffLevel_E = new javax.swing.JRadioButton();
-        }
-        if(diffLevel == 2) {
-            diffLevel_H = new javax.swing.JRadioButton("2", true);
-        }
-        else{
-            diffLevel_H = new javax.swing.JRadioButton();
         }
         if(disasters == 0) {
             disasters_OFF = new javax.swing.JRadioButton("1", true);
@@ -311,23 +281,42 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         else{
             industDens_N = new javax.swing.JRadioButton();
         }
-        initInter_4 = new javax.swing.JRadioButton();
-        initInter_3 = new javax.swing.JRadioButton();
-        initInter_2 = new javax.swing.JRadioButton();
+        if(initInter == 4) {
+            initInter_4 = new javax.swing.JRadioButton("4", true);
+        }
+        else{
+            initInter_4 = new javax.swing.JRadioButton();
+        }
+        if(initInter == 3) {
+            initInter_3 = new javax.swing.JRadioButton("3", true);
+        }
+        else{
+            initInter_3 = new javax.swing.JRadioButton();
+        }
+        if(initInter == 2) {
+            initInter_2 = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            initInter_2 = new javax.swing.JRadioButton();
+        }
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        lineReverse_FALSE = new javax.swing.JRadioButton();
-        lineReverse_TRUE = new javax.swing.JRadioButton();
+        if(disasters == 0) {
+            lineReverse_FALSE = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            lineReverse_TRUE = new javax.swing.JRadioButton();
+        }
+        if(disasters == 1) {
+            lineReverse_TRUE = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            lineReverse_TRUE = new javax.swing.JRadioButton();
+        }
         jLabel17 = new javax.swing.JLabel();
         maxLoan_TEXT = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         maxComp_TEXT = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        industries_N = new javax.swing.JRadioButton();
-        industries_VL = new javax.swing.JRadioButton();
-        industries_NONE = new javax.swing.JRadioButton();
-        industries_H = new javax.swing.JRadioButton();
-        industries_L = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         towns_H = new javax.swing.JRadioButton();
         towns_L = new javax.swing.JRadioButton();
@@ -362,533 +351,431 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCost_M = new javax.swing.JRadioButton();
         jLabel26 = new javax.swing.JLabel();
         vehicleCost_L = new javax.swing.JRadioButton();
-        initInter_CUST_Text = new javax.swing.JTextField();
-        initInter_CUST = new javax.swing.JRadioButton();
         towns_TEXT = new javax.swing.JTextField();
         seas_TEXT = new javax.swing.JTextField();
-        diffLevel_TEXT = new javax.swing.JTextField();
-        if (diffLevel == 3) {
-            if(diffLevel == 3) {
-                diffLevel_CUST = new javax.swing.JRadioButton("3", true);
-            }
-            else{
-                diffLevel_CUST = new javax.swing.JRadioButton();
-            }
 
-            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-            jPanel1.setLayout(jPanel1Layout);
-            jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 653, Short.MAX_VALUE)
-            );
-            jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 449, Short.MAX_VALUE)
-            );
-
-            jTabbedPane1.addTab("Misc", jPanel1);
-
-            compSpd_VS.setText("very slow");
-            compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_VSActionPerformed(evt);
-                }
-            });
-
-            compSpd_S.setText("slow");
-            compSpd_S.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_SActionPerformed(evt);
-                }
-            });
-
-            compSpd_M.setText("medium");
-            compSpd_M.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_MActionPerformed(evt);
-                }
-            });
-
-            compSpd_VF.setText("very fast");
-            compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_VFActionPerformed(evt);
-                }
-            });
-
-            compSpd_F.setText("fast");
-            compSpd_F.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    compSpd_FActionPerformed(evt);
-                }
-            });
-
-            jLabel9.setText("Competr. speed");
-
-            jLabel10.setText("const. cost");
-
-            constCost_M.setText("medium");
-            constCost_M.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    constCost_MActionPerformed(evt);
-                }
-            });
-
-            constCost_L.setText("low");
-            constCost_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    constCost_LActionPerformed(evt);
-                }
-            });
-
-            jLabel11.setText("diff. level");
-
-            diffLevel_N.setText("normal");
-            diffLevel_N.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    diffLevel_NActionPerformed(evt);
-                }
-            });
-
-            constCost_H.setText("high");
-            constCost_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    constCost_HActionPerformed(evt);
-                }
-            });
-
-            diffLevel_E.setText("easy");
-            diffLevel_E.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    diffLevel_EActionPerformed(evt);
-                }
-            });
-
-            diffLevel_H.setText("hard");
-            diffLevel_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    diffLevel_HActionPerformed(evt);
-                }
-            });
-
-            disasters_OFF.setText("off");
-            disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    disasters_OFFActionPerformed(evt);
-                }
-            });
-
-            disasters_ON.setText("on");
-            disasters_ON.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    disasters_ONActionPerformed(evt);
-                }
-            });
-
-            jLabel12.setText("disasters");
-
-            jLabel13.setText("economy");
-
-            economy_VAR.setText("variable");
-            economy_VAR.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    economy_VARActionPerformed(evt);
-                }
-            });
-
-            economy_SM.setText("smooth");
-            economy_SM.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    economy_SMActionPerformed(evt);
-                }
-            });
-
-            jLabel14.setText("indust. density");
-
-            industDens_L.setText("low");
-            industDens_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_LActionPerformed(evt);
-                }
-            });
-
-            industDens_MIN.setText("minimal");
-            industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_MINActionPerformed(evt);
-                }
-            });
-
-            industDens_NONE.setText("none");
-            industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_NONEActionPerformed(evt);
-                }
-            });
-
-            industDens_H.setText("high");
-            industDens_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_HActionPerformed(evt);
-                }
-            });
-
-            industDens_VL.setText("very low");
-            industDens_VL.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_VLActionPerformed(evt);
-                }
-            });
-
-            industDens_N.setText("normal");
-            industDens_N.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industDens_NActionPerformed(evt);
-                }
-            });
-
-            initInter_4.setText("4 %");
-            initInter_4.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    initInter_4ActionPerformed(evt);
-                }
-            });
-
-            initInter_3.setText("3 %");
-            initInter_3.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    initInter_3ActionPerformed(evt);
-                }
-            });
-
-            initInter_2.setText("2 %");
-            initInter_2.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    initInter_2ActionPerformed(evt);
-                }
-            });
-
-            jLabel15.setText("init. interest");
-
-            jLabel16.setText("line reverse mode");
-
-            lineReverse_FALSE.setText("false");
-            lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    lineReverse_FALSEActionPerformed(evt);
-                }
-            });
-
-            lineReverse_TRUE.setText("true");
-            lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    lineReverse_TRUEActionPerformed(evt);
-                }
-            });
-
-            jLabel17.setText("Max loan (100 000-500 000)");
-
-            maxLoan_TEXT.setText("custom");
-            maxLoan_TEXT.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    maxLoan_TEXTActionPerformed(evt);
-                }
-            });
-
-            jLabel18.setText("Max # of compet. (0-14)");
-
-            maxComp_TEXT.setText("custom");
-            maxComp_TEXT.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    maxComp_TEXTActionPerformed(evt);
-                }
-            });
-
-            jLabel19.setText("# of industries");
-
-            industries_N.setText("normal");
-            industries_N.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industries_NActionPerformed(evt);
-                }
-            });
-
-            industries_VL.setText("very low");
-            industries_VL.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industries_VLActionPerformed(evt);
-                }
-            });
-
-            industries_NONE.setText("none");
-            industries_NONE.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industries_NONEActionPerformed(evt);
-                }
-            });
-
-            industries_H.setText("high");
-            industries_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industries_HActionPerformed(evt);
-                }
-            });
-
-            industries_L.setText("low");
-            industries_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    industries_LActionPerformed(evt);
-                }
-            });
-
-            jLabel20.setText("# of towns");
-
-            towns_H.setText("high");
-            towns_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_HActionPerformed(evt);
-                }
-            });
-
-            towns_L.setText("low");
-            towns_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_LActionPerformed(evt);
-                }
-            });
-
-            towns_VL.setText("very low");
-            towns_VL.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_VLActionPerformed(evt);
-                }
-            });
-
-            towns_CUST.setText("custom");
-            towns_CUST.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_CUSTActionPerformed(evt);
-                }
-            });
-
-            towns_N.setText("normal");
-            towns_N.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_NActionPerformed(evt);
-                }
-            });
-
-            jLabel21.setText("# of seas / lakes");
-
-            seas_H.setText("high");
-            seas_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_HActionPerformed(evt);
-                }
-            });
-
-            seas_L.setText("low");
-            seas_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_LActionPerformed(evt);
-                }
-            });
-
-            seas_VL.setText("very low");
-            seas_VL.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_VLActionPerformed(evt);
-                }
-            });
-
-            seas_CUST.setText("custom");
-            seas_CUST.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_CUSTActionPerformed(evt);
-                }
-            });
-
-            seas_M.setText("medium");
-            seas_M.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_MActionPerformed(evt);
-                }
-            });
-
-            subsidy_30.setText("x 3.0");
-            subsidy_30.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    subsidy_30ActionPerformed(evt);
-                }
-            });
-
-            subsidy_20.setText("x 2.0");
-            subsidy_20.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    subsidy_20ActionPerformed(evt);
-                }
-            });
-
-            subsidy_15.setText("x 1.5");
-            subsidy_15.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    subsidy_15ActionPerformed(evt);
-                }
-            });
-
-            jLabel22.setText("subsidy multilplier");
-
-            subsidy_40.setText("x 4.0");
-            subsidy_40.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    subsidy_40ActionPerformed(evt);
-                }
-            });
-
-            terrain_H.setText("hilly");
-            terrain_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    terrain_HActionPerformed(evt);
-                }
-            });
-
-            terrain_VF.setText("very flat");
-            terrain_VF.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    terrain_VFActionPerformed(evt);
-                }
-            });
-
-            jLabel23.setText("terrain type");
-
-            terrain_M.setText("mountainous");
-            terrain_M.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    terrain_MActionPerformed(evt);
-                }
-            });
-
-            terrain_F.setText("flat");
-            terrain_F.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    terrain_FActionPerformed(evt);
-                }
-            });
-
-            jLabel24.setText("town council tolerance");
-
-            townCoun_PER.setText("permissive");
-            townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    townCoun_PERActionPerformed(evt);
-                }
-            });
-
-            townCoun_TOL.setText("tolerant");
-            townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    townCoun_TOLActionPerformed(evt);
-                }
-            });
-
-            townCoun_HOS.setText("hostile");
-            townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    townCoun_HOSActionPerformed(evt);
-                }
-            });
-
-            jLabel25.setText("vehicle breakdowns");
-
-            vehicleBr_N.setText("normal");
-            vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleBr_NActionPerformed(evt);
-                }
-            });
-
-            vehicleBr_RED.setText("reduced");
-            vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleBr_REDActionPerformed(evt);
-                }
-            });
-
-            vehicleBr_NONE.setText("none");
-            vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleBr_NONEActionPerformed(evt);
-                }
-            });
-
-            vehicleCost_H.setText("high");
-            vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleCost_HActionPerformed(evt);
-                }
-            });
-
-            vehicleCost_M.setText("medium");
-            vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleCost_MActionPerformed(evt);
-                }
-            });
-
-            jLabel26.setText("vehicle cost");
-
-            vehicleCost_L.setText("low");
-            vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    vehicleCost_LActionPerformed(evt);
-                }
-            });
-
-            initInter_CUST_Text.setText("custom");
-            initInter_CUST_Text.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    initInter_CUST_TextActionPerformed(evt);
-                }
-            });
-
-            initInter_CUST.setText("custom");
-            initInter_CUST.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    initInter_CUSTActionPerformed(evt);
-                }
-            });
-
-            towns_TEXT.setText("custom");
-            towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    towns_TEXTActionPerformed(evt);
-                }
-            });
-
-            seas_TEXT.setText("custom");
-            seas_TEXT.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    seas_TEXTActionPerformed(evt);
-                }
-            });
-
-            diffLevel_TEXT.setText("3");
-        }
-        else {
-            diffLevel_TEXT.setText("custom");
-        }
-        diffLevel_TEXT.addActionListener(new java.awt.event.ActionListener() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 653, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Misc", jPanel1);
+
+        compSpd_VS.setText("very slow");
+        compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_TEXTActionPerformed(evt);
+                compSpd_VSActionPerformed(evt);
             }
         });
 
-        diffLevel_CUST.setText("custom");
-        diffLevel_CUST.addActionListener(new java.awt.event.ActionListener() {
+        compSpd_S.setText("slow");
+        compSpd_S.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffLevel_CUSTActionPerformed(evt);
+                compSpd_SActionPerformed(evt);
+            }
+        });
+
+        compSpd_M.setText("medium");
+        compSpd_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_MActionPerformed(evt);
+            }
+        });
+
+        compSpd_VF.setText("very fast");
+        compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_VFActionPerformed(evt);
+            }
+        });
+
+        compSpd_F.setText("fast");
+        compSpd_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSpd_FActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Competr. speed");
+
+        jLabel10.setText("const. cost");
+
+        constCost_M.setText("medium");
+        constCost_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_MActionPerformed(evt);
+            }
+        });
+
+        constCost_L.setText("low");
+        constCost_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_LActionPerformed(evt);
+            }
+        });
+
+        constCost_H.setText("high");
+        constCost_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constCost_HActionPerformed(evt);
+            }
+        });
+
+        disasters_OFF.setText("off");
+        disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disasters_OFFActionPerformed(evt);
+            }
+        });
+
+        disasters_ON.setText("on");
+        disasters_ON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disasters_ONActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("disasters");
+
+        jLabel13.setText("economy");
+
+        economy_VAR.setText("recessions");
+        economy_VAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                economy_VARActionPerformed(evt);
+            }
+        });
+
+        economy_SM.setText("no recessions");
+        economy_SM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                economy_SMActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("indust. density");
+
+        industDens_L.setText("low");
+        industDens_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_LActionPerformed(evt);
+            }
+        });
+
+        industDens_MIN.setText("minimal");
+        industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_MINActionPerformed(evt);
+            }
+        });
+
+        industDens_NONE.setText("none");
+        industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_NONEActionPerformed(evt);
+            }
+        });
+
+        industDens_H.setText("high");
+        industDens_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_HActionPerformed(evt);
+            }
+        });
+
+        industDens_VL.setText("very low");
+        industDens_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_VLActionPerformed(evt);
+            }
+        });
+
+        industDens_N.setText("normal");
+        industDens_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                industDens_NActionPerformed(evt);
+            }
+        });
+
+        initInter_4.setText("4 %");
+        initInter_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_4ActionPerformed(evt);
+            }
+        });
+
+        initInter_3.setText("3 %");
+        initInter_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_3ActionPerformed(evt);
+            }
+        });
+
+        initInter_2.setText("2 %");
+        initInter_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initInter_2ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("init. interest");
+
+        jLabel16.setText("line reverse mode");
+
+        lineReverse_FALSE.setText("no reversing at station");
+        lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lineReverse_FALSEActionPerformed(evt);
+            }
+        });
+
+        lineReverse_TRUE.setText("reversing at station");
+        lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lineReverse_TRUEActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Max loan (100 000-500 000)");
+
+        maxLoan_TEXT.setText(maxLoan + "");
+        maxLoan_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxLoan_TEXTActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Max # of compet. (0-14)");
+
+        maxComp_TEXT.setText(maxComp + "");
+        maxComp_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxComp_TEXTActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("# of towns");
+
+        towns_H.setText("high");
+        towns_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_HActionPerformed(evt);
+            }
+        });
+
+        towns_L.setText("low");
+        towns_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_LActionPerformed(evt);
+            }
+        });
+
+        towns_VL.setText("very low");
+        towns_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_VLActionPerformed(evt);
+            }
+        });
+
+        towns_CUST.setText("custom");
+        towns_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_CUSTActionPerformed(evt);
+            }
+        });
+
+        towns_N.setText("normal");
+        towns_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_NActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("# of seas / lakes");
+
+        seas_H.setText("high");
+        seas_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_HActionPerformed(evt);
+            }
+        });
+
+        seas_L.setText("low");
+        seas_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_LActionPerformed(evt);
+            }
+        });
+
+        seas_VL.setText("very low");
+        seas_VL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_VLActionPerformed(evt);
+            }
+        });
+
+        seas_CUST.setText("custom");
+        seas_CUST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_CUSTActionPerformed(evt);
+            }
+        });
+
+        seas_M.setText("medium");
+        seas_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_MActionPerformed(evt);
+            }
+        });
+
+        subsidy_30.setText("x 3.0");
+        subsidy_30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_30ActionPerformed(evt);
+            }
+        });
+
+        subsidy_20.setText("x 2.0");
+        subsidy_20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_20ActionPerformed(evt);
+            }
+        });
+
+        subsidy_15.setText("x 1.5");
+        subsidy_15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_15ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setText("subsidy multilplier");
+
+        subsidy_40.setText("x 4.0");
+        subsidy_40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subsidy_40ActionPerformed(evt);
+            }
+        });
+
+        terrain_H.setText("hilly");
+        terrain_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_HActionPerformed(evt);
+            }
+        });
+
+        terrain_VF.setText("very flat");
+        terrain_VF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_VFActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setText("terrain type");
+
+        terrain_M.setText("mountainous");
+        terrain_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_MActionPerformed(evt);
+            }
+        });
+
+        terrain_F.setText("flat");
+        terrain_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terrain_FActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setText("town council tolerance");
+
+        townCoun_PER.setText("permissive");
+        townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_PERActionPerformed(evt);
+            }
+        });
+
+        townCoun_TOL.setText("tolerant");
+        townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_TOLActionPerformed(evt);
+            }
+        });
+
+        townCoun_HOS.setText("hostile");
+        townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                townCoun_HOSActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("vehicle breakdowns");
+
+        vehicleBr_N.setText("normal");
+        vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_NActionPerformed(evt);
+            }
+        });
+
+        vehicleBr_RED.setText("reduced");
+        vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_REDActionPerformed(evt);
+            }
+        });
+
+        vehicleBr_NONE.setText("none");
+        vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleBr_NONEActionPerformed(evt);
+            }
+        });
+
+        vehicleCost_H.setText("high");
+        vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_HActionPerformed(evt);
+            }
+        });
+
+        vehicleCost_M.setText("medium");
+        vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_MActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("vehicle cost");
+
+        vehicleCost_L.setText("low");
+        vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleCost_LActionPerformed(evt);
+            }
+        });
+
+        towns_TEXT.setText("custom");
+        towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                towns_TEXTActionPerformed(evt);
+            }
+        });
+
+        seas_TEXT.setText("custom");
+        seas_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seas_TEXTActionPerformed(evt);
             }
         });
 
@@ -899,6 +786,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxLoan_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -943,72 +838,26 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(initInter_2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(initInter_3))
-                            .addComponent(initInter_CUST))
+                        .addComponent(initInter_2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(initInter_CUST_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(initInter_4)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel18))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(maxLoan_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(51, 51, 51))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel19)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(industries_N)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(industries_H))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(industries_NONE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(industries_VL)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(industries_L)))))
+                        .addComponent(initInter_3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(initInter_4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(constCost_L)
+                        .addGap(31, 31, 31)
+                        .addComponent(constCost_M)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(constCost_H))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineReverse_TRUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineReverse_FALSE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(constCost_L)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(constCost_M)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(diffLevel_CUST)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(diffLevel_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(diffLevel_E)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(diffLevel_N)))
-                                .addGap(6, 6, 6)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(constCost_H)
-                            .addComponent(diffLevel_H))))
-                .addGap(20, 20, 20)
+                            .addComponent(lineReverse_FALSE)
+                            .addComponent(lineReverse_TRUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -1088,43 +937,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addComponent(vehicleCost_M)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vehicleCost_H)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(towns_VL)
-                                .addComponent(towns_L)
-                                .addComponent(towns_N))
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(towns_H)
-                                    .addComponent(towns_CUST)
-                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(seas_VL)
-                                .addComponent(jLabel21)
-                                .addComponent(seas_L)
-                                .addComponent(seas_M)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(seas_H)
-                            .addComponent(seas_CUST)
-                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(subsidy_15)
-                            .addComponent(subsidy_20)
-                            .addComponent(subsidy_30)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compSpd_VS)
@@ -1142,49 +961,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(constCost_M)
                             .addComponent(constCost_H))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(diffLevel_E)
-                                .addComponent(diffLevel_N)
-                                .addComponent(diffLevel_H))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(diffLevel_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(diffLevel_CUST))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(subsidy_40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(terrain_VF)
-                            .addComponent(jLabel23)
-                            .addComponent(terrain_F)
-                            .addComponent(terrain_H))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terrain_M)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(townCoun_PER)
-                            .addComponent(townCoun_TOL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(townCoun_HOS)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(vehicleBr_NONE)
-                            .addComponent(vehicleBr_RED))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vehicleBr_N)
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26)
-                            .addComponent(vehicleCost_L)
-                            .addComponent(vehicleCost_M)
-                            .addComponent(vehicleCost_H)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1217,34 +993,84 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(initInter_2)
                             .addComponent(initInter_3)
                             .addComponent(initInter_4))
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(initInter_CUST_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(initInter_CUST))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(lineReverse_TRUE)
-                            .addComponent(lineReverse_FALSE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(lineReverse_TRUE))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lineReverse_FALSE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
                             .addComponent(maxLoan_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(towns_VL)
+                                .addComponent(towns_L)
+                                .addComponent(towns_N))
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(towns_H)
+                                    .addComponent(towns_CUST)
+                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(seas_VL)
+                                .addComponent(jLabel21)
+                                .addComponent(seas_L)
+                                .addComponent(seas_M)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(industries_NONE)
-                            .addComponent(industries_VL)
-                            .addComponent(industries_L))
+                            .addComponent(seas_H)
+                            .addComponent(seas_CUST)
+                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(subsidy_15)
+                            .addComponent(subsidy_20)
+                            .addComponent(subsidy_30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subsidy_40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(industries_N)
-                            .addComponent(industries_H))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(terrain_VF)
+                            .addComponent(jLabel23)
+                            .addComponent(terrain_F)
+                            .addComponent(terrain_H))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(terrain_M)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(townCoun_PER)
+                            .addComponent(townCoun_TOL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(townCoun_HOS)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(vehicleBr_NONE)
+                            .addComponent(vehicleBr_RED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vehicleBr_N)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(vehicleCost_L)
+                            .addComponent(vehicleCost_M)
+                            .addComponent(vehicleCost_H))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
@@ -1257,7 +1083,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1294,18 +1120,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void constCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_HActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_constCost_HActionPerformed
-
-    private void diffLevel_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_EActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_EActionPerformed
-
-    private void diffLevel_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_NActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_NActionPerformed
-
-    private void diffLevel_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_HActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_HActionPerformed
 
     private void disasters_ONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_ONActionPerformed
         // TODO add your handling code here:
@@ -1359,14 +1173,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_initInter_4ActionPerformed
 
-    private void initInter_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_CUSTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_initInter_CUSTActionPerformed
-
-    private void initInter_CUST_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_CUST_TextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_initInter_CUST_TextActionPerformed
-
     private void lineReverse_TRUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_TRUEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lineReverse_TRUEActionPerformed
@@ -1382,26 +1188,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void maxComp_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_TEXTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_maxComp_TEXTActionPerformed
-
-    private void industries_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_NONEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_industries_NONEActionPerformed
-
-    private void industries_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_VLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_industries_VLActionPerformed
-
-    private void industries_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_LActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_industries_LActionPerformed
-
-    private void industries_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_NActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_industries_NActionPerformed
-
-    private void industries_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industries_HActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_industries_HActionPerformed
 
     private void towns_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_VLActionPerformed
         // TODO add your handling code here:
@@ -1518,14 +1304,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void vehicleCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_HActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleCost_HActionPerformed
-
-    private void diffLevel_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_CUSTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_CUSTActionPerformed
-
-    private void diffLevel_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffLevel_TEXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffLevel_TEXTActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1567,11 +1345,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton constCost_L;
     private javax.swing.JRadioButton constCost_M;
     private javax.swing.ButtonGroup diffLevelGroup;
-    private javax.swing.JRadioButton diffLevel_CUST;
-    private javax.swing.JRadioButton diffLevel_E;
-    private javax.swing.JRadioButton diffLevel_H;
-    private javax.swing.JRadioButton diffLevel_N;
-    private javax.swing.JTextField diffLevel_TEXT;
     private javax.swing.ButtonGroup disastersGroup;
     private javax.swing.JRadioButton disasters_OFF;
     private javax.swing.JRadioButton disasters_ON;
@@ -1586,19 +1359,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton industDens_NONE;
     private javax.swing.JRadioButton industDens_VL;
     private javax.swing.ButtonGroup industriesGroup;
-    private javax.swing.JRadioButton industries_H;
-    private javax.swing.JRadioButton industries_L;
-    private javax.swing.JRadioButton industries_N;
-    private javax.swing.JRadioButton industries_NONE;
-    private javax.swing.JRadioButton industries_VL;
     private javax.swing.ButtonGroup initInterGroup;
     private javax.swing.JRadioButton initInter_2;
     private javax.swing.JRadioButton initInter_3;
     private javax.swing.JRadioButton initInter_4;
-    private javax.swing.JRadioButton initInter_CUST;
-    private javax.swing.JTextField initInter_CUST_Text;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1606,7 +1371,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

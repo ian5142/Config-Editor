@@ -62,7 +62,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
+          <Component id="jTabbedPane1" min="-2" pref="401" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -88,7 +88,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="449" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="371" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -108,6 +108,17 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="maxComp_TEXT" min="-2" max="-2" attributes="0"/>
+                                  <Component id="maxLoan_TEXT" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -165,96 +176,33 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="initInter_2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="initInter_3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="initInter_CUST" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="initInter_2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="initInter_CUST_Text" min="-2" max="-2" attributes="0"/>
-                                  <Component id="initInter_4" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="initInter_3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="initInter_4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="maxComp_TEXT" min="-2" max="-2" attributes="0"/>
-                                      <Component id="maxLoan_TEXT" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="industries_N" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="industries_H" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="industries_NONE" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="industries_VL" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="industries_L" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="constCost_L" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="constCost_M" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="constCost_H" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lineReverse_TRUE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lineReverse_FALSE" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="constCost_L" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="constCost_M" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="diffLevel_CUST" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="diffLevel_TEXT" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="diffLevel_E" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="diffLevel_N" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="constCost_H" min="-2" max="-2" attributes="0"/>
-                                  <Component id="diffLevel_H" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lineReverse_FALSE" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lineReverse_TRUE" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -275,7 +223,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -312,7 +260,7 @@
                                       <Component id="terrain_H" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="subsidy_40" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="subsidy_15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="subsidy_20" min="-2" max="-2" attributes="0"/>
@@ -326,7 +274,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="townCoun_HOS" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="townCoun_PER" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="townCoun_TOL" min="-2" max="-2" attributes="0"/>
@@ -338,7 +286,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="vehicleBr_N" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="vehicleBr_NONE" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="vehicleBr_RED" min="-2" max="-2" attributes="0"/>
@@ -355,7 +303,7 @@
                               <Component id="vehicleCost_H" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -364,46 +312,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="towns_VL" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="towns_L" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="towns_N" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="towns_H" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="towns_CUST" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="towns_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="seas_VL" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="seas_L" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="seas_M" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="seas_H" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="seas_CUST" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="seas_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="subsidy_15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="subsidy_20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="subsidy_30" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="compSpd_VS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="compSpd_S" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -423,59 +332,6 @@
                                   <Component id="constCost_H" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="diffLevel_E" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="diffLevel_N" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="diffLevel_H" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="diffLevel_TEXT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="diffLevel_CUST" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="subsidy_40" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="terrain_VF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="terrain_F" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="terrain_H" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="terrain_M" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="townCoun_PER" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="townCoun_TOL" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="townCoun_HOS" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vehicleBr_NONE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vehicleBr_RED" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="vehicleBr_N" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vehicleCost_L" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vehicleCost_M" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vehicleCost_H" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -518,18 +374,20 @@
                                   <Component id="initInter_3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="initInter_4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="initInter_CUST_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="initInter_CUST" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lineReverse_TRUE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lineReverse_FALSE" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lineReverse_TRUE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lineReverse_FALSE" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="maxLoan_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -539,21 +397,82 @@
                                   <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="maxComp_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="industries_NONE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="industries_VL" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="industries_L" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="towns_VL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="towns_L" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="towns_N" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="towns_H" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="towns_CUST" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="towns_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="seas_VL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="seas_L" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="seas_M" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="industries_N" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="industries_H" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seas_H" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seas_CUST" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seas_TEXT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="subsidy_15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="subsidy_20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="subsidy_30" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="subsidy_40" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="terrain_VF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="terrain_F" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="terrain_H" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="terrain_M" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="townCoun_PER" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="townCoun_TOL" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="townCoun_HOS" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vehicleBr_NONE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vehicleBr_RED" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="vehicleBr_N" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vehicleCost_L" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vehicleCost_M" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="vehicleCost_H" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -660,24 +579,6 @@
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(constCost == 0) {"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="diff. level"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="diffLevel_N">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="normal"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_NActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;1&quot;, true)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    diffLevel_N = new javax.swing.JRadioButton();&#xa;}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(diffLevel == 1) {"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JRadioButton" name="constCost_H">
               <Properties>
                 <Property name="text" type="java.lang.String" value="high"/>
@@ -689,32 +590,6 @@
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;2&quot;, true)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    constCost_H = new javax.swing.JRadioButton();&#xa;}"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(constCost == 2) {"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="diffLevel_E">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="easy"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_EActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;0&quot;, true)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    diffLevel_E = new javax.swing.JRadioButton();&#xa;}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(diffLevel == 0) {"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="diffLevel_H">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="hard"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_HActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;2&quot;, true)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    diffLevel_H = new javax.swing.JRadioButton();&#xa;}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(diffLevel == 2) {"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="disasters_OFF">
@@ -755,7 +630,7 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="economy_VAR">
               <Properties>
-                <Property name="text" type="java.lang.String" value="variable"/>
+                <Property name="text" type="java.lang.String" value="recessions"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_VARActionPerformed"/>
@@ -768,7 +643,7 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="economy_SM">
               <Properties>
-                <Property name="text" type="java.lang.String" value="smooth"/>
+                <Property name="text" type="java.lang.String" value="no recessions"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="economy_SMActionPerformed"/>
@@ -869,6 +744,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_4ActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;4&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    initInter_4 = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(initInter == 4) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_3">
               <Properties>
@@ -877,6 +757,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_3ActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;3&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    initInter_3 = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(initInter == 3) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="initInter_2">
               <Properties>
@@ -885,6 +770,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_2ActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;2&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    initInter_2 = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(initInter == 2) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
@@ -898,19 +788,29 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="lineReverse_FALSE">
               <Properties>
-                <Property name="text" type="java.lang.String" value="false"/>
+                <Property name="text" type="java.lang.String" value="no reversing at station"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineReverse_FALSEActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;0&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    lineReverse_TRUE = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(disasters == 0) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="lineReverse_TRUE">
               <Properties>
-                <Property name="text" type="java.lang.String" value="true"/>
+                <Property name="text" type="java.lang.String" value="reversing at station"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineReverse_TRUEActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;1&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    lineReverse_TRUE = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(disasters == 1) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -919,7 +819,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="maxLoan_TEXT">
               <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="maxLoan + &quot;&quot;" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxLoan_TEXTActionPerformed"/>
@@ -932,55 +834,12 @@
             </Component>
             <Component class="javax.swing.JTextField" name="maxComp_TEXT">
               <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="maxComp + &quot;&quot;" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxComp_TEXTActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="# of industries"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="industries_N">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="normal"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_NActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="industries_VL">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="very low"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_VLActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="industries_NONE">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="none"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_NONEActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="industries_H">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="high"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_HActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="industries_L">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="low"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="industries_LActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
@@ -1234,22 +1093,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleCost_LActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="initInter_CUST_Text">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_CUST_TextActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="initInter_CUST">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initInter_CUSTActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="towns_TEXT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="custom"/>
@@ -1265,32 +1108,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seas_TEXTActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="diffLevel_TEXT">
-              <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="}&#xa;else {&#xa;diffLevel_TEXT.setText(&quot;custom&quot;);&#xa;}">
-                  <Connection code="&quot;3&quot;" type="code"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_TEXTActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="if (diffLevel == 3) {"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="diffLevel_CUST">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffLevel_CUSTActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;3&quot;, true)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    diffLevel_CUST = new javax.swing.JRadioButton();&#xa;}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(diffLevel == 3) {"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
