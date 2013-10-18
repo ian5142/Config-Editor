@@ -872,6 +872,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_HActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;3&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    towns_H = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(towns == 3) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_L">
               <Properties>
@@ -880,6 +885,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_LActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;1&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    towns_L = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(towns == 1) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_VL">
               <Properties>
@@ -888,6 +898,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_VLActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;0&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    towns_VL = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(towns == 0) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_CUST">
               <Properties>
@@ -896,6 +911,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_CUSTActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;4&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    towns_CUST = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(towns == 4) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="towns_N">
               <Properties>
@@ -904,6 +924,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_NActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JRadioButton(&quot;2&quot;, true)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="}&#xa;else{&#xa;    towns_N = new javax.swing.JRadioButton();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="if(towns == 2) {"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
@@ -1113,7 +1138,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="towns_TEXT">
               <Properties>
-                <Property name="text" type="java.lang.String" value="custom"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="if (towns == 4) {" postCode="}&#xa;else {&#xa;towns_TEXT.setText(&quot;custom&quot;);&#xa;}">
+                  <Connection code="towns_CUSTOM + &quot;&quot;" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="towns_TEXTActionPerformed"/>

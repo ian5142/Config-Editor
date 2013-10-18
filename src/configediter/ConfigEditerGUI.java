@@ -332,11 +332,36 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         maxComp_TEXT = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        towns_H = new javax.swing.JRadioButton();
-        towns_L = new javax.swing.JRadioButton();
-        towns_VL = new javax.swing.JRadioButton();
-        towns_CUST = new javax.swing.JRadioButton();
-        towns_N = new javax.swing.JRadioButton();
+        if(towns == 3) {
+            towns_H = new javax.swing.JRadioButton("3", true);
+        }
+        else{
+            towns_H = new javax.swing.JRadioButton();
+        }
+        if(towns == 1) {
+            towns_L = new javax.swing.JRadioButton("1", true);
+        }
+        else{
+            towns_L = new javax.swing.JRadioButton();
+        }
+        if(towns == 0) {
+            towns_VL = new javax.swing.JRadioButton("0", true);
+        }
+        else{
+            towns_VL = new javax.swing.JRadioButton();
+        }
+        if(towns == 4) {
+            towns_CUST = new javax.swing.JRadioButton("4", true);
+        }
+        else{
+            towns_CUST = new javax.swing.JRadioButton();
+        }
+        if(towns == 2) {
+            towns_N = new javax.swing.JRadioButton("2", true);
+        }
+        else{
+            towns_N = new javax.swing.JRadioButton();
+        }
         jLabel21 = new javax.swing.JLabel();
         seas_H = new javax.swing.JRadioButton();
         seas_L = new javax.swing.JRadioButton();
@@ -786,7 +811,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
-        towns_TEXT.setText("custom");
+        if (towns == 4) {
+            towns_TEXT.setText(towns_CUSTOM + "");
+        }
+        else {
+            towns_TEXT.setText("custom");
+        }
         towns_TEXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 towns_TEXTActionPerformed(evt);
@@ -1407,12 +1437,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
         // TODO add your handling code here:
-        writeConfig();
+//        writeConfig();
     }//GEN-LAST:event_save_ButtonActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        writeConfig();
+//        writeConfig();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
     /**
