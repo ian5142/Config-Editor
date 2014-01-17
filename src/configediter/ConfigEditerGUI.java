@@ -28,29 +28,29 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class ConfigEditerGUI extends javax.swing.JFrame {
         //Variables for Difficulty tab, left side
-        int compSpd;
-        int constCost;
-        int diffLevel;
-        int disasters; //false and true
-        int economy; //false and true
-        int industDens;
-        int initInter;
-        int lineReverse; //false and true
-        int maxLoan;
-        int maxComp;
-        int industries;
-        int index2;
-        int index3;
+        private int compSpd;
+        private int constCost;
+        private int diffLevel;
+        private int disasters; //false and true
+        private int economy; //false and true
+        private int industDens;
+        private int initInter;
+        private int lineReverse; //false and true
+        private int maxLoan;
+        private int maxComp;
+        private int industries;
+        private int index2;
+        private int index3;
         //Variables for Difficulty tab, right side
-        int towns;
-        int towns_CUSTOM = 1;
-        int seas;
-        int seas_CUSTOM;
-        int subsidy;
-        int terrain;
-        int townCoun;
-        int vehicleBr;
-        int vehicleCost;
+        private int towns;
+        private int towns_CUSTOM = 1;
+        private int seas;
+        private int seas_CUSTOM;
+        private int subsidy;
+        private int terrain;
+        private int townCoun;
+        private int vehicleBr;
+        private int vehicleCost;
 
         String openTTDfolder;
         String openTTDfolder2;
@@ -1558,7 +1558,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
         // TODO add your handling code here:
-//        writeConfig();
+        writeConfig();
     }//GEN-LAST:event_save_ButtonActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1817,57 +1817,57 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     data.get(lineNumber).add(2,compSpd + "");
                     System.out.println(data.get(lineNumber).get(0) + "");
                 }
-//                else if (data.get(lineNumber).get(0).equals("construction_cost")) {
-//                    data.get(lineNumber).add(2,constCost + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("diff_level")) {
-//                    data.get(lineNumber).add(2,diffLevel + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("disasters")) {
-//                    data.get(lineNumber).add(2,disasters + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("economy")) {
-//                    data.get(lineNumber).add(2,economy + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("industry_density")) {
-//                    data.get(lineNumber).add(2,industDens + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("initial_interest")) {
-//                    data.get(lineNumber).add(2,initInter + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
-//                    data.get(lineNumber).add(2,lineReverse + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("max_loan")) {
-//                    data.get(lineNumber).add(2,maxLoan + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
-//                    data.get(lineNumber).add(2,maxComp + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("number_towns")) {
-//                    data.get(lineNumber).add(2,towns + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
-//                    data.get(lineNumber).add(2,seas + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
-//                    data.get(lineNumber).add(2,subsidy + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("terrain_type")) {
-//                    data.get(lineNumber).add(2,terrain + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
-//                    data.get(lineNumber).add(2,townCoun + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
-//                    data.get(lineNumber).add(2,vehicleBr + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
-//                    data.get(lineNumber).add(2,vehicleCost + "");
-//                }
-//                else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
-//                    data.get(lineNumber).add(2,towns_CUST + "");
-//                }
+                else if (data.get(lineNumber).get(0).equals("construction_cost")) {
+                    data.get(lineNumber).add(2,constCost + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("diff_level")) {
+                    data.get(lineNumber).add(2,diffLevel + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("disasters")) {
+                    data.get(lineNumber).add(2,disasters + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("economy")) {
+                    data.get(lineNumber).add(2,economy + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("industry_density")) {
+                    data.get(lineNumber).add(2,industDens + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("initial_interest")) {
+                    data.get(lineNumber).add(2,initInter + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
+                    data.get(lineNumber).add(2,lineReverse + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("max_loan")) {
+                    data.get(lineNumber).add(2,maxLoan + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
+                    data.get(lineNumber).add(2,maxComp + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("number_towns")) {
+                    data.get(lineNumber).add(2,towns + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
+                    data.get(lineNumber).add(2,seas + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
+                    data.get(lineNumber).add(2,subsidy + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("terrain_type")) {
+                    data.get(lineNumber).add(2,terrain + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
+                    data.get(lineNumber).add(2,townCoun + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
+                    data.get(lineNumber).add(2,vehicleBr + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
+                    data.get(lineNumber).add(2,vehicleCost + "");
+                }
+                else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
+                    data.get(lineNumber).add(2,towns_CUST + "");
+                }
                 lineNumber ++;
                 size --;
             }
@@ -1881,21 +1881,21 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-            int length = data.size() -1;
+            int length = data.size() - 1;
             int index = 1;
             bf.write(data.get(0).get(0));
             bf.newLine();
             int sizeData;
             while (length > 0) {
-                sizeData = data.get(index).size();
-                if (sizeData == 3) {
-                    bf.write(data.get(index).get(0) + " " + data.get(index).get(1) + " " + data.get(index).get(2) + " " + data.get(index).get(3));
-                    bf.newLine();
+                sizeData = data.get(index).size() - 1;
+                int index3 = 0;
+                while (sizeData > 0) {
+                    bf.write(data.get(index).get(index3));
+                    sizeData --;
+                    index ++;
                 }
-                else if (sizeData == 1) {
-                    bf.write(data.get(index).get(0) + "");
-                    bf.newLine();
-                }
+                bf.newLine();
+                // Add code to make it recognize the last line
                 index ++;
                 length --;
             }
