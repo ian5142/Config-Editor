@@ -43,7 +43,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         private int index3;
         //Variables for Difficulty tab, right side
         private int towns;
-        private int towns_CUSTOM = 1;
+        private int towns_CUSTOM;
         private int seas;
         private int seas_CUSTOM;
         private int subsidy;
@@ -52,8 +52,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         private int vehicleBr;
         private int vehicleCost;
 
-        String openTTDfolder;
-        String openTTDfolder2;
+        private String openTTDfolder;
+        private String openTTDfolder2;
     /**
      * Creates new form ConfigEditerGUI
      */
@@ -1714,7 +1714,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         if ( s.equals("economy =")) {
             try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
             String line;
-            while (((line = bf.readLine() ) != null) && !(line.indexOf("smooth_economy") > -1) ) {
+            while (((line = bf.readLine() ) != null) && !line.contains("smooth_economy") ) {
                 if (line.startsWith(s)) {
                     parts = line.split(" ");
                     found = Integer.parseInt(parts [2]);
@@ -1792,8 +1792,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        if (towns_CUSTOM != 0) {
 //            line2.add("custom_town_number = " + towns_CUST);
 //        }
-        
-        List<List<String>> data = new ArrayList<>(); 
+        List<List<String>> data = new ArrayList<>();
         FileReader fr = new FileReader(openTTDfolder);
         Scanner in = new Scanner(fr); 
         while (in.hasNextLine()) {
@@ -1894,7 +1893,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             index ++;
             length --;
             sizeData = data.get(index).size() - 1; //Throws indexOutOfBounds Error
-            // Implement listIterator, see: 
+            // Implement listIterator, see:
+            
         }
         bf.close();
         File config = new File (openTTDfolder);
