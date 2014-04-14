@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2014 Ian Van Schaick
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+
 package configediter;
 
 import java.awt.Font;
@@ -18,50 +36,48 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-/*
- * Fix button initialization, and economy read
- */
-
 /**
  *
  * @author Ian Van Schaick
  */
 public class ConfigEditerGUI extends javax.swing.JFrame {
-        //Variables for Difficulty tab, left side
-        private int compSpd;
-        private int constCost;
-        private int diffLevel;
-        private int disasters; //false and true
-        private int economy; //false and true
-        private int industDens;
-        private int initInter;
-        private int lineReverse; //false and true
-        private int maxLoan;
-        private int maxComp;
-        private int industries;
-        private int index2;
-        private int index3;
-        //Variables for Difficulty tab, right side
-        private int towns;
-        private int towns_CUSTOM;
-        private int seas;
-        private int seas_CUSTOM;
-        private int subsidy;
-        private int terrain;
-        private int townCoun;
-        private int vehicleBr;
-        private int vehicleCost;
 
-        private String openTTDfolder;
-        private String openTTDfolder2;
+    //Variables for Difficulty tab, left side
+    private int compSpd;
+    private int constCost;
+    private int diffLevel;
+    private int disasters; //false and true
+    private int economy; //false and true
+    private int industDens;
+    private int initInter;
+    private int lineReverse; //false and true
+    private int maxLoan;
+    private int maxComp;
+    private int industries;
+    private int index2;
+    private int index3;
+    //Variables for Difficulty tab, right side
+    private int towns;
+    private int towns_CUSTOM;
+    private int seas;
+    private int seas_CUSTOM;
+    private int subsidy;
+    private int terrain;
+    private int townCoun;
+    private int vehicleBr;
+    private int vehicleCost;
+
+    private String openTTDfolder;
+    private String openTTDfolder2;
+
     /**
      * Creates new form ConfigEditerGUI
      */
     public ConfigEditerGUI() {
-        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
+//        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
         //start reading the config File
-        getMyDocuments ();
-        
+        getMyDocuments();
+
         compSpd = readConfigInt("competitor_speed");
         constCost = readConfigInt("construction_cost");
         diffLevel = readConfigInt("diff_level");
@@ -73,7 +89,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         maxLoan = readConfigInt("max_loan");
         maxComp = readConfigInt("max_no_competitors");
         industries = readConfigInt("number_industries");
-        
+
         towns = readConfigInt("number_towns");
         if (towns == 4) {
             towns_CUSTOM = readConfigInt("custom_town_number");
@@ -84,7 +100,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCoun = readConfigInt("town_council_tolerance");
         vehicleBr = readConfigInt("vehicle_breakdowns");
         vehicleCost = readConfigInt("vehicle_costs");
-        
+
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -92,67 +108,66 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         compSpdGroup.add(compSpd_M);
         compSpdGroup.add(compSpd_F);
         compSpdGroup.add(compSpd_VF);
-        
+
         constCostGroup.add(constCost_L);
         constCostGroup.add(constCost_M);
         constCostGroup.add(constCost_H);
-        
+
         disastersGroup.add(disasters_ON);
         disastersGroup.add(disasters_OFF);
-        
+
         economyGroup.add(economy_SM);
         economyGroup.add(economy_VAR);
-        
+
         industDensGroup.add(industDens_NONE);
         industDensGroup.add(industDens_MIN);
         industDensGroup.add(industDens_VL);
         industDensGroup.add(industDens_L);
         industDensGroup.add(industDens_N);
         industDensGroup.add(industDens_H);
-        
+
         initInterGroup.add(initInter_2);
         initInterGroup.add(initInter_3);
         initInterGroup.add(initInter_4);
-        
+
         lineReverseGroup.add(lineReverse_TRUE);
         lineReverseGroup.add(lineReverse_FALSE);
-        
+
         //Buttongroups for difficulty tab, right side
         townsGroup.add(towns_VL);
         townsGroup.add(towns_L);
         townsGroup.add(towns_N);
         townsGroup.add(towns_H);
         townsGroup.add(towns_CUST);
-        
+
         seasGroup.add(seas_VL);
         seasGroup.add(seas_L);
         seasGroup.add(seas_M);
         seasGroup.add(seas_H);
         seasGroup.add(seas_CUST);
-        
+
         subsidyGroup.add(subsidy_15);
         subsidyGroup.add(subsidy_20);
         subsidyGroup.add(subsidy_30);
         subsidyGroup.add(subsidy_40);
-        
+
         terrainGroup.add(terrain_VF);
         terrainGroup.add(terrain_F);
         terrainGroup.add(terrain_H);
         terrainGroup.add(terrain_M);
-        
+
         townCounGroup.add(townCoun_PER);
         townCounGroup.add(townCoun_TOL);
         townCounGroup.add(townCoun_HOS);
-        
+
         vehicleBrGroup.add(vehicleBr_NONE);
         vehicleBrGroup.add(vehicleBr_RED);
         vehicleBrGroup.add(vehicleBr_N);
-        
+
         vehicleCostGroup.add(vehicleCost_L);
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
-        
-        
+
     }
 
     /**
@@ -1557,12 +1572,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vehicleCost_HActionPerformed
 
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
-            try {
-                // TODO add your handling code here:
-                writeConfig();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            // TODO add your handling code here:
+            writeConfig();
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_save_ButtonActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1693,72 +1708,69 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton vehicleCost_M;
     // End of variables declaration//GEN-END:variables
 
-
-        
-    private void getMyDocuments () {
-     JFileChooser fr = new JFileChooser();
-     FileSystemView fw = fr.getFileSystemView();
-     openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
-     openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
+    private void getMyDocuments() {
+        JFileChooser fr = new JFileChooser();
+        FileSystemView fw = fr.getFileSystemView();
+        openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
+        openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
     }
-    
+
     /**
-     * 
+     *
      * @param s
      * @return returns a integer found in a string
      */
-    private int readConfigInt (String s) {
+    private int readConfigInt(String s) {
         int indexfound;
         int found = 0;
-        String [] parts;
-        if ( s.equals("economy =")) {
-            try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
-            String line;
-            while (((line = bf.readLine() ) != null) && !line.contains("smooth_economy") ) {
-                if (line.startsWith(s)) {
-                    parts = line.split(" ");
-                    found = Integer.parseInt(parts [2]);
+        String[] parts;
+        if (s.equals("economy =")) {
+            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
+                String line;
+                while (((line = bf.readLine()) != null) && !line.contains("smooth_economy")) {
+                    if (line.startsWith(s)) {
+                        parts = line.split(" ");
+                        found = Integer.parseInt(parts[2]);
+                    }
                 }
-            }
-            bf.close();
+                bf.close();
             } catch (IOException ex) {
                 Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else {
-            try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
-            String line;
-            while ((line = bf.readLine()) != null) {
-                indexfound = line.indexOf(s);
-                if (indexfound > -1) {
-                    parts = line.split(" ");
-                    found = Integer.parseInt(parts [2]);
+        } else {
+            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
+                String line;
+                while ((line = bf.readLine()) != null) {
+                    indexfound = line.indexOf(s);
+                    if (indexfound > -1) {
+                        parts = line.split(" ");
+                        found = Integer.parseInt(parts[2]);
+                    }
                 }
-            }
-            bf.close();
+                bf.close();
             } catch (IOException ex) {
                 Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return found;
     }
-    
+
     /**
-     * 
+     *
      * @param s
      * @return returns a boolean value read from a string
      */
-    private boolean readConfigBoo (String s) {
+    private boolean readConfigBoo(String s) {
         int indexfound;
         boolean found = true;
-        String [] parts;
-        try ( BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder) ) ) ) {
+        String[] parts;
+        try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
             String line;
             while ((line = bf.readLine()) != null) {
                 indexfound = line.indexOf(s);
                 if (indexfound > -1) {
                     parts = line.split(" ");
-                    found = Boolean.parseBoolean(parts [2]);
+                    found = Boolean.parseBoolean(parts[2]);
                 }
             }
             bf.close();
@@ -1767,8 +1779,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         return found;
     }
-    
-    private void writeConfig () throws IOException {
+
+    private void writeConfig() throws IOException {
 //        ArrayList<ArrayList<String>> data2= new ArrayList<>();
 //        ArrayList<String> line2 = new ArrayList<>();
 //        line2.add("competitor_speed = " + compSpd);
@@ -1794,7 +1806,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        }
         List<List<String>> data = new ArrayList<>();
         FileReader fr = new FileReader(openTTDfolder);
-        Scanner in = new Scanner(fr); 
+        Scanner in = new Scanner(fr);
         while (in.hasNextLine()) {
             String line = in.nextLine();
             Scanner lineScanner = new Scanner(line).useDelimiter(" ");
@@ -1809,98 +1821,77 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         int size = data.size();
         int i = 0;
 
-        while(size > 0) {
-            System.out.println("index: " + i);
+        while (size > 0) {
             i++;
-            System.out.println(data.get(lineNumber).get(0) + "");
             if (data.get(lineNumber).get(0).equals("competitor_speed")) {
-                data.get(lineNumber).add(2,compSpd + "");
+                data.get(lineNumber).add(2, compSpd + "");
                 System.out.println(data.get(lineNumber).get(0) + "");
+            } else if (data.get(lineNumber).get(0).equals("construction_cost")) {
+                data.get(lineNumber).add(2, constCost + "");
+            } else if (data.get(lineNumber).get(0).equals("diff_level")) {
+                data.get(lineNumber).add(2, diffLevel + "");
+            } else if (data.get(lineNumber).get(0).equals("disasters")) {
+                data.get(lineNumber).add(2, disasters + "");
+            } else if (data.get(lineNumber).get(0).equals("economy")) {
+                data.get(lineNumber).add(2, economy + "");
+            } else if (data.get(lineNumber).get(0).equals("industry_density")) {
+                data.get(lineNumber).add(2, industDens + "");
+            } else if (data.get(lineNumber).get(0).equals("initial_interest")) {
+                data.get(lineNumber).add(2, initInter + "");
+            } else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
+                data.get(lineNumber).add(2, lineReverse + "");
+            } else if (data.get(lineNumber).get(0).equals("max_loan")) {
+                data.get(lineNumber).add(2, maxLoan + "");
+            } else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
+                data.get(lineNumber).add(2, maxComp + "");
+            } else if (data.get(lineNumber).get(0).equals("number_towns")) {
+                data.get(lineNumber).add(2, towns + "");
+            } else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
+                data.get(lineNumber).add(2, seas + "");
+            } else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
+                data.get(lineNumber).add(2, subsidy + "");
+            } else if (data.get(lineNumber).get(0).equals("terrain_type")) {
+                data.get(lineNumber).add(2, terrain + "");
+            } else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
+                data.get(lineNumber).add(2, townCoun + "");
+            } else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
+                data.get(lineNumber).add(2, vehicleBr + "");
+            } else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
+                data.get(lineNumber).add(2, vehicleCost + "");
+            } else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
+                data.get(lineNumber).add(2, towns_CUST + "");
             }
-            else if (data.get(lineNumber).get(0).equals("construction_cost")) {
-                data.get(lineNumber).add(2,constCost + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("diff_level")) {
-                data.get(lineNumber).add(2,diffLevel + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("disasters")) {
-                data.get(lineNumber).add(2,disasters + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("economy")) {
-                data.get(lineNumber).add(2,economy + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("industry_density")) {
-                data.get(lineNumber).add(2,industDens + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("initial_interest")) {
-                data.get(lineNumber).add(2,initInter + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
-                data.get(lineNumber).add(2,lineReverse + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("max_loan")) {
-                data.get(lineNumber).add(2,maxLoan + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
-                data.get(lineNumber).add(2,maxComp + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("number_towns")) {
-                data.get(lineNumber).add(2,towns + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
-                data.get(lineNumber).add(2,seas + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
-                data.get(lineNumber).add(2,subsidy + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("terrain_type")) {
-                data.get(lineNumber).add(2,terrain + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
-                data.get(lineNumber).add(2,townCoun + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
-                data.get(lineNumber).add(2,vehicleBr + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
-                data.get(lineNumber).add(2,vehicleCost + "");
-            }
-            else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
-                data.get(lineNumber).add(2,towns_CUST + "");
-            }
-            lineNumber ++;
-            size --;
+            lineNumber++;
+            size--;
         }
-        
-        File temp = new File (openTTDfolder2 + "\\temp.cfg");
-        BufferedWriter bf = new BufferedWriter (new FileWriter(temp, false));;
-        
-        int length = data.size() - 1;
+
+        File temp = new File(openTTDfolder2 + "\\temp.cfg");
+        BufferedWriter bf = new BufferedWriter(new FileWriter(temp, false));;
+
+        int length = data.size();
         int index = 1;
         bf.write(data.get(0).get(0));
         bf.newLine();
-        int sizeData = data.get(index).size() - 1;
+        int sizeData = data.get(index).size();
         while (length > 0) {
             int indexI = 0;
+            if (index < data.size()) {
+                sizeData = data.get(index).size();
+            }
             while (sizeData > 0) {
                 bf.write(data.get(index).get(indexI) + " ");
-                sizeData --;
-                indexI ++;
-                System.out.print("Write word ");
+                sizeData--;
+                indexI++;
             }
             bf.newLine();
-            System.out.println(": Finished line");
-            index ++;
-            length --;
-            sizeData = data.get(index).size() - 1; //Throws indexOutOfBounds Error
-            // Implement listIterator, see:
-            
+            index++;
+            length--;
         }
         bf.close();
-        File config = new File (openTTDfolder);
+        File config = new File(openTTDfolder);
         boolean delete = config.delete();
         System.out.println("The file was deleted: " + delete);
-        Path source = FileSystems.getDefault().getPath("",openTTDfolder2 + "\\temp.cfg");
+        Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
         Path move = Files.move(source, source.resolveSibling(openTTDfolder));
         System.out.println("finished");
     }
