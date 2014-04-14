@@ -1718,7 +1718,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     /**
      *
      * @param s
-     * @return returns a integer found in a string
+     * @return returns an integer found in a string
      */
     private int readConfigInt(String s) {
         int indexfound;
