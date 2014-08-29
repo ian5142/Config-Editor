@@ -15,7 +15,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
 package configediter;
 
 import java.awt.Font;
@@ -42,9 +41,8 @@ import javax.swing.filechooser.FileSystemView;
  * @author Ian Van Schaick
  */
 public class ConfigEditerGUI extends javax.swing.JFrame {
-    
+
     ArrayList<ArrayList<String>> lines;
-    
     //Variables for Difficulty tab, left side
     private int compSpd;
     private int constCost;
@@ -80,9 +78,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
         //start reading the config File
         getMyDocuments();
-        
+
         lines = new ArrayList<ArrayList<String>>();
-        
+        //readconfig obkect
+        ReadConfig read = new ReadConfig();
+        try {
+            lines = read.fillArray(lines);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         compSpd = getLineNum("competitor_speed");
         constCost = getLineNum("construction_cost");
         diffLevel = getLineNum("diff_level");
@@ -105,7 +110,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCoun = getLineNum("town_council_tolerance");
         vehicleBr = getLineNum("vehicle_breakdowns");
         vehicleCost = getLineNum("vehicle_costs");
-        
+
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
 //        diffLevel = readConfigInt("diff_level");
@@ -128,7 +133,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        townCoun = readConfigInt("town_council_tolerance");
 //        vehicleBr = readConfigInt("vehicle_breakdowns");
 //        vehicleCost = readConfigInt("vehicle_costs");
-
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -196,6 +200,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
 
+        setDisplay();
     }
 
     /**
@@ -1377,232 +1382,233 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
         // TODO add your handling code here:
-        economy = 0;
+        lines.get(economy).set(2, "0");
     }//GEN-LAST:event_economy_SMActionPerformed
 
     private void economy_VARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_VARActionPerformed
         // TODO add your handling code here:
-        economy = 1;
+        lines.get(economy).set(2, "1");
     }//GEN-LAST:event_economy_VARActionPerformed
 
     private void industDens_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NONEActionPerformed
         // TODO add your handling code here:
-        industDens = 0;
+        lines.get(industDens).set(2, "0");
     }//GEN-LAST:event_industDens_NONEActionPerformed
 
     private void industDens_MINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_MINActionPerformed
         // TODO add your handling code here:
-        industDens = 1;
+        lines.get(industDens).set(2, "1");
     }//GEN-LAST:event_industDens_MINActionPerformed
 
     private void industDens_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_VLActionPerformed
         // TODO add your handling code here:
-        industDens = 2;
+        lines.get(industDens).set(2, "2");
     }//GEN-LAST:event_industDens_VLActionPerformed
 
     private void industDens_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_LActionPerformed
         // TODO add your handling code here:
-        industDens = 3;
+        lines.get(industDens).set(2, "3");
     }//GEN-LAST:event_industDens_LActionPerformed
 
     private void industDens_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NActionPerformed
         // TODO add your handling code here:
-        industDens = 4;
+        lines.get(industDens).set(2, "4");
     }//GEN-LAST:event_industDens_NActionPerformed
 
     private void industDens_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_HActionPerformed
         // TODO add your handling code here:
-        industDens = 5;
+        lines.get(industDens).set(2, "0");
     }//GEN-LAST:event_industDens_HActionPerformed
 
     private void initInter_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_2ActionPerformed
         // TODO add your handling code here:
-        initInter = 2;
+        lines.get(initInter).set(2, "2");
     }//GEN-LAST:event_initInter_2ActionPerformed
 
     private void initInter_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_3ActionPerformed
         // TODO add your handling code here:
-        initInter = 3;
+        lines.get(initInter).set(2, "3");
     }//GEN-LAST:event_initInter_3ActionPerformed
 
     private void initInter_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_4ActionPerformed
         // TODO add your handling code here:
-        initInter = 4;
+        lines.get(initInter).set(2, "4");
     }//GEN-LAST:event_initInter_4ActionPerformed
 
     private void lineReverse_TRUEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_TRUEActionPerformed
         // TODO add your handling code here:
-        lineReverse = 1;
+        lines.get(lineReverse).set(2, "1");
     }//GEN-LAST:event_lineReverse_TRUEActionPerformed
 
     private void lineReverse_FALSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineReverse_FALSEActionPerformed
         // TODO add your handling code here:
-        lineReverse = 0;
+        lines.get(lineReverse).set(2, "0");
     }//GEN-LAST:event_lineReverse_FALSEActionPerformed
 
     private void maxLoan_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxLoan_TEXTActionPerformed
         // TODO add your handling code here:
         String str = maxLoan_TEXT.getText();
-        maxLoan = Integer.parseInt(str);
+        lines.get(maxLoan).set(2, str);
     }//GEN-LAST:event_maxLoan_TEXTActionPerformed
 
     private void maxComp_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_TEXTActionPerformed
         // TODO add your handling code here:
         String str2 = maxComp_TEXT.getText();
-        maxComp = Integer.parseInt(str2);
+        lines.get(maxComp).set(2, str2);
     }//GEN-LAST:event_maxComp_TEXTActionPerformed
 
     private void towns_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_VLActionPerformed
         // TODO add your handling code here:
-        towns = 0;
+        lines.get(towns).set(2, "0");
     }//GEN-LAST:event_towns_VLActionPerformed
 
     private void towns_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_LActionPerformed
         // TODO add your handling code here:
-        towns = 1;
+        lines.get(towns).set(2, "1");
     }//GEN-LAST:event_towns_LActionPerformed
 
     private void towns_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_NActionPerformed
         // TODO add your handling code here:
-        towns = 2;
+        lines.get(towns).set(2, "2");
     }//GEN-LAST:event_towns_NActionPerformed
 
     private void towns_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_HActionPerformed
         // TODO add your handling code here:
-        towns = 3;
+        lines.get(towns).set(2, "3");
     }//GEN-LAST:event_towns_HActionPerformed
 
     private void towns_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_CUSTActionPerformed
         // TODO add your handling code here:
-        towns = 4;
+        lines.get(towns).set(2, "4");
     }//GEN-LAST:event_towns_CUSTActionPerformed
 
     private void towns_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_TEXTActionPerformed
         // TODO add your handling code here:
         String str3 = towns_TEXT.getText();
-        towns_CUSTOM = Integer.parseInt(str3);
+        lines.get(towns_CUSTOM).set(2, str3);
     }//GEN-LAST:event_towns_TEXTActionPerformed
 
     private void seas_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_VLActionPerformed
         // TODO add your handling code here:
-        seas = 0;
+        lines.get(seas).set(2, "0");
     }//GEN-LAST:event_seas_VLActionPerformed
 
     private void seas_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_LActionPerformed
         // TODO add your handling code here:
-        seas = 1;
+        lines.get(seas).set(2, "1");
     }//GEN-LAST:event_seas_LActionPerformed
 
     private void seas_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_MActionPerformed
         // TODO add your handling code here:
-        seas = 2;
+        lines.get(seas).set(2, "2");
     }//GEN-LAST:event_seas_MActionPerformed
 
     private void seas_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_HActionPerformed
         // TODO add your handling code here:
-        seas = 3;
+        lines.get(seas).set(2, "3");
     }//GEN-LAST:event_seas_HActionPerformed
 
     private void seas_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_CUSTActionPerformed
         // TODO add your handling code here:
-        seas = 4;
+        lines.get(seas).set(2, "4");
     }//GEN-LAST:event_seas_CUSTActionPerformed
 
     private void seas_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_TEXTActionPerformed
         // TODO add your handling code here:
         String str4 = seas_TEXT.getText();
-        seas_CUSTOM = Integer.parseInt(str4);
+        lines.get(seas_CUSTOM).set(2, str4);
     }//GEN-LAST:event_seas_TEXTActionPerformed
 
     private void subsidy_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_15ActionPerformed
         // TODO add your handling code here:
-        subsidy = 0;
+        lines.get(subsidy).set(2, "0");
     }//GEN-LAST:event_subsidy_15ActionPerformed
 
     private void subsidy_20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_20ActionPerformed
         // TODO add your handling code here:
-        subsidy = 1;
+        lines.get(subsidy).set(2, "1");
     }//GEN-LAST:event_subsidy_20ActionPerformed
 
     private void subsidy_30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_30ActionPerformed
         // TODO add your handling code here:
-        subsidy = 2;
+        lines.get(subsidy).set(2, "2");
     }//GEN-LAST:event_subsidy_30ActionPerformed
 
     private void subsidy_40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subsidy_40ActionPerformed
         // TODO add your handling code here:
-        subsidy = 3;
+        lines.get(subsidy).set(2, "3");
     }//GEN-LAST:event_subsidy_40ActionPerformed
 
     private void terrain_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_VFActionPerformed
         // TODO add your handling code here:
-        terrain = 0;
+        lines.get(terrain).set(2, "0");
     }//GEN-LAST:event_terrain_VFActionPerformed
 
     private void terrain_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_FActionPerformed
         // TODO add your handling code here:
-        terrain = 1;
+        lines.get(terrain).set(2, "1");
     }//GEN-LAST:event_terrain_FActionPerformed
 
     private void terrain_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_HActionPerformed
         // TODO add your handling code here:
-        terrain = 2;
+        lines.get(terrain).set(2, "2");
     }//GEN-LAST:event_terrain_HActionPerformed
 
     private void terrain_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terrain_MActionPerformed
         // TODO add your handling code here:
-        terrain = 3;
+        lines.get(terrain).set(2, "3");
     }//GEN-LAST:event_terrain_MActionPerformed
 
     private void townCoun_PERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_PERActionPerformed
         // TODO add your handling code here:
-        townCoun = 0;
+        lines.get(townCoun).set(2, "0");
     }//GEN-LAST:event_townCoun_PERActionPerformed
 
     private void townCoun_TOLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_TOLActionPerformed
         // TODO add your handling code here:
-        townCoun = 1;
+        lines.get(townCoun).set(2, "1");
     }//GEN-LAST:event_townCoun_TOLActionPerformed
 
     private void townCoun_HOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCoun_HOSActionPerformed
         // TODO add your handling code here:
-        townCoun = 2;
+        lines.get(townCoun).set(2, "2");
     }//GEN-LAST:event_townCoun_HOSActionPerformed
 
     private void vehicleBr_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NONEActionPerformed
         // TODO add your handling code here:
-        vehicleBr = 0;
+        lines.get(vehicleBr).set(2, "0");
     }//GEN-LAST:event_vehicleBr_NONEActionPerformed
 
     private void vehicleBr_REDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_REDActionPerformed
         // TODO add your handling code here:
-        vehicleBr = 1;
+        lines.get(vehicleBr).set(2, "1");
     }//GEN-LAST:event_vehicleBr_REDActionPerformed
 
     private void vehicleBr_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleBr_NActionPerformed
         // TODO add your handling code here:
-        vehicleBr = 2;
+        lines.get(vehicleBr).set(2, "2");
     }//GEN-LAST:event_vehicleBr_NActionPerformed
 
     private void vehicleCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_LActionPerformed
         // TODO add your handling code here:
-        vehicleCost = 0;
+        lines.get(vehicleCost).set(2, "0");
     }//GEN-LAST:event_vehicleCost_LActionPerformed
 
     private void vehicleCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_MActionPerformed
         // TODO add your handling code here:
-        vehicleCost = 1;
+        lines.get(vehicleCost).set(2, "1");
     }//GEN-LAST:event_vehicleCost_MActionPerformed
 
     private void vehicleCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCost_HActionPerformed
         // TODO add your handling code here:
-        vehicleCost = 2;
+        lines.get(vehicleCost).set(2, "2");
     }//GEN-LAST:event_vehicleCost_HActionPerformed
 
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
+        // TODO add your handling code here:
+        WriteConfig wc = new WriteConfig();
         try {
-            // TODO add your handling code here:
-            writeConfig();
+            boolean success = wc.write(lines);
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1743,219 +1749,141 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
     }
 
-    /**
-     *
-     * @param s
-     * @return returns an integer found in a string
-     */
-    private int readConfigInt(String s) {
-        int indexfound;
-        int found = 0;
-        String[] parts;
-        if (s.equals("economy =")) {
-            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-                String line;
-                while (((line = bf.readLine()) != null) && !line.contains("smooth_economy")) {
-                    if (line.startsWith(s)) {
-                        parts = line.split(" ");
-                        found = Integer.parseInt(parts[2]);
-                    }
-                }
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-                String line;
-                while ((line = bf.readLine()) != null) {
-                    indexfound = line.indexOf(s);
-                    if (indexfound > -1) {
-                        parts = line.split(" ");
-                        found = Integer.parseInt(parts[2]);
-                    }
-                }
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return found;
-    }
-
-    /**
-     *
-     * @param s
-     * @return returns a boolean value read from a string
-     */
-    private boolean readConfigBoo(String s) {
-        int indexfound;
-        boolean found = true;
-        String[] parts;
-        try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-            String line;
-            while ((line = bf.readLine()) != null) {
-                indexfound = line.indexOf(s);
-                if (indexfound > -1) {
-                    parts = line.split(" ");
-                    found = Boolean.parseBoolean(parts[2]);
-                }
-            }
-            bf.close();
-        } catch (IOException ex) {
-            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return found;
-    }
-
-//    private void writeConfig() throws IOException {
-////        ArrayList<ArrayList<String>> data2= new ArrayList<>();
-////        ArrayList<String> line2 = new ArrayList<>();
-////        line2.add("competitor_speed = " + compSpd);
-////        line2.add("construction_cost = " + constCost);
-////        line2.add("diff_level = " + diffLevel);
-////        line2.add("disasters = " + disasters);
-////        line2.add("economy = " + economy);
-////        line2.add("industry_density = " + industDens);
-////        line2.add("initial_interest = " + initInter);
-////        line2.add("line_reverse_mode = " + lineReverse);
-////        line2.add("max_loan = " + maxLoan);
-////        line2.add("max_no_competitors = " + maxComp);
-////        
-////        line2.add("number_towns = " + towns);
-////        line2.add("quantity_sea_lakes = " + seas);
-////        line2.add("subsidy_multiplier = " + subsidy);
-////        line2.add("terrain_type = " + terrain);
-////        line2.add("town_council_tolerance = " + townCoun);
-////        line2.add("vehicle_breakdowns = " + vehicleBr);
-////        line2.add("vehicle_costs = " + vehicleCost);
-////        if (towns_CUSTOM != 0) {
-////            line2.add("custom_town_number = " + towns_CUST);
-////        }
-//        List<List<String>> data = new ArrayList<>();
-//        FileReader fr = new FileReader(openTTDfolder);
-//        Scanner in = new Scanner(fr);
-//        while (in.hasNextLine()) {
-//            String line = in.nextLine();
-//            Scanner lineScanner = new Scanner(line).useDelimiter(" ");
-//            ArrayList<String> array = new ArrayList<>();
-//            while (lineScanner.hasNext()) {
-//                array.add(lineScanner.next());
+//    /**
+//     *
+//     * @param s
+//     * @return returns an integer found in a string
+//     */
+//    private int readConfigInt(String s) {
+//        int indexfound;
+//        int found = 0;
+//        String[] parts;
+//        if (s.equals("economy =")) {
+//            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
+//                String line;
+//                while (((line = bf.readLine()) != null) && !line.contains("smooth_economy")) {
+//                    if (line.startsWith(s)) {
+//                        parts = line.split(" ");
+//                        found = Integer.parseInt(parts[2]);
+//                    }
+//                }
+//                bf.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
 //            }
-//            data.add(array);
+//        } else {
+//            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
+//                String line;
+//                while ((line = bf.readLine()) != null) {
+//                    indexfound = line.indexOf(s);
+//                    if (indexfound > -1) {
+//                        parts = line.split(" ");
+//                        found = Integer.parseInt(parts[2]);
+//                    }
+//                }
+//                bf.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 //        }
-//        fr.close();
-//        int lineNumber = 0;
-//        int size = data.size();
-//        int i = 0;
-//
-//        while (size > 0) {
-//            i++;
-//            if (data.get(lineNumber).get(0).equals("competitor_speed")) {
-//                data.get(lineNumber).add(2, compSpd + "");
-//                System.out.println(data.get(lineNumber).get(0) + "");
-//            } else if (data.get(lineNumber).get(0).equals("construction_cost")) {
-//                data.get(lineNumber).add(2, constCost + "");
-//            } else if (data.get(lineNumber).get(0).equals("diff_level")) {
-//                data.get(lineNumber).add(2, diffLevel + "");
-//            } else if (data.get(lineNumber).get(0).equals("disasters")) {
-//                data.get(lineNumber).add(2, disasters + "");
-//            } else if (data.get(lineNumber).get(0).equals("economy")) {
-//                data.get(lineNumber).add(2, economy + "");
-//            } else if (data.get(lineNumber).get(0).equals("industry_density")) {
-//                data.get(lineNumber).add(2, industDens + "");
-//            } else if (data.get(lineNumber).get(0).equals("initial_interest")) {
-//                data.get(lineNumber).add(2, initInter + "");
-//            } else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
-//                data.get(lineNumber).add(2, lineReverse + "");
-//            } else if (data.get(lineNumber).get(0).equals("max_loan")) {
-//                data.get(lineNumber).add(2, maxLoan + "");
-//            } else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
-//                data.get(lineNumber).add(2, maxComp + "");
-//            } else if (data.get(lineNumber).get(0).equals("number_towns")) {
-//                data.get(lineNumber).add(2, towns + "");
-//            } else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
-//                data.get(lineNumber).add(2, seas + "");
-//            } else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
-//                data.get(lineNumber).add(2, subsidy + "");
-//            } else if (data.get(lineNumber).get(0).equals("terrain_type")) {
-//                data.get(lineNumber).add(2, terrain + "");
-//            } else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
-//                data.get(lineNumber).add(2, townCoun + "");
-//            } else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
-//                data.get(lineNumber).add(2, vehicleBr + "");
-//            } else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
-//                data.get(lineNumber).add(2, vehicleCost + "");
-//            } else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
-//                data.get(lineNumber).add(2, towns_CUST + "");
-//            }
-//            lineNumber++;
-//            size--;
-//        }
-//
-//        File temp = new File(openTTDfolder2 + "\\temp.cfg");
-//        BufferedWriter bf = new BufferedWriter(new FileWriter(temp, false));;
-//
-//        int length = data.size();
-//        int index = 1;
-//        bf.write(data.get(0).get(0));
-//        bf.newLine();
-//        int sizeData = data.get(index).size();
-//        while (length > 0) {
-//            int indexI = 0;
-//            if (index < data.size()) {
-//                sizeData = data.get(index).size();
-//            }
-//            while (sizeData > 0) {
-//                bf.write(data.get(index).get(indexI) + " ");
-//                sizeData--;
-//                indexI++;
-//            }
-//            bf.newLine();
-//            index++;
-//            length--;
-//        }
-//        bf.close();
-//        File config = new File(openTTDfolder);
-//        boolean delete = config.delete();
-//        System.out.println("The file was deleted: " + delete);
-//        Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
-//        Path move = Files.move(source, source.resolveSibling(openTTDfolder));
-//        System.out.println("finished");
+//        return found;
 //    }
-    
-    private void fillArray () throws FileNotFoundException {
-        FileReader fr = null;
-        try {
-            fr = new FileReader(openTTDfolder);
-            Scanner in = new Scanner(fr);
-            while (in.hasNextLine()) {
-                String line = in.nextLine();
-                Scanner lineScanner = new Scanner(line).useDelimiter(" ");
-                ArrayList<String> array = new ArrayList<>();
-                while (lineScanner.hasNext()) {
-                    array.add(lineScanner.next());
-                }
-                lines.add(array);
-            }
-        } finally {
-            try {
-                fr.close();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//
+//    /**
+//     *
+//     * @param s
+//     * @return returns a boolean value read from a string
+//     */
+//    private boolean readConfigBoo(String s) {
+//        int indexfound;
+//        boolean found = true;
+//        String[] parts;
+//        try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
+//            String line;
+//            while ((line = bf.readLine()) != null) {
+//                indexfound = line.indexOf(s);
+//                if (indexfound > -1) {
+//                    parts = line.split(" ");
+//                    found = Boolean.parseBoolean(parts[2]);
+//                }
+//            }
+//            bf.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return found;
+//    }
+    private void setDisplay() {
+//        System.out.println(lines.get(0).get(0));
+//        System.out.println("CompSpd: " + seas);
+        //Conmpetitor's speed
+        if (lines.get(compSpd).get(2).equals("0")) {
+            compSpd_VS.setSelected(true);
         }
-    }
-    
-    private int getLineNum (String s) {
+        else if (lines.get(compSpd).get(2).equals("1")) {
+            compSpd_S.setSelected(true);
+        }
+        else if (lines.get(compSpd).get(2).equals("2")) {
+            compSpd_M.setSelected(true);
+        }
+        else if (lines.get(compSpd).get(2).equals("3")) {
+            compSpd_F.setSelected(true);
+        }
+        else if (lines.get(compSpd).get(2).equals("4")) {
+            compSpd_VF.setSelected(true);
+        }
+        
+        //construction cost
+        if(lines.get(constCost).get(2).equals("0")) {
+            constCost_L.setSelected(true);
+        }
+        else if(lines.get(constCost).get(2).equals("1")) {
+            constCost_M.setSelected(true);
+        }
+        else if(lines.get(constCost).get(2).equals("2")) {
+            constCost_H.setSelected(true);
+        }
+        
+        //disasters
+        if(lines.get(disasters).get(2).equals("0")) {
+            disasters_OFF.setSelected(true);
+        }
+        else if(lines.get(disasters).get(2).equals("1")) {
+            disasters_ON.setSelected(true);
+        }
+        
+        //economy
+        if(lines.get(economy).get(2).equals("0")) { // Check which economy is which
+            economy_SM.setSelected(true);
+        }
+        else if(lines.get(economy).get(2).equals("1")) {
+            economy_VAR.setSelected(true);
+        }
+        
+        //industtry_density
+        if(lines.get(industDens).get(2).equals("0")) {
+            industDens_NONE.setSelected(true);
+        }
+        else if(lines.get(industDens).get(2).equals("1")) {
+            industDens_MIN.setSelected(true);
+        }
+        else if(lines.get(industDens).get(2).equals("2")) {
+            industDens_VL.setSelected(true);
+        }
+        else if(lines.get(industDens).get(2).equals("1")) {
+            industDens_MIN.setSelected(true);
+        }
+    }   
+        
+
+    private int getLineNum(String s) {
         int line = 0;
         int length = lines.size();
-        while(length < 0) {
-            String curLine = lines.get(0).get(0);
+        while (length > 0 && length > line) {
+            String curLine = lines.get(line).get(0);
             if (curLine.equals(s)) {
                 return line;
-            }
-            else{
+            } else {
                 line++;
                 length--;
             }
