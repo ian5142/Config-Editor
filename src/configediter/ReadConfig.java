@@ -20,8 +20,11 @@ package configediter;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -104,5 +107,29 @@ public class ReadConfig {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         return found;
+    }
+    
+    public ArrayList<ArrayList<String>> fillArray(ArrayList<ArrayList<String>> lines) throws FileNotFoundException {
+        FileReader fr = null;
+        try {
+            fr = new FileReader(openTTDfolder);
+            Scanner in = new Scanner(fr);
+            while (in.hasNextLine()) {
+                String line = in.nextLine();
+                Scanner lineScanner = new Scanner(line).useDelimiter(" ");
+                ArrayList<String> array = new ArrayList<>();
+                while (lineScanner.hasNext()) {
+                    array.add(lineScanner.next());
+                }
+                lines.add(array);
+            }
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return lines;
     }
 }
