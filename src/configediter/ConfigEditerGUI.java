@@ -22,6 +22,7 @@ import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,7 +42,9 @@ import javax.swing.filechooser.FileSystemView;
  * @author Ian Van Schaick
  */
 public class ConfigEditerGUI extends javax.swing.JFrame {
-
+    
+    ArrayList<ArrayList<String>> lines;
+    
     //Variables for Difficulty tab, left side
     private int compSpd;
     private int constCost;
@@ -77,29 +80,54 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
         //start reading the config File
         getMyDocuments();
+        
+        lines = new ArrayList<ArrayList<String>>();
+        
+        compSpd = getLineNum("competitor_speed");
+        constCost = getLineNum("construction_cost");
+        diffLevel = getLineNum("diff_level");
+        disasters = getLineNum("disasters");
+        economy = getLineNum("economy =");
+        industDens = getLineNum("industry_density");
+        initInter = getLineNum("initial_interest");
+        lineReverse = getLineNum("line_reverse_mode");
+        maxLoan = getLineNum("max_loan");
+        maxComp = getLineNum("max_no_competitors");
+        industries = getLineNum("number_industries");
 
-        compSpd = readConfigInt("competitor_speed");
-        constCost = readConfigInt("construction_cost");
-        diffLevel = readConfigInt("diff_level");
-        disasters = readConfigInt("disasters");
-        economy = readConfigInt("economy =");
-        industDens = readConfigInt("industry_density");
-        initInter = readConfigInt("initial_interest");
-        lineReverse = readConfigInt("line_reverse_mode");
-        maxLoan = readConfigInt("max_loan");
-        maxComp = readConfigInt("max_no_competitors");
-        industries = readConfigInt("number_industries");
-
-        towns = readConfigInt("number_towns");
+        towns = getLineNum("number_towns");
         if (towns == 4) {
-            towns_CUSTOM = readConfigInt("custom_town_number");
+            towns_CUSTOM = getLineNum("custom_town_number");
         }
-        seas = readConfigInt("quantity_sea_lakes");
-        subsidy = readConfigInt("subsidy_multiplier");
-        terrain = readConfigInt("terrain_type");
-        townCoun = readConfigInt("town_council_tolerance");
-        vehicleBr = readConfigInt("vehicle_breakdowns");
-        vehicleCost = readConfigInt("vehicle_costs");
+        seas = getLineNum("quantity_sea_lakes");
+        subsidy = getLineNum("subsidy_multiplier");
+        terrain = getLineNum("terrain_type");
+        townCoun = getLineNum("town_council_tolerance");
+        vehicleBr = getLineNum("vehicle_breakdowns");
+        vehicleCost = getLineNum("vehicle_costs");
+        
+//        compSpd = readConfigInt("competitor_speed");
+//        constCost = readConfigInt("construction_cost");
+//        diffLevel = readConfigInt("diff_level");
+//        disasters = readConfigInt("disasters");
+//        economy = readConfigInt("economy =");
+//        industDens = readConfigInt("industry_density");
+//        initInter = readConfigInt("initial_interest");
+//        lineReverse = readConfigInt("line_reverse_mode");
+//        maxLoan = readConfigInt("max_loan");
+//        maxComp = readConfigInt("max_no_competitors");
+//        industries = readConfigInt("number_industries");
+//
+//        towns = readConfigInt("number_towns");
+//        if (towns == 4) {
+//            towns_CUSTOM = readConfigInt("custom_town_number");
+//        }
+//        seas = readConfigInt("quantity_sea_lakes");
+//        subsidy = readConfigInt("subsidy_multiplier");
+//        terrain = readConfigInt("terrain_type");
+//        townCoun = readConfigInt("town_council_tolerance");
+//        vehicleBr = readConfigInt("vehicle_breakdowns");
+//        vehicleCost = readConfigInt("vehicle_costs");
 
         initComponents();
         // ButtonGroups for Difficulty tab, left side
@@ -1299,52 +1327,52 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void compSpd_VSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VSActionPerformed
         // TODO add your handling code here:
-        compSpd = 0;
+        lines.get(compSpd).set(2, "0");
     }//GEN-LAST:event_compSpd_VSActionPerformed
 
     private void compSpd_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_SActionPerformed
         // TODO add your handling code here:
-        compSpd = 1;
+        lines.get(compSpd).set(2, "1");
     }//GEN-LAST:event_compSpd_SActionPerformed
 
     private void compSpd_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_MActionPerformed
         // TODO add your handling code here:
-        compSpd = 2;
+        lines.get(compSpd).set(2, "2");
     }//GEN-LAST:event_compSpd_MActionPerformed
 
     private void compSpd_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_FActionPerformed
         // TODO add your handling code here:
-        compSpd = 3;
+        lines.get(compSpd).set(2, "3");
     }//GEN-LAST:event_compSpd_FActionPerformed
 
     private void compSpd_VFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSpd_VFActionPerformed
         // TODO add your handling code here:
-        compSpd = 4;
+        lines.get(compSpd).set(2, "4");
     }//GEN-LAST:event_compSpd_VFActionPerformed
 
     private void constCost_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_LActionPerformed
         // TODO add your handling code here:
-        constCost = 0;
+        lines.get(constCost).set(2, "0");
     }//GEN-LAST:event_constCost_LActionPerformed
 
     private void constCost_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_MActionPerformed
         // TODO add your handling code here:
-        constCost = 1;
+        lines.get(constCost).set(2, "1");
     }//GEN-LAST:event_constCost_MActionPerformed
 
     private void constCost_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constCost_HActionPerformed
         // TODO add your handling code here:
-        constCost = 2;
+        lines.get(constCost).set(2, "2");
     }//GEN-LAST:event_constCost_HActionPerformed
 
     private void disasters_ONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_ONActionPerformed
         // TODO add your handling code here:
-        disasters = 1;
+        lines.get(disasters).set(2, "1");
     }//GEN-LAST:event_disasters_ONActionPerformed
 
     private void disasters_OFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_OFFActionPerformed
         // TODO add your handling code here:
-        disasters = 0;
+        lines.get(disasters).set(2, "0");
     }//GEN-LAST:event_disasters_OFFActionPerformed
 
     private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
@@ -1780,119 +1808,158 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         return found;
     }
 
-    private void writeConfig() throws IOException {
-//        ArrayList<ArrayList<String>> data2= new ArrayList<>();
-//        ArrayList<String> line2 = new ArrayList<>();
-//        line2.add("competitor_speed = " + compSpd);
-//        line2.add("construction_cost = " + constCost);
-//        line2.add("diff_level = " + diffLevel);
-//        line2.add("disasters = " + disasters);
-//        line2.add("economy = " + economy);
-//        line2.add("industry_density = " + industDens);
-//        line2.add("initial_interest = " + initInter);
-//        line2.add("line_reverse_mode = " + lineReverse);
-//        line2.add("max_loan = " + maxLoan);
-//        line2.add("max_no_competitors = " + maxComp);
-//        
-//        line2.add("number_towns = " + towns);
-//        line2.add("quantity_sea_lakes = " + seas);
-//        line2.add("subsidy_multiplier = " + subsidy);
-//        line2.add("terrain_type = " + terrain);
-//        line2.add("town_council_tolerance = " + townCoun);
-//        line2.add("vehicle_breakdowns = " + vehicleBr);
-//        line2.add("vehicle_costs = " + vehicleCost);
-//        if (towns_CUSTOM != 0) {
-//            line2.add("custom_town_number = " + towns_CUST);
+//    private void writeConfig() throws IOException {
+////        ArrayList<ArrayList<String>> data2= new ArrayList<>();
+////        ArrayList<String> line2 = new ArrayList<>();
+////        line2.add("competitor_speed = " + compSpd);
+////        line2.add("construction_cost = " + constCost);
+////        line2.add("diff_level = " + diffLevel);
+////        line2.add("disasters = " + disasters);
+////        line2.add("economy = " + economy);
+////        line2.add("industry_density = " + industDens);
+////        line2.add("initial_interest = " + initInter);
+////        line2.add("line_reverse_mode = " + lineReverse);
+////        line2.add("max_loan = " + maxLoan);
+////        line2.add("max_no_competitors = " + maxComp);
+////        
+////        line2.add("number_towns = " + towns);
+////        line2.add("quantity_sea_lakes = " + seas);
+////        line2.add("subsidy_multiplier = " + subsidy);
+////        line2.add("terrain_type = " + terrain);
+////        line2.add("town_council_tolerance = " + townCoun);
+////        line2.add("vehicle_breakdowns = " + vehicleBr);
+////        line2.add("vehicle_costs = " + vehicleCost);
+////        if (towns_CUSTOM != 0) {
+////            line2.add("custom_town_number = " + towns_CUST);
+////        }
+//        List<List<String>> data = new ArrayList<>();
+//        FileReader fr = new FileReader(openTTDfolder);
+//        Scanner in = new Scanner(fr);
+//        while (in.hasNextLine()) {
+//            String line = in.nextLine();
+//            Scanner lineScanner = new Scanner(line).useDelimiter(" ");
+//            ArrayList<String> array = new ArrayList<>();
+//            while (lineScanner.hasNext()) {
+//                array.add(lineScanner.next());
+//            }
+//            data.add(array);
 //        }
-        List<List<String>> data = new ArrayList<>();
-        FileReader fr = new FileReader(openTTDfolder);
-        Scanner in = new Scanner(fr);
-        while (in.hasNextLine()) {
-            String line = in.nextLine();
-            Scanner lineScanner = new Scanner(line).useDelimiter(" ");
-            ArrayList<String> array = new ArrayList<>();
-            while (lineScanner.hasNext()) {
-                array.add(lineScanner.next());
+//        fr.close();
+//        int lineNumber = 0;
+//        int size = data.size();
+//        int i = 0;
+//
+//        while (size > 0) {
+//            i++;
+//            if (data.get(lineNumber).get(0).equals("competitor_speed")) {
+//                data.get(lineNumber).add(2, compSpd + "");
+//                System.out.println(data.get(lineNumber).get(0) + "");
+//            } else if (data.get(lineNumber).get(0).equals("construction_cost")) {
+//                data.get(lineNumber).add(2, constCost + "");
+//            } else if (data.get(lineNumber).get(0).equals("diff_level")) {
+//                data.get(lineNumber).add(2, diffLevel + "");
+//            } else if (data.get(lineNumber).get(0).equals("disasters")) {
+//                data.get(lineNumber).add(2, disasters + "");
+//            } else if (data.get(lineNumber).get(0).equals("economy")) {
+//                data.get(lineNumber).add(2, economy + "");
+//            } else if (data.get(lineNumber).get(0).equals("industry_density")) {
+//                data.get(lineNumber).add(2, industDens + "");
+//            } else if (data.get(lineNumber).get(0).equals("initial_interest")) {
+//                data.get(lineNumber).add(2, initInter + "");
+//            } else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
+//                data.get(lineNumber).add(2, lineReverse + "");
+//            } else if (data.get(lineNumber).get(0).equals("max_loan")) {
+//                data.get(lineNumber).add(2, maxLoan + "");
+//            } else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
+//                data.get(lineNumber).add(2, maxComp + "");
+//            } else if (data.get(lineNumber).get(0).equals("number_towns")) {
+//                data.get(lineNumber).add(2, towns + "");
+//            } else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
+//                data.get(lineNumber).add(2, seas + "");
+//            } else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
+//                data.get(lineNumber).add(2, subsidy + "");
+//            } else if (data.get(lineNumber).get(0).equals("terrain_type")) {
+//                data.get(lineNumber).add(2, terrain + "");
+//            } else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
+//                data.get(lineNumber).add(2, townCoun + "");
+//            } else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
+//                data.get(lineNumber).add(2, vehicleBr + "");
+//            } else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
+//                data.get(lineNumber).add(2, vehicleCost + "");
+//            } else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
+//                data.get(lineNumber).add(2, towns_CUST + "");
+//            }
+//            lineNumber++;
+//            size--;
+//        }
+//
+//        File temp = new File(openTTDfolder2 + "\\temp.cfg");
+//        BufferedWriter bf = new BufferedWriter(new FileWriter(temp, false));;
+//
+//        int length = data.size();
+//        int index = 1;
+//        bf.write(data.get(0).get(0));
+//        bf.newLine();
+//        int sizeData = data.get(index).size();
+//        while (length > 0) {
+//            int indexI = 0;
+//            if (index < data.size()) {
+//                sizeData = data.get(index).size();
+//            }
+//            while (sizeData > 0) {
+//                bf.write(data.get(index).get(indexI) + " ");
+//                sizeData--;
+//                indexI++;
+//            }
+//            bf.newLine();
+//            index++;
+//            length--;
+//        }
+//        bf.close();
+//        File config = new File(openTTDfolder);
+//        boolean delete = config.delete();
+//        System.out.println("The file was deleted: " + delete);
+//        Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
+//        Path move = Files.move(source, source.resolveSibling(openTTDfolder));
+//        System.out.println("finished");
+//    }
+    
+    private void fillArray () throws FileNotFoundException {
+        FileReader fr = null;
+        try {
+            fr = new FileReader(openTTDfolder);
+            Scanner in = new Scanner(fr);
+            while (in.hasNextLine()) {
+                String line = in.nextLine();
+                Scanner lineScanner = new Scanner(line).useDelimiter(" ");
+                ArrayList<String> array = new ArrayList<>();
+                while (lineScanner.hasNext()) {
+                    array.add(lineScanner.next());
+                }
+                lines.add(array);
             }
-            data.add(array);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        fr.close();
-        int lineNumber = 0;
-        int size = data.size();
-        int i = 0;
-
-        while (size > 0) {
-            i++;
-            if (data.get(lineNumber).get(0).equals("competitor_speed")) {
-                data.get(lineNumber).add(2, compSpd + "");
-                System.out.println(data.get(lineNumber).get(0) + "");
-            } else if (data.get(lineNumber).get(0).equals("construction_cost")) {
-                data.get(lineNumber).add(2, constCost + "");
-            } else if (data.get(lineNumber).get(0).equals("diff_level")) {
-                data.get(lineNumber).add(2, diffLevel + "");
-            } else if (data.get(lineNumber).get(0).equals("disasters")) {
-                data.get(lineNumber).add(2, disasters + "");
-            } else if (data.get(lineNumber).get(0).equals("economy")) {
-                data.get(lineNumber).add(2, economy + "");
-            } else if (data.get(lineNumber).get(0).equals("industry_density")) {
-                data.get(lineNumber).add(2, industDens + "");
-            } else if (data.get(lineNumber).get(0).equals("initial_interest")) {
-                data.get(lineNumber).add(2, initInter + "");
-            } else if (data.get(lineNumber).get(0).equals("line_reverse_mode")) {
-                data.get(lineNumber).add(2, lineReverse + "");
-            } else if (data.get(lineNumber).get(0).equals("max_loan")) {
-                data.get(lineNumber).add(2, maxLoan + "");
-            } else if (data.get(lineNumber).get(0).equals("max_no_competitors")) {
-                data.get(lineNumber).add(2, maxComp + "");
-            } else if (data.get(lineNumber).get(0).equals("number_towns")) {
-                data.get(lineNumber).add(2, towns + "");
-            } else if (data.get(lineNumber).get(0).equals("quantity_sea_lakes")) {
-                data.get(lineNumber).add(2, seas + "");
-            } else if (data.get(lineNumber).get(0).equals("subsidy_multiplier")) {
-                data.get(lineNumber).add(2, subsidy + "");
-            } else if (data.get(lineNumber).get(0).equals("terrain_type")) {
-                data.get(lineNumber).add(2, terrain + "");
-            } else if (data.get(lineNumber).get(0).equals("town_council_tolerance")) {
-                data.get(lineNumber).add(2, townCoun + "");
-            } else if (data.get(lineNumber).get(0).equals("vehicle_breakdowns")) {
-                data.get(lineNumber).add(2, vehicleBr + "");
-            } else if (data.get(lineNumber).get(0).equals("vehicle_costs")) {
-                data.get(lineNumber).add(2, vehicleCost + "");
-            } else if (data.get(lineNumber).get(0).equals("custom_town_number")) {
-                data.get(lineNumber).add(2, towns_CUST + "");
+    }
+    
+    private int getLineNum (String s) {
+        int line = 0;
+        int length = lines.size();
+        while(length < 0) {
+            String curLine = lines.get(0).get(0);
+            if (curLine.equals(s)) {
+                return line;
             }
-            lineNumber++;
-            size--;
+            else{
+                line++;
+                length--;
+            }
         }
-
-        File temp = new File(openTTDfolder2 + "\\temp.cfg");
-        BufferedWriter bf = new BufferedWriter(new FileWriter(temp, false));;
-
-        int length = data.size();
-        int index = 1;
-        bf.write(data.get(0).get(0));
-        bf.newLine();
-        int sizeData = data.get(index).size();
-        while (length > 0) {
-            int indexI = 0;
-            if (index < data.size()) {
-                sizeData = data.get(index).size();
-            }
-            while (sizeData > 0) {
-                bf.write(data.get(index).get(indexI) + " ");
-                sizeData--;
-                indexI++;
-            }
-            bf.newLine();
-            index++;
-            length--;
-        }
-        bf.close();
-        File config = new File(openTTDfolder);
-        boolean delete = config.delete();
-        System.out.println("The file was deleted: " + delete);
-        Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
-        Path move = Files.move(source, source.resolveSibling(openTTDfolder));
-        System.out.println("finished");
+        return line;
     }
 }
