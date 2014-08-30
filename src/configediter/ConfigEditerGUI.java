@@ -1870,9 +1870,37 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         else if(lines.get(industDens).get(2).equals("2")) {
             industDens_VL.setSelected(true);
         }
-        else if(lines.get(industDens).get(2).equals("1")) {
-            industDens_MIN.setSelected(true);
+        else if(lines.get(industDens).get(2).equals("3")) {
+            industDens_L.setSelected(true);
         }
+        else if(lines.get(industDens).get(2).equals("4")) {
+            industDens_N.setSelected(true);
+        }
+        else if(lines.get(industDens).get(2).equals("5")) {
+            industDens_H.setSelected(true);
+        }
+        
+        //initial_interest
+        if(lines.get(initInter).get(2).equals("2")) {
+            initInter_2.setSelected(true);
+        }
+        else if(lines.get(initInter).get(2).equals("3")) {
+            initInter_3.setSelected(true);
+        }
+        else if(lines.get(initInter).get(2).equals("4")) {
+            initInter_4.setSelected(true);
+        }
+        
+        //line_reverse_mode
+        if(lines.get(lineReverse).get(2).equals("0")) {
+            lineReverse_FALSE.setSelected(true);
+        }
+        else if(lines.get(lineReverse).get(2).equals("1")) {
+            lineReverse_TRUE.setSelected(true);
+        }
+        
+        //max_loan
+        
     }   
         
 
