@@ -1900,9 +1900,106 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         
         //max_loan
+        maxLoan_TEXT.setText(lines.get(maxLoan).get(2));
         
-    }   
+        //max_no_competitors
+        maxComp_TEXT.setText(lines.get(maxComp).get(2));
         
+        //number_towns
+        if(lines.get(towns).get(2).equals("0")) {
+            towns_VL.setSelected(true);
+        }
+        else if(lines.get(towns).get(2).equals("1")) {
+            towns_L.setSelected(true);
+        }
+        else if(lines.get(towns).get(2).equals("2")) {
+            towns_N.setSelected(true);
+        }
+        else if(lines.get(towns).get(2).equals("3")) {
+            towns_H.setSelected(true);
+        }
+        else if(lines.get(towns).get(2).equals("4")) {
+            towns_CUST.setSelected(true);
+        }
+        
+        //quantity_sea_lakes
+        if(lines.get(seas).get(2).equals("0")) {
+            seas_VL.setSelected(true);
+        }
+        else if(lines.get(seas).get(2).equals("1")) {
+            seas_L.setSelected(true);
+        }
+        else if(lines.get(seas).get(2).equals("2")) {
+            seas_M.setSelected(true);
+        }
+        else if(lines.get(seas).get(2).equals("3")) {
+            seas_H.setSelected(true);
+        }
+        else if(lines.get(seas).get(2).equals("4")) {
+            seas_CUST.setSelected(true);
+        }
+        
+        //subsidy_multiplier
+        if(lines.get(subsidy).get(2).equals("0")) {
+            subsidy_15.setSelected(true);
+        }
+        else if(lines.get(subsidy).get(2).equals("1")) {
+            subsidy_20.setSelected(true);
+        }
+        else if(lines.get(subsidy).get(2).equals("2")) {
+            subsidy_30.setSelected(true);
+        }
+        else if(lines.get(subsidy).get(2).equals("3")) {
+            subsidy_40.setSelected(true);
+        }
+        
+        //terrain_type
+        if(lines.get(terrain).get(2).equals("0")) {
+            terrain_VF.setSelected(true);
+        }
+        else if(lines.get(terrain).get(2).equals("1")) {
+            terrain_F.setSelected(true);
+        }
+        else if(lines.get(terrain).get(2).equals("2")) {
+            terrain_H.setSelected(true);
+        }
+        else if(lines.get(terrain).get(2).equals("3")) {
+            terrain_M.setSelected(true);
+        }
+        
+        //town_council_tolerance
+        if(lines.get(townCoun).get(2).equals("0")) {
+            townCoun_PER.setSelected(true);
+        }
+        else if(lines.get(townCoun).get(2).equals("1")) {
+            townCoun_TOL.setSelected(true);
+        }
+        else if(lines.get(townCoun).get(2).equals("2")) {
+            townCoun_HOS.setSelected(true);
+        }
+        
+        //vehicle_breakdowns
+        if(lines.get(vehicleBr).get(2).equals("0")) {
+            vehicleBr_NONE.setSelected(true);
+        }
+        else if(lines.get(vehicleBr).get(2).equals("1")) {
+            vehicleBr_RED.setSelected(true);
+        }
+        else if(lines.get(vehicleBr).get(2).equals("2")) {
+            vehicleBr_N.setSelected(true);
+        }
+        
+        //vehicle_breakdowns
+        if(lines.get(vehicleCost).get(2).equals("0")) {
+            vehicleCost_L.setSelected(true);
+        }
+        else if(lines.get(vehicleCost).get(2).equals("1")) {
+            vehicleCost_M.setSelected(true);
+        }
+        else if(lines.get(vehicleCost).get(2).equals("2")) {
+            vehicleCost_H.setSelected(true);
+        }
+    }
 
     private int getLineNum(String s) {
         int line = 0;
