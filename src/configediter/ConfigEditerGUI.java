@@ -229,7 +229,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleBrGroup = new javax.swing.ButtonGroup();
         vehicleCostGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
             compSpd_VS = new javax.swing.JRadioButton("0",true);
@@ -553,6 +552,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         seas_TEXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         save_Button = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -560,19 +560,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 formWindowClosed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Misc", jPanel1);
 
         compSpd_VS.setText("very slow");
         compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
@@ -1314,6 +1301,19 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 653, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Misc", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1323,8 +1323,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         pack();
@@ -1749,73 +1749,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
     }
 
-//    /**
-//     *
-//     * @param s
-//     * @return returns an integer found in a string
-//     */
-//    private int readConfigInt(String s) {
-//        int indexfound;
-//        int found = 0;
-//        String[] parts;
-//        if (s.equals("economy =")) {
-//            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-//                String line;
-//                while (((line = bf.readLine()) != null) && !line.contains("smooth_economy")) {
-//                    if (line.startsWith(s)) {
-//                        parts = line.split(" ");
-//                        found = Integer.parseInt(parts[2]);
-//                    }
-//                }
-//                bf.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        } else {
-//            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-//                String line;
-//                while ((line = bf.readLine()) != null) {
-//                    indexfound = line.indexOf(s);
-//                    if (indexfound > -1) {
-//                        parts = line.split(" ");
-//                        found = Integer.parseInt(parts[2]);
-//                    }
-//                }
-//                bf.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        return found;
-//    }
-//
-//    /**
-//     *
-//     * @param s
-//     * @return returns a boolean value read from a string
-//     */
-//    private boolean readConfigBoo(String s) {
-//        int indexfound;
-//        boolean found = true;
-//        String[] parts;
-//        try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-//            String line;
-//            while ((line = bf.readLine()) != null) {
-//                indexfound = line.indexOf(s);
-//                if (indexfound > -1) {
-//                    parts = line.split(" ");
-//                    found = Boolean.parseBoolean(parts[2]);
-//                }
-//            }
-//            bf.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return found;
-//    }
     private void setDisplay() {
-//        System.out.println(lines.get(0).get(0));
-//        System.out.println("CompSpd: " + seas);
         //Conmpetitor's speed
         if (lines.get(compSpd).get(2).equals("0")) {
             compSpd_VS.setSelected(true);
