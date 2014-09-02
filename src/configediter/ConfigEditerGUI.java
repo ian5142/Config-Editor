@@ -18,19 +18,9 @@
 package configediter;
 
 import java.awt.Font;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -44,29 +34,29 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     ArrayList<ArrayList<String>> lines;
     //Variables for Difficulty tab, left side
-    private int compSpd;
-    private int constCost;
-    private int diffLevel;
-    private int disasters; //false and true
-    private int economy; //false and true
-    private int industDens;
-    private int initInter;
-    private int lineReverse; //false and true
-    private int maxLoan;
-    private int maxComp;
-    private int industries;
+    private final int compSpd;
+    private final int constCost;
+    private final int diffLevel;
+    private final int disasters; //false and true
+    private final int economy; //false and true
+    private final int industDens;
+    private final int initInter;
+    private final int lineReverse; //false and true
+    private final int maxLoan;
+    private final int maxComp;
+    private final int industries;
     private int index2;
     private int index3;
     //Variables for Difficulty tab, right side
-    private int towns;
+    private final int towns;
     private int towns_CUSTOM;
-    private int seas;
+    private final int seas;
     private int seas_CUSTOM;
-    private int subsidy;
-    private int terrain;
-    private int townCoun;
-    private int vehicleBr;
-    private int vehicleCost;
+    private final int subsidy;
+    private final int terrain;
+    private final int townCoun;
+    private final int vehicleBr;
+    private final int vehicleCost;
 
     private String openTTDfolder;
     private String openTTDfolder2;
@@ -1753,184 +1743,148 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         //Conmpetitor's speed
         if (lines.get(compSpd).get(2).equals("0")) {
             compSpd_VS.setSelected(true);
-        }
-        else if (lines.get(compSpd).get(2).equals("1")) {
+        } else if (lines.get(compSpd).get(2).equals("1")) {
             compSpd_S.setSelected(true);
-        }
-        else if (lines.get(compSpd).get(2).equals("2")) {
+        } else if (lines.get(compSpd).get(2).equals("2")) {
             compSpd_M.setSelected(true);
-        }
-        else if (lines.get(compSpd).get(2).equals("3")) {
+        } else if (lines.get(compSpd).get(2).equals("3")) {
             compSpd_F.setSelected(true);
-        }
-        else if (lines.get(compSpd).get(2).equals("4")) {
+        } else if (lines.get(compSpd).get(2).equals("4")) {
             compSpd_VF.setSelected(true);
         }
-        
+
         //construction cost
-        if(lines.get(constCost).get(2).equals("0")) {
+        if (lines.get(constCost).get(2).equals("0")) {
             constCost_L.setSelected(true);
-        }
-        else if(lines.get(constCost).get(2).equals("1")) {
+        } else if (lines.get(constCost).get(2).equals("1")) {
             constCost_M.setSelected(true);
-        }
-        else if(lines.get(constCost).get(2).equals("2")) {
+        } else if (lines.get(constCost).get(2).equals("2")) {
             constCost_H.setSelected(true);
         }
-        
+
         //disasters
-        if(lines.get(disasters).get(2).equals("0")) {
+        if (lines.get(disasters).get(2).equals("0")) {
             disasters_OFF.setSelected(true);
-        }
-        else if(lines.get(disasters).get(2).equals("1")) {
+        } else if (lines.get(disasters).get(2).equals("1")) {
             disasters_ON.setSelected(true);
         }
-        
+
         //economy
-        if(lines.get(economy).get(2).equals("0")) { // Check which economy is which
+        if (lines.get(economy).get(2).equals("0")) { // Check which economy is which
             economy_SM.setSelected(true);
-        }
-        else if(lines.get(economy).get(2).equals("1")) {
+        } else if (lines.get(economy).get(2).equals("1")) {
             economy_VAR.setSelected(true);
         }
-        
+
         //industtry_density
-        if(lines.get(industDens).get(2).equals("0")) {
+        if (lines.get(industDens).get(2).equals("0")) {
             industDens_NONE.setSelected(true);
-        }
-        else if(lines.get(industDens).get(2).equals("1")) {
+        } else if (lines.get(industDens).get(2).equals("1")) {
             industDens_MIN.setSelected(true);
-        }
-        else if(lines.get(industDens).get(2).equals("2")) {
+        } else if (lines.get(industDens).get(2).equals("2")) {
             industDens_VL.setSelected(true);
-        }
-        else if(lines.get(industDens).get(2).equals("3")) {
+        } else if (lines.get(industDens).get(2).equals("3")) {
             industDens_L.setSelected(true);
-        }
-        else if(lines.get(industDens).get(2).equals("4")) {
+        } else if (lines.get(industDens).get(2).equals("4")) {
             industDens_N.setSelected(true);
-        }
-        else if(lines.get(industDens).get(2).equals("5")) {
+        } else if (lines.get(industDens).get(2).equals("5")) {
             industDens_H.setSelected(true);
         }
-        
+
         //initial_interest
-        if(lines.get(initInter).get(2).equals("2")) {
+        if (lines.get(initInter).get(2).equals("2")) {
             initInter_2.setSelected(true);
-        }
-        else if(lines.get(initInter).get(2).equals("3")) {
+        } else if (lines.get(initInter).get(2).equals("3")) {
             initInter_3.setSelected(true);
-        }
-        else if(lines.get(initInter).get(2).equals("4")) {
+        } else if (lines.get(initInter).get(2).equals("4")) {
             initInter_4.setSelected(true);
         }
-        
+
         //line_reverse_mode
-        if(lines.get(lineReverse).get(2).equals("0")) {
+        if (lines.get(lineReverse).get(2).equals("0")) {
             lineReverse_FALSE.setSelected(true);
-        }
-        else if(lines.get(lineReverse).get(2).equals("1")) {
+        } else if (lines.get(lineReverse).get(2).equals("1")) {
             lineReverse_TRUE.setSelected(true);
         }
-        
+
         //max_loan
         maxLoan_TEXT.setText(lines.get(maxLoan).get(2));
-        
+
         //max_no_competitors
         maxComp_TEXT.setText(lines.get(maxComp).get(2));
-        
+
         //number_towns
-        if(lines.get(towns).get(2).equals("0")) {
+        if (lines.get(towns).get(2).equals("0")) {
             towns_VL.setSelected(true);
-        }
-        else if(lines.get(towns).get(2).equals("1")) {
+        } else if (lines.get(towns).get(2).equals("1")) {
             towns_L.setSelected(true);
-        }
-        else if(lines.get(towns).get(2).equals("2")) {
+        } else if (lines.get(towns).get(2).equals("2")) {
             towns_N.setSelected(true);
-        }
-        else if(lines.get(towns).get(2).equals("3")) {
+        } else if (lines.get(towns).get(2).equals("3")) {
             towns_H.setSelected(true);
-        }
-        else if(lines.get(towns).get(2).equals("4")) {
+        } else if (lines.get(towns).get(2).equals("4")) {
             towns_CUST.setSelected(true);
         }
-        
+
         //quantity_sea_lakes
-        if(lines.get(seas).get(2).equals("0")) {
+        if (lines.get(seas).get(2).equals("0")) {
             seas_VL.setSelected(true);
-        }
-        else if(lines.get(seas).get(2).equals("1")) {
+        } else if (lines.get(seas).get(2).equals("1")) {
             seas_L.setSelected(true);
-        }
-        else if(lines.get(seas).get(2).equals("2")) {
+        } else if (lines.get(seas).get(2).equals("2")) {
             seas_M.setSelected(true);
-        }
-        else if(lines.get(seas).get(2).equals("3")) {
+        } else if (lines.get(seas).get(2).equals("3")) {
             seas_H.setSelected(true);
-        }
-        else if(lines.get(seas).get(2).equals("4")) {
+        } else if (lines.get(seas).get(2).equals("4")) {
             seas_CUST.setSelected(true);
         }
-        
+
         //subsidy_multiplier
-        if(lines.get(subsidy).get(2).equals("0")) {
+        if (lines.get(subsidy).get(2).equals("0")) {
             subsidy_15.setSelected(true);
-        }
-        else if(lines.get(subsidy).get(2).equals("1")) {
+        } else if (lines.get(subsidy).get(2).equals("1")) {
             subsidy_20.setSelected(true);
-        }
-        else if(lines.get(subsidy).get(2).equals("2")) {
+        } else if (lines.get(subsidy).get(2).equals("2")) {
             subsidy_30.setSelected(true);
-        }
-        else if(lines.get(subsidy).get(2).equals("3")) {
+        } else if (lines.get(subsidy).get(2).equals("3")) {
             subsidy_40.setSelected(true);
         }
-        
+
         //terrain_type
-        if(lines.get(terrain).get(2).equals("0")) {
+        if (lines.get(terrain).get(2).equals("0")) {
             terrain_VF.setSelected(true);
-        }
-        else if(lines.get(terrain).get(2).equals("1")) {
+        } else if (lines.get(terrain).get(2).equals("1")) {
             terrain_F.setSelected(true);
-        }
-        else if(lines.get(terrain).get(2).equals("2")) {
+        } else if (lines.get(terrain).get(2).equals("2")) {
             terrain_H.setSelected(true);
-        }
-        else if(lines.get(terrain).get(2).equals("3")) {
+        } else if (lines.get(terrain).get(2).equals("3")) {
             terrain_M.setSelected(true);
         }
-        
+
         //town_council_tolerance
-        if(lines.get(townCoun).get(2).equals("0")) {
+        if (lines.get(townCoun).get(2).equals("0")) {
             townCoun_PER.setSelected(true);
-        }
-        else if(lines.get(townCoun).get(2).equals("1")) {
+        } else if (lines.get(townCoun).get(2).equals("1")) {
             townCoun_TOL.setSelected(true);
-        }
-        else if(lines.get(townCoun).get(2).equals("2")) {
+        } else if (lines.get(townCoun).get(2).equals("2")) {
             townCoun_HOS.setSelected(true);
         }
-        
+
         //vehicle_breakdowns
-        if(lines.get(vehicleBr).get(2).equals("0")) {
+        if (lines.get(vehicleBr).get(2).equals("0")) {
             vehicleBr_NONE.setSelected(true);
-        }
-        else if(lines.get(vehicleBr).get(2).equals("1")) {
+        } else if (lines.get(vehicleBr).get(2).equals("1")) {
             vehicleBr_RED.setSelected(true);
-        }
-        else if(lines.get(vehicleBr).get(2).equals("2")) {
+        } else if (lines.get(vehicleBr).get(2).equals("2")) {
             vehicleBr_N.setSelected(true);
         }
-        
+
         //vehicle_breakdowns
-        if(lines.get(vehicleCost).get(2).equals("0")) {
+        if (lines.get(vehicleCost).get(2).equals("0")) {
             vehicleCost_L.setSelected(true);
-        }
-        else if(lines.get(vehicleCost).get(2).equals("1")) {
+        } else if (lines.get(vehicleCost).get(2).equals("1")) {
             vehicleCost_M.setSelected(true);
-        }
-        else if(lines.get(vehicleCost).get(2).equals("2")) {
+        } else if (lines.get(vehicleCost).get(2).equals("2")) {
             vehicleCost_H.setSelected(true);
         }
     }
