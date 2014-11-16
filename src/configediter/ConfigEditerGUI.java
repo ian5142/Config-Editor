@@ -60,6 +60,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private String openTTDfolder;
     private String openTTDfolder2;
+    
+    //Variables for Vehicles tab, left side
+    private final int elecRail;
+    private final int dynaEng;
+    private final int vehiLife;
+    private final int freightTrains;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -100,6 +106,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCoun = getLineNum("town_council_tolerance");
         vehicleBr = getLineNum("vehicle_breakdowns");
         vehicleCost = getLineNum("vehicle_costs");
+        
+        elecRail = getLineNum("disable_elrails");
+        dynaEng = getLineNum("dynamic_engines");
+        vehiLife = getLineNum("extend_vehicle_life");
+        freightTrains = getLineNum("freight_trains");
 
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -189,7 +200,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_L);
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
-
+        
+        elecRailGroup.add(elecRail_T);
+        elecRailGroup.add(elecRail_F);
+        
+        dynaEngGroup.add(dynaEng_T);
+        dynaEngGroup.add(dynaEng_F);
+        
         setDisplay();
     }
 
@@ -218,6 +235,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCounGroup = new javax.swing.ButtonGroup();
         vehicleBrGroup = new javax.swing.ButtonGroup();
         vehicleCostGroup = new javax.swing.ButtonGroup();
+        elecRailGroup = new javax.swing.ButtonGroup();
+        dynaEngGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
@@ -543,6 +562,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         save_Button = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        elecRail_T = new javax.swing.JRadioButton();
+        elecRail_F = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        dynaEng_T = new javax.swing.JRadioButton();
+        dynaEng_F = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        vehicleLife_TEXT = new javax.swing.JTextField();
+        freightTrains_TEXT = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1217,7 +1248,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(vehicleCost_M)
                             .addComponent(vehicleCost_H)
                             .addComponent(save_Button))
-                        .addGap(0, 12, Short.MAX_VALUE))
+                        .addGap(0, 29, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compSpd_VS)
@@ -1291,18 +1322,112 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
 
+        jLabel2.setText("Disable elec rails");
+
+        elecRail_T.setText("True");
+        elecRail_T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elecRail_TActionPerformed(evt);
+            }
+        });
+
+        elecRail_F.setText("False");
+        elecRail_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elecRail_FActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Dynamic engines");
+
+        dynaEng_T.setText("True");
+        dynaEng_T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dynaEng_TActionPerformed(evt);
+            }
+        });
+
+        dynaEng_F.setText("False");
+        dynaEng_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dynaEng_FActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Extend vehicle life");
+
+        jLabel5.setText("default: 0 (0 - 100)");
+
+        vehicleLife_TEXT.setText(vehiLife + "");
+
+        freightTrains_TEXT.setText(freightTrains + "");
+
+        jLabel6.setText("default: 1 (1 - 255)");
+
+        jLabel7.setText("Freight trains");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(elecRail_T)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(elecRail_F))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dynaEng_T)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dynaEng_F))
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(elecRail_T)
+                    .addComponent(elecRail_F))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(dynaEng_T)
+                    .addComponent(dynaEng_F))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Misc", jPanel1);
+        jTabbedPane1.addTab("Vehicle", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1314,7 +1439,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1606,9 +1731,26 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-//        writeConfig();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
+
+    private void elecRail_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elecRail_TActionPerformed
+        // TODO add your handling code here:
+        lines.get(elecRail).set(2, "true");
+    }//GEN-LAST:event_elecRail_TActionPerformed
+
+    private void elecRail_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elecRail_FActionPerformed
+        // TODO add your handling code here:
+        lines.get(elecRail).set(2, "false");
+    }//GEN-LAST:event_elecRail_FActionPerformed
+
+    private void dynaEng_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynaEng_TActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dynaEng_TActionPerformed
+
+    private void dynaEng_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynaEng_FActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dynaEng_FActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1653,9 +1795,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup disastersGroup;
     private javax.swing.JRadioButton disasters_OFF;
     private javax.swing.JRadioButton disasters_ON;
+    private javax.swing.ButtonGroup dynaEngGroup;
+    private javax.swing.JRadioButton dynaEng_F;
+    private javax.swing.JRadioButton dynaEng_T;
     private javax.swing.ButtonGroup economyGroup;
     private javax.swing.JRadioButton economy_SM;
     private javax.swing.JRadioButton economy_VAR;
+    private javax.swing.ButtonGroup elecRailGroup;
+    private javax.swing.JRadioButton elecRail_F;
+    private javax.swing.JRadioButton elecRail_T;
+    private javax.swing.JTextField freightTrains_TEXT;
     private javax.swing.ButtonGroup industDensGroup;
     private javax.swing.JRadioButton industDens_H;
     private javax.swing.JRadioButton industDens_L;
@@ -1677,6 +1826,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1684,6 +1834,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1730,6 +1885,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton vehicleCost_H;
     private javax.swing.JRadioButton vehicleCost_L;
     private javax.swing.JRadioButton vehicleCost_M;
+    private javax.swing.JTextField vehicleLife_TEXT;
     // End of variables declaration//GEN-END:variables
 
     private void getMyDocuments() {
@@ -1887,6 +2043,30 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } else if (lines.get(vehicleCost).get(2).equals("2")) {
             vehicleCost_H.setSelected(true);
         }
+        
+        //Start of Vehicles tab
+        
+        //diable_elrails
+        if(lines.get(elecRail).get(2).equals("true")){
+            elecRail_T.setSelected(true);
+        }
+        else {
+            elecRail_F.setSelected(true);
+        }
+        
+        //dynamic_engines
+        if(lines.get(dynaEng).get(2).equals("true")) {
+            dynaEng_T.setSelected(true);
+        }
+        else {
+            dynaEng_F.setSelected(true);
+        }
+        
+        //extend_vehicle_life
+        vehicleLife_TEXT.setText(lines.get(vehiLife).get(2));
+        
+        //freight_trains
+        freightTrains_TEXT.setText(lines.get(freightTrains).get(2));
     }
 
     private int getLineNum(String s) {
