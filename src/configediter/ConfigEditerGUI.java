@@ -83,38 +83,39 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        compSpd = getLineNum("competitor_speed");
-        constCost = getLineNum("construction_cost");
-        diffLevel = getLineNum("diff_level");
-        disasters = getLineNum("disasters");
+        //All below are between difficulty and game creation
         
         int diff = getLineNum("[difficulty]");
         int game = getLineNum("[game_creation]");
-        
+        compSpd = getLineNum("competitor_speed", diff, game);
+        constCost = getLineNum("construction_cost", diff, game);
+        diffLevel = getLineNum("diff_level", diff, game);
+        disasters = getLineNum("disasters", diff, game);
         economy = getLineNum("economy", diff, game);
-        industDens = getLineNum("industry_density");
-        initInter = getLineNum("initial_interest");
-        lineReverse = getLineNum("line_reverse_mode");
-        maxLoan = getLineNum("max_loan");
-        maxComp = getLineNum("max_no_competitors");
-        industries = getLineNum("number_industries");
-
-        towns = getLineNum("number_towns");
+        industDens = getLineNum("industry_density", diff, game);
+        initInter = getLineNum("initial_interest", diff, game);
+        lineReverse = getLineNum("line_reverse_mode", diff, game);
+        maxLoan = getLineNum("max_loan", diff, game);
+        maxComp = getLineNum("max_no_competitors", diff, game);
+        industries = getLineNum("number_industries", diff, game);
+        towns = getLineNum("number_towns", diff, game);
         if (towns == 4) {
-            towns_CUSTOM = getLineNum("custom_town_number");
+            towns_CUSTOM = getLineNum("custom_town_number", diff, game);
         }
-        seas = getLineNum("quantity_sea_lakes");
-        subsidy = getLineNum("subsidy_multiplier");
-        terrain = getLineNum("terrain_type");
-        townCoun = getLineNum("town_council_tolerance");
-        vehicleBr = getLineNum("vehicle_breakdowns");
-        vehicleCost = getLineNum("vehicle_costs");
+        seas = getLineNum("quantity_sea_lakes", diff, game);
+        subsidy = getLineNum("subsidy_multiplier", diff, game);
+        terrain = getLineNum("terrain_type", diff, game);
+        townCoun = getLineNum("town_council_tolerance", diff, game);
+        vehicleBr = getLineNum("vehicle_breakdowns", diff, game);
+        vehicleCost = getLineNum("vehicle_costs", diff, game);
         
-        elecRail = getLineNum("disable_elrails");
-        dynaEng = getLineNum("dynamic_engines");
-        vehiLife = getLineNum("extend_vehicle_life");
-        freightTrains = getLineNum("freight_trains");
+        //All below are between vehicle and constuction
+        int vehicle = getLineNum("[vehicle]");
+        int constr = getLineNum("[construction]");
+        elecRail = getLineNum("disable_elrails", vehicle, constr);
+        dynaEng = getLineNum("dynamic_engines", vehicle, constr);
+        vehiLife = getLineNum("extend_vehicle_life", vehicle, constr);
+        freightTrains = getLineNum("freight_trains", vehicle, constr);
 
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -579,6 +580,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         saveButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1388,40 +1390,46 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new Font("Arial", Font.PLAIN, 16));
+        jLabel8.setText("<html><B><u>click enter after changing <br> values in text box</B></html>");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(elecRail_T)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(elecRail_F))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(elecRail_T)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(elecRail_F))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dynaEng_T)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dynaEng_F))
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel4))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dynaEng_T)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dynaEng_F))
-                    .addComponent(jLabel6)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(430, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
                 .addComponent(saveButton2)
                 .addContainerGap())
         );
@@ -1450,9 +1458,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addComponent(saveButton2)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(saveButton2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
@@ -1891,6 +1904,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -2139,11 +2153,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private int getLineNum(String s, int i, int j) {
         int line = i;
         int length = j;
-        System.out.println("line: " + line);
-        System.out.println("length: " + length);
         while (length > 0 && length > line) {
             String curLine = lines.get(line).get(0);
-            System.out.println(curLine);
             if (curLine.equals(s)) {
                 return line;
             } else {
