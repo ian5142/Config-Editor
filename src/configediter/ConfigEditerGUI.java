@@ -88,7 +88,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         constCost = getLineNum("construction_cost");
         diffLevel = getLineNum("diff_level");
         disasters = getLineNum("disasters");
-        economy = getLineNum("economy =");
+        
+        int diff = getLineNum("[difficulty]");
+        int game = getLineNum("[game_creation]");
+        
+        economy = getLineNum("economy", diff, game);
         industDens = getLineNum("industry_density");
         initInter = getLineNum("initial_interest");
         lineReverse = getLineNum("line_reverse_mode");
@@ -1975,9 +1979,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
 
         //economy
-        if (lines.get(economy).get(2).equals("0")) { // Check which economy is which
+        if (lines.get(economy).get(2).equals("false")) { // Check which economy is which
             economy_SM.setSelected(true);
-        } else if (lines.get(economy).get(2).equals("1")) {
+        } else if (lines.get(economy).get(2).equals("true")) {
             economy_VAR.setSelected(true);
         }
 
@@ -2128,6 +2132,22 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             } else {
                 line++;
                 length--;
+            }
+        }
+        return line;
+    }
+    private int getLineNum(String s, int i, int j) {
+        int line = i;
+        int length = j;
+        System.out.println("line: " + line);
+        System.out.println("length: " + length);
+        while (length > 0 && length > line) {
+            String curLine = lines.get(line).get(0);
+            System.out.println(curLine);
+            if (curLine.equals(s)) {
+                return line;
+            } else {
+                line++;
             }
         }
         return line;
