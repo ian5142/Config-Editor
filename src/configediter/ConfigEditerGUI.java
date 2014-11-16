@@ -574,6 +574,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         freightTrains_TEXT = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        saveButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1359,12 +1360,29 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel5.setText("default: 0 (0 - 100)");
 
         vehicleLife_TEXT.setText(vehiLife + "");
+        vehicleLife_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleLife_TEXTActionPerformed(evt);
+            }
+        });
 
         freightTrains_TEXT.setText(freightTrains + "");
+        freightTrains_TEXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                freightTrains_TEXTActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("default: 1 (1 - 255)");
 
         jLabel7.setText("Freight trains");
+
+        saveButton2.setText("Save");
+        saveButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1398,6 +1416,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(430, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(saveButton2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1424,7 +1446,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addComponent(saveButton2)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
@@ -1746,11 +1770,35 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void dynaEng_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynaEng_TActionPerformed
         // TODO add your handling code here:
+        lines.get(dynaEng).set(2, "true");
     }//GEN-LAST:event_dynaEng_TActionPerformed
 
     private void dynaEng_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynaEng_FActionPerformed
         // TODO add your handling code here:
+        lines.get(dynaEng).set(2, "false");
     }//GEN-LAST:event_dynaEng_FActionPerformed
+
+    private void saveButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton2ActionPerformed
+        // TODO add your handling code here:
+        WriteConfig wc = new WriteConfig();
+        try {
+            boolean success = wc.write(lines);
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_saveButton2ActionPerformed
+
+    private void vehicleLife_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleLife_TEXTActionPerformed
+        // TODO add your handling code here:
+        String str4 = vehicleLife_TEXT.getText();
+        lines.get(vehiLife).set(2, str4);
+    }//GEN-LAST:event_vehicleLife_TEXTActionPerformed
+
+    private void freightTrains_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freightTrains_TEXTActionPerformed
+        // TODO add your handling code here:
+        String str4 = freightTrains_TEXT.getText();
+        lines.get(freightTrains).set(2, str4);
+    }//GEN-LAST:event_freightTrains_TEXTActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1848,6 +1896,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton lineReverse_TRUE;
     private javax.swing.JTextField maxComp_TEXT;
     private javax.swing.JTextField maxLoan_TEXT;
+    private javax.swing.JButton saveButton2;
     private javax.swing.JButton save_Button;
     private javax.swing.ButtonGroup seasGroup;
     private javax.swing.JRadioButton seas_CUST;

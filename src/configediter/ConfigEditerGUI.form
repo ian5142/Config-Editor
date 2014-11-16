@@ -1320,6 +1320,11 @@
                       </Group>
                       <EmptySpace pref="430" max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="saveButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -1351,7 +1356,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="229" max="32767" attributes="0"/>
+                      <EmptySpace pref="191" max="32767" attributes="0"/>
+                      <Component id="saveButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1415,6 +1422,9 @@
                   <Connection code="vehiLife + &quot;&quot;" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleLife_TEXTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="freightTrains_TEXT">
               <Properties>
@@ -1422,6 +1432,9 @@
                   <Connection code="freightTrains + &quot;&quot;" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freightTrains_TEXTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -1432,6 +1445,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Freight trains"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="saveButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButton2ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
