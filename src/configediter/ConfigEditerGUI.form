@@ -1590,7 +1590,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleLife_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="vehicleLife_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="freightTrains_TEXT">
@@ -1600,7 +1600,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freightTrains_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="freightTrains_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -1663,7 +1663,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxAir_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="maxAir_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="maxRoad_TEXT">
@@ -1673,7 +1673,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxRoad_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="maxRoad_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="maxShips_TEXT">
@@ -1683,7 +1683,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxShips_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="maxShips_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="maxTrainLen_TEXT">
@@ -1693,7 +1693,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxTrainLen_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="maxTrainLen_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="maxTrains_TEXT">
@@ -1703,7 +1703,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxTrains_TEXTActionPerformed"/>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="maxTrains_TEXTCaretUpdate"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel30">
@@ -1765,16 +1765,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="None"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planeCrash_NONEActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="planeCrash_RED">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reduced"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planeCrash_REDActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="planeCrash_NORM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Normal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planeCrash_NORMActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="planeSpd_TEXT">
               <Properties>
@@ -1782,16 +1791,25 @@
                   <Connection code="planeSpd + &quot;&quot;" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="planeSpd_TEXTCaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="roadSide_L">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Left"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roadSide_LActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="roadSide_R">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Right"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roadSide_RActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

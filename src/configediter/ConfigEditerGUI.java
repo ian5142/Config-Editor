@@ -1438,16 +1438,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel5.setText("default: 0 (0 - 100)");
 
         vehicleLife_TEXT.setText(vehiLife + "");
-        vehicleLife_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleLife_TEXTActionPerformed(evt);
+        vehicleLife_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                vehicleLife_TEXTCaretUpdate(evt);
             }
         });
 
         freightTrains_TEXT.setText(freightTrains + "");
-        freightTrains_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                freightTrains_TEXTActionPerformed(evt);
+        freightTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                freightTrains_TEXTCaretUpdate(evt);
             }
         });
 
@@ -1476,37 +1476,37 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel29.setText("Max trains");
 
         maxAir_TEXT.setText(maxAir + "");
-        maxAir_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxAir_TEXTActionPerformed(evt);
+        maxAir_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                maxAir_TEXTCaretUpdate(evt);
             }
         });
 
         maxRoad_TEXT.setText(maxRoad + "");
-        maxRoad_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxRoad_TEXTActionPerformed(evt);
+        maxRoad_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                maxRoad_TEXTCaretUpdate(evt);
             }
         });
 
         maxShips_TEXT.setText(maxShips + "");
-        maxShips_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxShips_TEXTActionPerformed(evt);
+        maxShips_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                maxShips_TEXTCaretUpdate(evt);
             }
         });
 
         maxTrainLen_TEXT.setText(maxTrainLen + "");
-        maxTrainLen_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxTrainLen_TEXTActionPerformed(evt);
+        maxTrainLen_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                maxTrainLen_TEXTCaretUpdate(evt);
             }
         });
 
         maxTrains_TEXT.setText(maxTrains + "");
-        maxTrains_TEXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxTrains_TEXTActionPerformed(evt);
+        maxTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                maxTrains_TEXTCaretUpdate(evt);
             }
         });
 
@@ -1537,16 +1537,46 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel36.setText("Road side");
 
         planeCrash_NONE.setText("None");
+        planeCrash_NONE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planeCrash_NONEActionPerformed(evt);
+            }
+        });
 
         planeCrash_RED.setText("Reduced");
+        planeCrash_RED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planeCrash_REDActionPerformed(evt);
+            }
+        });
 
         planeCrash_NORM.setText("Normal");
+        planeCrash_NORM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planeCrash_NORMActionPerformed(evt);
+            }
+        });
 
         planeSpd_TEXT.setText(planeSpd + "");
+        planeSpd_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                planeSpd_TEXTCaretUpdate(evt);
+            }
+        });
 
         roadSide_L.setText("Left");
+        roadSide_L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roadSide_LActionPerformed(evt);
+            }
+        });
 
         roadSide_R.setText("Right");
+        roadSide_R.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roadSide_RActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2064,48 +2094,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveButton2ActionPerformed
 
-    private void vehicleLife_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleLife_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = vehicleLife_TEXT.getText();
-        lines.get(vehiLife).set(2, str4);
-    }//GEN-LAST:event_vehicleLife_TEXTActionPerformed
-
-    private void freightTrains_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freightTrains_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = freightTrains_TEXT.getText();
-        lines.get(freightTrains).set(2, str4);
-    }//GEN-LAST:event_freightTrains_TEXTActionPerformed
-
-    private void maxAir_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxAir_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = maxAir_TEXT.getText();
-        lines.get(maxAir).set(2, str4);
-    }//GEN-LAST:event_maxAir_TEXTActionPerformed
-
-    private void maxRoad_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxRoad_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = maxRoad_TEXT.getText();
-        lines.get(maxRoad).set(2, str4);
-    }//GEN-LAST:event_maxRoad_TEXTActionPerformed
-
-    private void maxShips_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxShips_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = maxShips_TEXT.getText();
-        lines.get(maxShips).set(2, str4);
-    }//GEN-LAST:event_maxShips_TEXTActionPerformed
-
-    private void maxTrains_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxTrains_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = maxTrains_TEXT.getText();
-        lines.get(maxTrains).set(2, str4);
-    }//GEN-LAST:event_maxTrains_TEXTActionPerformed
-
-    private void maxTrainLen_TEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxTrainLen_TEXTActionPerformed
-        // TODO add your handling code here:
-        String str4 = maxTrainLen_TEXT.getText();
-        lines.get(maxTrainLen).set(2, str4);
-    }//GEN-LAST:event_maxTrainLen_TEXTActionPerformed
-
     private void nExpire_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nExpire_TActionPerformed
         // TODO add your handling code here:
         lines.get(nExpire).set(2, "true");
@@ -2115,6 +2103,72 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         lines.get(nExpire).set(2, "false");
     }//GEN-LAST:event_nExpire_FActionPerformed
+
+    private void planeCrash_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planeCrash_NONEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planeCrash_NONEActionPerformed
+
+    private void planeCrash_REDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planeCrash_REDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planeCrash_REDActionPerformed
+
+    private void planeCrash_NORMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planeCrash_NORMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planeCrash_NORMActionPerformed
+
+    private void planeSpd_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_planeSpd_TEXTCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planeSpd_TEXTCaretUpdate
+
+    private void roadSide_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadSide_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roadSide_LActionPerformed
+
+    private void roadSide_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadSide_RActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roadSide_RActionPerformed
+
+    private void vehicleLife_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_vehicleLife_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = vehicleLife_TEXT.getText();
+        lines.get(vehiLife).set(2, str4);
+    }//GEN-LAST:event_vehicleLife_TEXTCaretUpdate
+
+    private void maxAir_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxAir_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = maxAir_TEXT.getText();
+        lines.get(maxAir).set(2, str4);
+    }//GEN-LAST:event_maxAir_TEXTCaretUpdate
+
+    private void maxRoad_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxRoad_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = maxRoad_TEXT.getText();
+        lines.get(maxRoad).set(2, str4);
+    }//GEN-LAST:event_maxRoad_TEXTCaretUpdate
+
+    private void maxShips_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxShips_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = maxShips_TEXT.getText();
+        lines.get(maxShips).set(2, str4);
+    }//GEN-LAST:event_maxShips_TEXTCaretUpdate
+
+    private void maxTrains_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxTrains_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = maxTrains_TEXT.getText();
+        lines.get(maxTrains).set(2, str4);
+    }//GEN-LAST:event_maxTrains_TEXTCaretUpdate
+
+    private void maxTrainLen_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxTrainLen_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = maxTrainLen_TEXT.getText();
+        lines.get(maxTrainLen).set(2, str4);
+    }//GEN-LAST:event_maxTrainLen_TEXTCaretUpdate
+
+    private void freightTrains_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_freightTrains_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = freightTrains_TEXT.getText();
+        lines.get(freightTrains).set(2, str4);
+    }//GEN-LAST:event_freightTrains_TEXTCaretUpdate
     /**
      * @param args the command line arguments
      */
