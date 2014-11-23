@@ -38,6 +38,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="dynaEngGroup">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="nExpireGroup">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -391,7 +393,7 @@
                                   <Component id="vehicleCost_H" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="save_Button" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1367,6 +1369,14 @@
                                       </Group>
                                   </Group>
                                   <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nExpire_F" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nExpire_T" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -1432,12 +1442,24 @@
                           <Component id="maxTrainLen_TEXT" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nExpire_T" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="saveButton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="7" max="32767" attributes="0"/>
+                              <Component id="saveButton2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="nExpire_F" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1627,6 +1649,27 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Max advisable vehicles per type is 500"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel33">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Never expire vehiciles"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="nExpire_T">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="True"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nExpire_TActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="nExpire_F">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="False"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nExpire_FActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

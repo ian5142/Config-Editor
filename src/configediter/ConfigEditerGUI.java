@@ -71,6 +71,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int maxShips;
     private final int maxTrainLen;
     private final int maxTrains;
+    private final int nExpire;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -126,6 +127,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         maxShips = getLineNum("max_ships", vehicle, constr);
         maxTrainLen = getLineNum("max_train_length", vehicle, constr);
         maxTrains = getLineNum("max_trains", vehicle, constr);
+        nExpire = getLineNum("never_expire_vehicles", vehicle, constr);
         
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -216,11 +218,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
         
+        //Button Groups for Vehicle tab, right side
         elecRailGroup.add(elecRail_T);
         elecRailGroup.add(elecRail_F);
         
         dynaEngGroup.add(dynaEng_T);
         dynaEngGroup.add(dynaEng_F);
+        
+        nExpireGroup.add(nExpire_T);
+        nExpireGroup.add(nExpire_F);
         
         setDisplay();
     }
@@ -252,6 +258,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup = new javax.swing.ButtonGroup();
         elecRailGroup = new javax.swing.ButtonGroup();
         dynaEngGroup = new javax.swing.ButtonGroup();
+        nExpireGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
@@ -604,6 +611,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         maxTrains_TEXT = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        nExpire_T = new javax.swing.JRadioButton();
+        nExpire_F = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1282,7 +1292,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(vehicleCost_M)
                             .addComponent(vehicleCost_H)
                             .addComponent(save_Button))
-                        .addGap(0, 88, Short.MAX_VALUE))
+                        .addGap(0, 89, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compSpd_VS)
@@ -1470,6 +1480,22 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jLabel32.setText("Max advisable vehicles per type is 500");
 
+        jLabel33.setText("Never expire vehiciles");
+
+        nExpire_T.setText("True");
+        nExpire_T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nExpire_TActionPerformed(evt);
+            }
+        });
+
+        nExpire_F.setText("False");
+        nExpire_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nExpire_FActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1532,7 +1558,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                                         .addComponent(maxAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                         .addComponent(maxShips_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                         .addComponent(maxTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel32))
+                            .addComponent(jLabel32)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nExpire_F)
+                                    .addComponent(nExpire_T))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1584,11 +1616,20 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(maxTrainLen_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(nExpire_T))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(saveButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nExpire_F)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
@@ -1969,6 +2010,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         String str4 = maxTrainLen_TEXT.getText();
         lines.get(maxTrainLen).set(2, str4);
     }//GEN-LAST:event_maxTrainLen_TEXTActionPerformed
+
+    private void nExpire_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nExpire_TActionPerformed
+        // TODO add your handling code here:
+        lines.get(nExpire).set(2, "true");
+    }//GEN-LAST:event_nExpire_TActionPerformed
+
+    private void nExpire_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nExpire_FActionPerformed
+        // TODO add your handling code here:
+        lines.get(nExpire).set(2, "false");
+    }//GEN-LAST:event_nExpire_FActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -2061,6 +2112,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2080,6 +2132,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField maxShips_TEXT;
     private javax.swing.JTextField maxTrainLen_TEXT;
     private javax.swing.JTextField maxTrains_TEXT;
+    private javax.swing.ButtonGroup nExpireGroup;
+    private javax.swing.JRadioButton nExpire_F;
+    private javax.swing.JRadioButton nExpire_T;
     private javax.swing.JButton saveButton2;
     private javax.swing.JButton save_Button;
     private javax.swing.ButtonGroup seasGroup;
@@ -2316,7 +2371,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         //max_trains
         maxTrains_TEXT.setText(lines.get(maxTrains).get(2));
         
-        
+        if(lines.get(nExpire).get(2).equals("true")) {
+            nExpire_T.setSelected(true);
+        }
+        else {
+            nExpire_F.setSelected(true);
+        }
     }
 
     private int getLineNum(String s) {
