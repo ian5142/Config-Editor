@@ -80,6 +80,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int planeSpd;
     private final int roadSide;
     private final int roadAccel;
+    private final int roadSlope;
+    private boolean roadSlopeSet;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -140,6 +142,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         planeSpd = getLineNum("plane_speed", vehicle, constr);
         roadSide = getLineNum("road_side", vehicle, constr);
         roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
+        roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
+        roadSlopeSet = false;
         
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -664,6 +668,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         roadAccel_ORIG = new javax.swing.JRadioButton();
         roadAccel_REAL = new javax.swing.JRadioButton();
         planeSpdCheck = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        roadSlope_TEXT = new javax.swing.JTextField();
+        roadSlopeCheck = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1642,12 +1650,25 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         planeSpdCheck.setText("");
 
+        jLabel39.setText("Road slope steepness (1-10)");
+
+        jLabel40.setText("default: 7");
+
+        roadSlope_TEXT.setText(planeSpd + "");
+        roadSlope_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                roadSlope_TEXTCaretUpdate(evt);
+            }
+        });
+
+        roadSlopeCheck.setText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -1737,8 +1758,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(roadSide_L)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(roadSide_R)))
-                .addGap(53, 53, 53))
+                        .addComponent(roadSide_R))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel39))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roadSlopeCheck)))
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1824,6 +1853,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel38)
                             .addComponent(roadAccel_ORIG)
                             .addComponent(roadAccel_REAL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(roadSlopeCheck)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveButton2)
@@ -2265,6 +2302,25 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         lines.get(roadAccel).set(2, "1");
     }//GEN-LAST:event_roadAccel_REALActionPerformed
+
+    private void roadSlope_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_roadSlope_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = roadSlope_TEXT.getText();
+        int slope;
+        if (roadSlopeSet) {
+            slope = Integer.valueOf(str4);
+        }
+        else {
+            slope = 8;
+        }
+        if (slope >= 0 && slope <= 10) {
+            lines.get(roadSlope).set(2, str4);
+            roadSlopeCheck.setText("");
+        }
+        else {
+            roadSlopeCheck.setText("<html><B><u>Please Check</B></html>");
+        }
+    }//GEN-LAST:event_roadSlope_TEXTCaretUpdate
     /**
      * @param args the command line arguments
      */
@@ -2363,7 +2419,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2408,6 +2466,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup roadSideGroup;
     private javax.swing.JRadioButton roadSide_L;
     private javax.swing.JRadioButton roadSide_R;
+    private javax.swing.JLabel roadSlopeCheck;
+    private javax.swing.JTextField roadSlope_TEXT;
     private javax.swing.JButton saveButton2;
     private javax.swing.JButton save_Button;
     private javax.swing.ButtonGroup seasGroup;
@@ -2682,6 +2742,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             roadAccel_REAL.setSelected(true);
         }
         
+        //roadveh_slope_steepness
+        roadSlope_TEXT.setText(lines.get(roadSlope).get(2));
+        roadSlopeSet = true;
     }
 
     private int getLineNum(String s) {
