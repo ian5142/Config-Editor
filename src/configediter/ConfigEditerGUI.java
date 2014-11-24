@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileSystemView;
 
@@ -78,6 +79,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int planeCrash;
     private final int planeSpd;
     private final int roadSide;
+    private final int roadAccel;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -137,6 +139,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         planeCrash = getLineNum("plane_crashes", vehicle, constr);
         planeSpd = getLineNum("plane_speed", vehicle, constr);
         roadSide = getLineNum("road_side", vehicle, constr);
+        roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
         
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -245,6 +248,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         roadSideGroup.add(roadSide_L);
         roadSideGroup.add(roadSide_R);
         
+        roadAccelGroup.add(roadAccel_ORIG);
+        roadAccelGroup.add(roadAccel_REAL);
         setDisplay();
     }
 
@@ -278,6 +283,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         nExpireGroup = new javax.swing.ButtonGroup();
         planeCrashGroup = new javax.swing.ButtonGroup();
         roadSideGroup = new javax.swing.ButtonGroup();
+        roadAccelGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
@@ -654,6 +660,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         roadSide_L = new javax.swing.JRadioButton();
         roadSide_R = new javax.swing.JRadioButton();
         jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        roadAccel_ORIG = new javax.swing.JRadioButton();
+        roadAccel_REAL = new javax.swing.JRadioButton();
+        planeSpdCheck = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1614,6 +1624,24 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jLabel37.setText("default: 4");
 
+        jLabel38.setText("Road acceleration model");
+
+        roadAccel_ORIG.setText("Original");
+        roadAccel_ORIG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roadAccel_ORIGActionPerformed(evt);
+            }
+        });
+
+        roadAccel_REAL.setText("Realistic");
+        roadAccel_REAL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roadAccel_REALActionPerformed(evt);
+            }
+        });
+
+        planeSpdCheck.setText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1677,34 +1705,40 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeCrash_NONE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeCrash_RED)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeCrash_NORM))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(roadSide_L)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(roadSide_R)))
-                        .addGap(56, 56, 56))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(saveButton2))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel38)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(roadAccel_ORIG)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(roadAccel_REAL)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton2)
-                        .addContainerGap())))
+                        .addComponent(planeCrash_NONE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(planeCrash_RED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(planeCrash_NORM))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(planeSpdCheck))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roadSide_L)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roadSide_R)))
+                .addGap(53, 53, 53))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1736,10 +1770,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(maxAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel11)
+                                .addComponent(maxAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
@@ -1765,7 +1800,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel33)
                             .addComponent(nExpire_T)
                             .addComponent(nExpire_F))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 12, Short.MAX_VALUE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1773,25 +1808,26 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(planeCrash_NONE)
                             .addComponent(planeCrash_RED)
                             .addComponent(planeCrash_NORM))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(planeSpdCheck))
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36)
+                            .addComponent(roadSide_L)
+                            .addComponent(roadSide_R))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel35)
-                                    .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel37)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel36)
-                                    .addComponent(roadSide_L)
-                                    .addComponent(roadSide_R))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(saveButton2)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(roadAccel_ORIG)
+                            .addComponent(roadAccel_REAL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(saveButton2)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(45, 45, 45))
         );
 
@@ -2134,7 +2170,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void planeSpd_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_planeSpd_TEXTCaretUpdate
         // TODO add your handling code here:
         String str4 = planeSpd_TEXT.getText();
-        lines.get(planeSpd).set(2, str4);
+        if (str4.equals("0") || str4.equals("1") || str4.equals("2") || 
+                str4.equals("3") || str4.equals("4")) {
+            lines.get(planeSpd).set(2, str4);
+            planeSpdCheck.setText("");
+        }
+        else {
+            planeSpdCheck.setText("<html><B><u>Please Check</B></html>");
+        }
     }//GEN-LAST:event_planeSpd_TEXTCaretUpdate
 
     private void roadSide_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadSide_LActionPerformed
@@ -2212,6 +2255,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         String str4 = seas_TEXT.getText();
         lines.get(seas_CUSTOM).set(2, str4);
     }//GEN-LAST:event_seas_TEXTCaretUpdate
+
+    private void roadAccel_ORIGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadAccel_ORIGActionPerformed
+        // TODO add your handling code here:
+        lines.get(roadAccel).set(2, "0");
+    }//GEN-LAST:event_roadAccel_ORIGActionPerformed
+
+    private void roadAccel_REALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadAccel_REALActionPerformed
+        // TODO add your handling code here:
+        lines.get(roadAccel).set(2, "1");
+    }//GEN-LAST:event_roadAccel_REALActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -2309,6 +2362,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2346,7 +2400,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton planeCrash_NONE;
     private javax.swing.JRadioButton planeCrash_NORM;
     private javax.swing.JRadioButton planeCrash_RED;
+    private javax.swing.JLabel planeSpdCheck;
     private javax.swing.JTextField planeSpd_TEXT;
+    private javax.swing.ButtonGroup roadAccelGroup;
+    private javax.swing.JRadioButton roadAccel_ORIG;
+    private javax.swing.JRadioButton roadAccel_REAL;
     private javax.swing.ButtonGroup roadSideGroup;
     private javax.swing.JRadioButton roadSide_L;
     private javax.swing.JRadioButton roadSide_R;
@@ -2615,6 +2673,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         else {
             roadSide_R.setSelected(true);
         }
+        
+        //roadveh_acceleration_model
+        if(lines.get(roadAccel).get(2).equals("0")) {
+            roadAccel_ORIG.setSelected(true);
+        }
+        else {
+            roadAccel_REAL.setSelected(true);
+        }
+        
     }
 
     private int getLineNum(String s) {
