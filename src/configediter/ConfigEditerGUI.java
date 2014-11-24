@@ -2307,7 +2307,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = roadSlope_TEXT.getText();
         int slope;
-        if (roadSlopeSet) {
+        if (roadSlopeSet && str4.length() > 0) {
             slope = Integer.valueOf(str4);
         }
         else {
