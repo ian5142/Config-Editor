@@ -21,6 +21,7 @@ import java.awt.Font;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -82,6 +83,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int roadAccel;
     private final int roadSlope;
     private boolean roadSlopeSet;
+    private final int servIntAir;
+    private final int servIntRoad;
+    private final int servIntShips;
+    private final int servIntTrains;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -144,6 +149,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
         roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
         roadSlopeSet = false;
+        servIntAir = getLineNum("servint_aircraft", vehicle, constr);
+        servIntRoad = getLineNum("servint_roadveh", vehicle, constr);
+        servIntShips = getLineNum("servint_ships", vehicle, constr);
+        servIntTrains = getLineNum("servint_trains", vehicle, constr);
         
 //        compSpd = readConfigInt("competitor_speed");
 //        constCost = readConfigInt("construction_cost");
@@ -288,6 +297,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         planeCrashGroup = new javax.swing.ButtonGroup();
         roadSideGroup = new javax.swing.ButtonGroup();
         roadAccelGroup = new javax.swing.ButtonGroup();
+        jLabel41 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         if(compSpd == 0) {
@@ -672,6 +682,25 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         roadSlope_TEXT = new javax.swing.JTextField();
         roadSlopeCheck = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel42 = new javax.swing.JLabel();
+        servIntAir_TEXT = new javax.swing.JTextField(4);
+        jLabel43 = new javax.swing.JLabel();
+        servIntRoad_TEXT = new javax.swing.JTextField(4);
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        servIntShips_TEXT = new javax.swing.JTextField(4);
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        servIntTrains_TEXT = new javax.swing.JTextField(4);
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        servIntAirCheck = new javax.swing.JLabel();
+        servIntRoadCheck = new javax.swing.JLabel();
+        servIntShipsCheck = new javax.swing.JLabel();
+        servIntTrainsCheck = new javax.swing.JLabel();
+
+        jLabel41.setText("jLabel41");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1663,12 +1692,64 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         roadSlopeCheck.setText("");
 
+        jLabel42.setText("Service interval aircraft (0, 5-800), days");
+
+        servIntAir_TEXT.setText(servIntAir + "");
+        servIntAir_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                servIntAir_TEXTCaretUpdate(evt);
+            }
+        });
+
+        jLabel43.setText("default: 150 days");
+
+        servIntRoad_TEXT.setText(servIntRoad + "");
+        servIntRoad_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                servIntRoad_TEXTCaretUpdate(evt);
+            }
+        });
+
+        jLabel44.setText("Service interval road (0, 5-800), days");
+
+        jLabel45.setText("default: 150 days");
+
+        servIntShips_TEXT.setText(servIntShips + "");
+        servIntShips_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                servIntShips_TEXTCaretUpdate(evt);
+            }
+        });
+
+        jLabel46.setText("Service interval ships (0, 5-800), days");
+
+        jLabel47.setText("default: 150 days");
+
+        servIntTrains_TEXT.setText(servIntTrains + "");
+        servIntTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                servIntTrains_TEXTCaretUpdate(evt);
+            }
+        });
+
+        jLabel48.setText("Service interval trains (0, 5-800), days");
+
+        jLabel49.setText("default: 150 days");
+
+        servIntAirCheck.setText("");
+
+        servIntRoadCheck.setText("");
+
+        servIntShipsCheck.setText("");
+
+        servIntTrainsCheck.setText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -1760,14 +1841,49 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(roadSide_R))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel39))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator12)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel40)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(roadSlopeCheck)))
-                .addGap(50, 50, 50))
+                        .addComponent(roadSlopeCheck))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel44)
+                            .addComponent(jLabel45))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servIntRoad_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servIntRoadCheck)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel43)
+                            .addComponent(jLabel42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servIntAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servIntAirCheck)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel47)
+                                .addComponent(jLabel46))
+                            .addComponent(jLabel48))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servIntShips_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servIntTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servIntShipsCheck)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel49)
+                        .addGap(18, 18, 18)
+                        .addComponent(servIntTrainsCheck)))
+                .addGap(114, 114, 114))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1775,97 +1891,137 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(elecRail_T)
-                            .addComponent(elecRail_F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(dynaEng_T)
-                            .addComponent(dynaEng_F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel11)
-                                .addComponent(maxAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(maxRoad_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel27)
-                            .addComponent(maxShips_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(maxTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29))
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(maxTrainLen_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel33)
-                            .addComponent(nExpire_T)
-                            .addComponent(nExpire_F))
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addComponent(jSeparator1)
+                        .addComponent(jSeparator1)
+                        .addGap(45, 45, 45))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel34)
-                            .addComponent(planeCrash_NONE)
-                            .addComponent(planeCrash_RED)
-                            .addComponent(planeCrash_NORM))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel35)
-                            .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(planeSpdCheck))
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel36)
-                            .addComponent(roadSide_L)
-                            .addComponent(roadSide_R))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(roadAccel_ORIG)
-                            .addComponent(roadAccel_REAL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel39)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(roadSlopeCheck)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveButton2)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(elecRail_T)
+                                    .addComponent(elecRail_F))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(dynaEng_T)
+                                    .addComponent(dynaEng_F))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(vehicleLife_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(freightTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel11)
+                                        .addComponent(maxAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(maxRoad_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel27)
+                                    .addComponent(maxShips_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(maxTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel29))
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(maxTrainLen_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel28))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel33)
+                                    .addComponent(nExpire_T)
+                                    .addComponent(nExpire_F)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel34)
+                                    .addComponent(planeCrash_NONE)
+                                    .addComponent(planeCrash_RED)
+                                    .addComponent(planeCrash_NORM))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel35)
+                                    .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(planeSpdCheck))
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel36)
+                                    .addComponent(roadSide_L)
+                                    .addComponent(roadSide_R))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel38)
+                                    .addComponent(roadAccel_ORIG)
+                                    .addComponent(roadAccel_REAL))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(roadSlopeCheck))
+                                    .addComponent(jLabel39))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel40)
+                                .addGap(14, 14, 14)
+                                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel42)
+                                    .addComponent(servIntAir_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel43)
+                                    .addComponent(servIntAirCheck))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel44)
+                                    .addComponent(servIntRoad_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel45)
+                                    .addComponent(servIntRoadCheck))
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel46)
+                                    .addComponent(servIntShips_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel47)
+                                    .addComponent(servIntShipsCheck))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel48)
+                                    .addComponent(servIntTrains_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel49)
+                                    .addComponent(servIntTrainsCheck))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(saveButton2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 8, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
@@ -2307,11 +2463,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = roadSlope_TEXT.getText();
         int slope;
-        if (roadSlopeSet && str4.length() > 0) {
-            slope = Integer.valueOf(str4);
+        Scanner input = new Scanner (str4);
+        if (input.hasNextInt()) { 
+            slope = input.nextInt();
         }
         else {
-            slope = 8;
+            slope = -1;
         }
         if (slope >= 0 && slope <= 10) {
             lines.get(roadSlope).set(2, str4);
@@ -2321,6 +2478,86 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             roadSlopeCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_roadSlope_TEXTCaretUpdate
+
+    private void servIntAir_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_servIntAir_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = servIntAir_TEXT.getText();
+        int servInt;
+        Scanner input = new Scanner (str4);
+        if (input.hasNextInt()) { 
+            servInt = input.nextInt();
+        }
+        else {
+            servInt = -1;
+        }
+        if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
+            lines.get(servIntAir).set(2, str4);
+            servIntAirCheck.setText("");
+        }
+        else {
+            servIntAirCheck.setText("<html><B><u>Please Check</B></html>");
+        }
+    }//GEN-LAST:event_servIntAir_TEXTCaretUpdate
+
+    private void servIntRoad_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_servIntRoad_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = servIntRoad_TEXT.getText();
+        int servInt;
+        Scanner input = new Scanner (str4);
+        if (input.hasNextInt()) { 
+            servInt = input.nextInt();
+        }
+        else {
+            servInt = -1;
+        }
+        if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
+            lines.get(servIntRoad).set(2, str4);
+            servIntRoadCheck.setText("");
+        }
+        else {
+            servIntRoadCheck.setText("<html><B><u>Please Check</B></html>");
+        }
+    }//GEN-LAST:event_servIntRoad_TEXTCaretUpdate
+
+    private void servIntShips_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_servIntShips_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = servIntShips_TEXT.getText();
+        int servInt;
+        Scanner input = new Scanner (str4);
+        if (input.hasNextInt()) { 
+            servInt = input.nextInt();
+        }
+        else {
+            servInt = -1;
+        }
+        if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
+            lines.get(servIntShips).set(2, str4);
+            servIntShipsCheck.setText("");
+        }
+        else {
+            servIntShipsCheck.setText("<html><B><u>Please Check</B></html>");
+        }
+    }//GEN-LAST:event_servIntShips_TEXTCaretUpdate
+
+    private void servIntTrains_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_servIntTrains_TEXTCaretUpdate
+        // TODO add your handling code here:
+        String str4 = servIntTrains_TEXT.getText();
+        int servInt;
+        Scanner input = new Scanner (str4);
+        if (input.hasNextInt()) { 
+            servInt = input.nextInt();
+        }
+        else {
+            servInt = -1;
+        }
+        if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
+            lines.get(servIntTrains).set(2, str4);
+            servIntTrainsCheck.setText("");
+        }
+        else {
+            servIntTrainsCheck.setText("<html><B><u>Please Check</B></html>");
+        }
+    }//GEN-LAST:event_servIntTrains_TEXTCaretUpdate
     /**
      * @param args the command line arguments
      */
@@ -2422,6 +2659,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2432,6 +2678,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -2477,6 +2724,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton seas_M;
     private javax.swing.JTextField seas_TEXT;
     private javax.swing.JRadioButton seas_VL;
+    private javax.swing.JLabel servIntAirCheck;
+    private javax.swing.JTextField servIntAir_TEXT;
+    private javax.swing.JLabel servIntRoadCheck;
+    private javax.swing.JTextField servIntRoad_TEXT;
+    private javax.swing.JLabel servIntShipsCheck;
+    private javax.swing.JTextField servIntShips_TEXT;
+    private javax.swing.JLabel servIntTrainsCheck;
+    private javax.swing.JTextField servIntTrains_TEXT;
     private javax.swing.ButtonGroup subsidyGroup;
     private javax.swing.JRadioButton subsidy_15;
     private javax.swing.JRadioButton subsidy_20;
@@ -2745,6 +3000,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         //roadveh_slope_steepness
         roadSlope_TEXT.setText(lines.get(roadSlope).get(2));
         roadSlopeSet = true;
+        
+        //servint_aircraft
+        servIntAir_TEXT.setText(lines.get(servIntAir).get(2));
+        
+        //servint_roadveh
+        servIntRoad_TEXT.setText(lines.get(servIntRoad).get(2));
+        
+        //servint_ships
+        servIntShips_TEXT.setText(lines.get(servIntShips).get(2));
+        
+        //servint_trains
+        servIntTrains_TEXT.setText(lines.get(servIntTrains).get(2));
     }
 
     private int getLineNum(String s) {
