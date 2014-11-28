@@ -63,9 +63,17 @@ public class WriteConfig {
                 sizeData = lines.get(index).size();
             }
             while (sizeData > 0) {
-                bf.write(lines.get(index).get(indexI) + " ");
-                sizeData--;
-                indexI++;
+                if (sizeData == 1) {
+                    bf.write(lines.get(index).get(indexI) + "");
+                    sizeData--;
+                    indexI++;
+                }
+                else {
+                    bf.write(lines.get(index).get(indexI) + " ");
+                    sizeData--;
+                    indexI++;
+                }
+                
             }
             bf.newLine();
             index++;
