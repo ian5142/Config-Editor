@@ -49,12 +49,24 @@ public class ReadConfig {
             Scanner in = new Scanner(fr);
             while (in.hasNextLine()) {
                 String line = in.nextLine();
-                Scanner lineScanner = new Scanner(line).useDelimiter(" ");
-                ArrayList<String> array = new ArrayList<>();
-                while (lineScanner.hasNext()) {
-                    array.add(lineScanner.next());
+                if (line.length() > 0) {
+                    Scanner lineScanner = new Scanner(line).useDelimiter(" ");
+                    ArrayList<String> array = new ArrayList<>();
+                    while (lineScanner.hasNext()) {
+                        array.add(lineScanner.next());
+                    }
+                    lines.add(array);
                 }
-                lines.add(array);
+                else {
+                    line = "\n";
+                    Scanner lineScanner = new Scanner(line).useDelimiter(" ");
+                    ArrayList<String> array = new ArrayList<>();
+                    while (lineScanner.hasNext()) {
+                        array.add(lineScanner.next());
+                    }
+                    lines.add(array);
+                }
+                
             }
         } finally {
             try {
