@@ -18,8 +18,6 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="lineReverseGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="industriesGroup">
-    </Component>
     <Component class="javax.swing.ButtonGroup" name="townsGroup">
     </Component>
     <Component class="javax.swing.ButtonGroup" name="seasGroup">

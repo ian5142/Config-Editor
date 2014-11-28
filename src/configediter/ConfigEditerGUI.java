@@ -47,7 +47,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int lineReverse; //false and true
     private final int maxLoan;
     private final int maxComp;
-    private final int industries;
     private int index2;
     private int index3;
     //Variables for Difficulty tab, right side
@@ -120,7 +119,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         lineReverse = getLineNum("line_reverse_mode", diff, game);
         maxLoan = getLineNum("max_loan", diff, game);
         maxComp = getLineNum("max_no_competitors", diff, game);
-        industries = getLineNum("number_industries", diff, game);
         towns = getLineNum("number_towns", diff, game);
         if (towns == 4) {
             towns_CUSTOM = getLineNum("custom_town_number", diff, game);
@@ -158,28 +156,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         servIntPer = getLineNum("servint_ispercent", vehicle, constr);
         trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
         
-//        compSpd = readConfigInt("competitor_speed");
-//        constCost = readConfigInt("construction_cost");
-//        diffLevel = readConfigInt("diff_level");
-//        disasters = readConfigInt("disasters");
-//        economy = readConfigInt("economy =");
-//        industDens = readConfigInt("industry_density");
-//        initInter = readConfigInt("initial_interest");
-//        lineReverse = readConfigInt("line_reverse_mode");
-//        maxLoan = readConfigInt("max_loan");
-//        maxComp = readConfigInt("max_no_competitors");
-//        industries = readConfigInt("number_industries");
-//
-//        towns = readConfigInt("number_towns");
-//        if (towns == 4) {
-//            towns_CUSTOM = readConfigInt("custom_town_number");
-//        }
-//        seas = readConfigInt("quantity_sea_lakes");
-//        subsidy = readConfigInt("subsidy_multiplier");
-//        terrain = readConfigInt("terrain_type");
-//        townCoun = readConfigInt("town_council_tolerance");
-//        vehicleBr = readConfigInt("vehicle_breakdowns");
-//        vehicleCost = readConfigInt("vehicle_costs");
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -294,7 +270,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         industDensGroup = new javax.swing.ButtonGroup();
         initInterGroup = new javax.swing.ButtonGroup();
         lineReverseGroup = new javax.swing.ButtonGroup();
-        industriesGroup = new javax.swing.ButtonGroup();
         townsGroup = new javax.swing.ButtonGroup();
         seasGroup = new javax.swing.ButtonGroup();
         subsidyGroup = new javax.swing.ButtonGroup();
@@ -2711,7 +2686,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton industDens_N;
     private javax.swing.JRadioButton industDens_NONE;
     private javax.swing.JRadioButton industDens_VL;
-    private javax.swing.ButtonGroup industriesGroup;
     private javax.swing.ButtonGroup initInterGroup;
     private javax.swing.JRadioButton initInter_2;
     private javax.swing.JRadioButton initInter_3;
