@@ -18,8 +18,6 @@
 
 package configediter;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -42,71 +40,6 @@ public class ReadConfig {
         FileSystemView fw = fr.getFileSystemView();
         openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
         openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
-    }
-    
-    /**
-     *
-     * @param s
-     * @return returns an integer found in a string
-     */
-    public int readConfigInt(String s) {
-        int indexfound;
-        int found = 0;
-        String[] parts;
-        if (s.equals("economy =")) {
-            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-                String line;
-                while (((line = bf.readLine()) != null) && !line.contains("smooth_economy")) {
-                    if (line.startsWith(s)) {
-                        parts = line.split(" ");
-                        found = Integer.parseInt(parts[2]);
-                    }
-                }
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-                String line;
-                while ((line = bf.readLine()) != null) {
-                    indexfound = line.indexOf(s);
-                    if (indexfound > -1) {
-                        parts = line.split(" ");
-                        found = Integer.parseInt(parts[2]);
-                    }
-                }
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return found;
-    }
-
-    /**
-     *
-     * @param s
-     * @return returns a boolean value read from a string
-     */
-    public boolean readConfigBoo(String s) {
-        int indexfound;
-        boolean found = true;
-        String[] parts;
-        try (BufferedReader bf = new BufferedReader(new FileReader(new File(openTTDfolder)))) {
-            String line;
-            while ((line = bf.readLine()) != null) {
-                indexfound = line.indexOf(s);
-                if (indexfound > -1) {
-                    parts = line.split(" ");
-                    found = Boolean.parseBoolean(parts[2]);
-                }
-            }
-            bf.close();
-        } catch (IOException ex) {
-            Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return found;
     }
     
     public ArrayList<ArrayList<String>> fillArray(ArrayList<ArrayList<String>> lines) throws FileNotFoundException {
