@@ -2136,12 +2136,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
         // TODO add your handling code here:
-        lines.get(economy).set(2, "0");
+        lines.get(economy).set(2, "false");
     }//GEN-LAST:event_economy_SMActionPerformed
 
     private void economy_VARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_VARActionPerformed
         // TODO add your handling code here:
-        lines.get(economy).set(2, "1");
+        lines.get(economy).set(2, "true");
     }//GEN-LAST:event_economy_VARActionPerformed
 
     private void industDens_NONEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_NONEActionPerformed
@@ -2337,10 +2337,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
         // TODO add your handling code here:
         WriteConfig wc = new WriteConfig();
+        boolean success = false;
         try {
-            boolean success = wc.write(lines);
+            success = wc.write(lines);
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Save: " + success);
+        if (success) {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
         }
     }//GEN-LAST:event_save_ButtonActionPerformed
 
@@ -2367,10 +2372,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void saveButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton2ActionPerformed
         // TODO add your handling code here:
         WriteConfig wc = new WriteConfig();
+        boolean success = false;
         try {
-            boolean success = wc.write(lines);
+            success = wc.write(lines);
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Save2: " + success);
+        if (success) {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
         }
     }//GEN-LAST:event_saveButton2ActionPerformed
 
@@ -2613,10 +2623,14 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
             WriteConfig wc = new WriteConfig();
+            boolean success = false;
             try {
-                boolean success = wc.write(lines);
+                success = wc.write(lines);
             } catch (IOException ex) {
                 Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (success) {
+                JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
             }
         }
     }//GEN-LAST:event_formWindowClosing
