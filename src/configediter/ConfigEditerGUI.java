@@ -2337,9 +2337,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void save_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_ButtonActionPerformed
         // TODO add your handling code here:
         WriteConfig wc = new WriteConfig();
-        boolean success = false;
+        boolean success = true;
         try {
             success = wc.write(lines);
+            
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2631,6 +2632,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
             if (success) {
                 JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
+                System.exit(0);
             }
         }
     }//GEN-LAST:event_formWindowClosing
