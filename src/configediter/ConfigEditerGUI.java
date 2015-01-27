@@ -62,7 +62,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private String openTTDfolder;
     private String openTTDfolder2;
-    
+
     //Variables for Vehicles tab, left side
     private final int elecRail;
     private final int dynaEng;
@@ -74,7 +74,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private final int maxTrainLen;
     private final int maxTrains;
     private final int nExpire;
-    
+
     //Variables for Vehicles tab, right side
     private final int planeCrash;
     private final int planeSpd;
@@ -106,7 +106,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         //All below are between difficulty and game creation
-        
+
         int diff = getLineNum("[difficulty]");
         int game = getLineNum("[game_creation]");
         compSpd = getLineNum("competitor_speed", diff, game);
@@ -129,7 +129,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         townCoun = getLineNum("town_council_tolerance", diff, game);
         vehicleBr = getLineNum("vehicle_breakdowns", diff, game);
         vehicleCost = getLineNum("vehicle_costs", diff, game);
-        
+
         //All below are between vehicle and constuction
         int vehicle = getLineNum("[vehicle]");
         int constr = getLineNum("[construction]");
@@ -155,7 +155,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         servIntTrains = getLineNum("servint_trains", vehicle, constr);
         servIntPer = getLineNum("servint_ispercent", vehicle, constr);
         trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
-        
+
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -222,34 +222,34 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         vehicleCostGroup.add(vehicleCost_L);
         vehicleCostGroup.add(vehicleCost_M);
         vehicleCostGroup.add(vehicleCost_H);
-        
+
         //Button Groups for Vehicle tab, left side
         elecRailGroup.add(elecRail_T);
         elecRailGroup.add(elecRail_F);
-        
+
         dynaEngGroup.add(dynaEng_T);
         dynaEngGroup.add(dynaEng_F);
-        
+
         nExpireGroup.add(nExpire_T);
         nExpireGroup.add(nExpire_F);
-        
+
         trainAccGroup.add(trainAcc_ORIG);
         trainAccGroup.add(trainAcc_REAL);
-        
+
         //Button Groups for Vehicle tab, right side
         planeCrashGroup.add(planeCrash_NONE);
         planeCrashGroup.add(planeCrash_RED);
         planeCrashGroup.add(planeCrash_NORM);
-        
+
         roadSideGroup.add(roadSide_L);
         roadSideGroup.add(roadSide_R);
-        
+
         roadAccelGroup.add(roadAccel_ORIG);
         roadAccelGroup.add(roadAccel_REAL);
-        
+
         servIntPerGroup.add(servIntPer_T);
         servIntPerGroup.add(servIntPer_F);
-        
+
         setDisplay();
     }
 
@@ -695,8 +695,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -1252,68 +1252,65 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                         .addComponent(jLabel26)
                         .addGap(64, 64, 64)
                         .addComponent(vehicleCost_L))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel20)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(towns_H)
+                                .addComponent(towns_VL))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel20)
+                                    .addComponent(towns_L)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(towns_H)
-                                        .addComponent(towns_VL))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(towns_L)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(towns_N))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(towns_CUST)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jSeparator9)
+                                    .addComponent(towns_N))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel21)
+                                    .addComponent(towns_CUST)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(seas_H)
-                                            .addGap(24, 24, 24)
-                                            .addComponent(seas_CUST)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(seas_VL)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seas_L)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seas_M))))
+                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jSeparator9)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel21)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel23)
+                                    .addComponent(seas_H)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(seas_CUST)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(terrain_M)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(terrain_VF)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(terrain_F)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(terrain_H))))
+                                    .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel22)
+                                    .addComponent(seas_VL)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(subsidy_40)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(subsidy_15)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(subsidy_20)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(subsidy_30))))
-                                .addComponent(jSeparator8)
-                                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(seas_L)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(seas_M))))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel23)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(terrain_M)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(terrain_VF)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(terrain_F)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(terrain_H))))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel22)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(subsidy_40)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(subsidy_15)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(subsidy_20)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(subsidy_30))))
+                        .addComponent(jSeparator8)
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -2174,7 +2171,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void industDens_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_industDens_HActionPerformed
         // TODO add your handling code here:
-        lines.get(industDens).set(2, "0");
+        lines.get(industDens).set(2, "5");
     }//GEN-LAST:event_industDens_HActionPerformed
 
     private void initInter_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initInter_2ActionPerformed
@@ -2347,11 +2344,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_save_ButtonActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_formWindowClosed
-
     private void elecRail_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elecRail_TActionPerformed
         // TODO add your handling code here:
         lines.get(elecRail).set(2, "true");
@@ -2410,12 +2402,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void planeSpd_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_planeSpd_TEXTCaretUpdate
         // TODO add your handling code here:
         String str4 = planeSpd_TEXT.getText();
-        if (str4.equals("0") || str4.equals("1") || str4.equals("2") || 
-                str4.equals("3") || str4.equals("4")) {
+        if (str4.equals("0") || str4.equals("1") || str4.equals("2")
+                || str4.equals("3") || str4.equals("4")) {
             lines.get(planeSpd).set(2, str4);
             planeSpdCheck.setText("");
-        }
-        else {
+        } else {
             planeSpdCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_planeSpd_TEXTCaretUpdate
@@ -2510,18 +2501,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = roadSlope_TEXT.getText();
         int slope;
-        Scanner input = new Scanner (str4);
-        if (input.hasNextInt()) { 
+        Scanner input = new Scanner(str4);
+        if (input.hasNextInt()) {
             slope = input.nextInt();
-        }
-        else {
+        } else {
             slope = -1;
         }
         if (slope >= 0 && slope <= 10) {
             lines.get(roadSlope).set(2, str4);
             roadSlopeCheck.setText("");
-        }
-        else {
+        } else {
             roadSlopeCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_roadSlope_TEXTCaretUpdate
@@ -2530,18 +2519,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = servIntAir_TEXT.getText();
         int servInt;
-        Scanner input = new Scanner (str4);
-        if (input.hasNextInt()) { 
+        Scanner input = new Scanner(str4);
+        if (input.hasNextInt()) {
             servInt = input.nextInt();
-        }
-        else {
+        } else {
             servInt = -1;
         }
         if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
             lines.get(servIntAir).set(2, str4);
             servIntAirCheck.setText("");
-        }
-        else {
+        } else {
             servIntAirCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_servIntAir_TEXTCaretUpdate
@@ -2550,18 +2537,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = servIntRoad_TEXT.getText();
         int servInt;
-        Scanner input = new Scanner (str4);
-        if (input.hasNextInt()) { 
+        Scanner input = new Scanner(str4);
+        if (input.hasNextInt()) {
             servInt = input.nextInt();
-        }
-        else {
+        } else {
             servInt = -1;
         }
         if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
             lines.get(servIntRoad).set(2, str4);
             servIntRoadCheck.setText("");
-        }
-        else {
+        } else {
             servIntRoadCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_servIntRoad_TEXTCaretUpdate
@@ -2570,18 +2555,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = servIntShips_TEXT.getText();
         int servInt;
-        Scanner input = new Scanner (str4);
-        if (input.hasNextInt()) { 
+        Scanner input = new Scanner(str4);
+        if (input.hasNextInt()) {
             servInt = input.nextInt();
-        }
-        else {
+        } else {
             servInt = -1;
         }
         if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
             lines.get(servIntShips).set(2, str4);
             servIntShipsCheck.setText("");
-        }
-        else {
+        } else {
             servIntShipsCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_servIntShips_TEXTCaretUpdate
@@ -2590,18 +2573,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str4 = servIntTrains_TEXT.getText();
         int servInt;
-        Scanner input = new Scanner (str4);
-        if (input.hasNextInt()) { 
+        Scanner input = new Scanner(str4);
+        if (input.hasNextInt()) {
             servInt = input.nextInt();
-        }
-        else {
+        } else {
             servInt = -1;
         }
         if ((servInt == 0) || (servInt >= 5 && servInt <= 800)) {
             lines.get(servIntTrains).set(2, str4);
             servIntTrainsCheck.setText("");
-        }
-        else {
+        } else {
             servIntTrainsCheck.setText("<html><B><u>Please Check</B></html>");
         }
     }//GEN-LAST:event_servIntTrains_TEXTCaretUpdate
@@ -2625,6 +2606,20 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         lines.get(trainAcc).set(2, "1");
     }//GEN-LAST:event_trainAcc_REALActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(jTabbedPane1, "Do you want to save your changes?", "Save Changes",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            WriteConfig wc = new WriteConfig();
+            try {
+                boolean success = wc.write(lines);
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_formWindowClosing
     /**
      * @param args the command line arguments
      */
@@ -2992,113 +2987,103 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } else if (lines.get(vehicleCost).get(2).equals("2")) {
             vehicleCost_H.setSelected(true);
         }
-        
+
         //Start of Vehicles tab
-        
         //diable_elrails
-        if(lines.get(elecRail).get(2).equals("true")){
+        if (lines.get(elecRail).get(2).equals("true")) {
             elecRail_T.setSelected(true);
-        }
-        else {
+        } else {
             elecRail_F.setSelected(true);
         }
-        
+
         //dynamic_engines
-        if(lines.get(dynaEng).get(2).equals("true")) {
+        if (lines.get(dynaEng).get(2).equals("true")) {
             dynaEng_T.setSelected(true);
-        }
-        else {
+        } else {
             dynaEng_F.setSelected(true);
         }
-        
+
         //extend_vehicle_life
         vehicleLife_TEXT.setText(lines.get(vehiLife).get(2));
-        
+
         //freight_trains
         freightTrains_TEXT.setText(lines.get(freightTrains).get(2));
-        
+
         //max_aircraft
         maxAir_TEXT.setText(lines.get(maxAir).get(2));
-        
+
         //max_roadveh
         maxRoad_TEXT.setText(lines.get(maxRoad).get(2));
-        
+
         //max_ships
         maxShips_TEXT.setText(lines.get(maxShips).get(2));
-        
+
         //max_train_length
         maxTrainLen_TEXT.setText(lines.get(maxTrainLen).get(2));
-        
+
         //max_trains
         maxTrains_TEXT.setText(lines.get(maxTrains).get(2));
-        
+
         //never_expire_vehicles
-        if(lines.get(nExpire).get(2).equals("true")) {
+        if (lines.get(nExpire).get(2).equals("true")) {
             nExpire_T.setSelected(true);
-        }
-        else {
+        } else {
             nExpire_F.setSelected(true);
         }
-        
+
         //plane_crashes
-        if(lines.get(planeCrash).get(2).equals("0")) {
+        if (lines.get(planeCrash).get(2).equals("0")) {
             planeCrash_NONE.setSelected(true);
-        }
-        else if (lines.get(planeCrash).get(2).equals("1")) {
+        } else if (lines.get(planeCrash).get(2).equals("1")) {
             planeCrash_RED.setSelected(true);
-        }
-        else {
+        } else {
             planeCrash_NORM.setSelected(true);
         }
-        
+
         //plane_speed
         planeSpd_TEXT.setText(lines.get(planeSpd).get(2));
-        
+
         //road_side
         if (lines.get(roadSide).get(2).equals("left")) {
             roadSide_L.setSelected(true);
-        }
-        else {
+        } else {
             roadSide_R.setSelected(true);
         }
-        
+
         //roadveh_acceleration_model
-        if(lines.get(roadAccel).get(2).equals("0")) {
+        if (lines.get(roadAccel).get(2).equals("0")) {
             roadAccel_ORIG.setSelected(true);
-        }
-        else {
+        } else {
             roadAccel_REAL.setSelected(true);
         }
-        
+
         //roadveh_slope_steepness
         roadSlope_TEXT.setText(lines.get(roadSlope).get(2));
         roadSlopeSet = true;
-        
+
         //servint_aircraft
         servIntAir_TEXT.setText(lines.get(servIntAir).get(2));
-        
+
         //servint_roadveh
         servIntRoad_TEXT.setText(lines.get(servIntRoad).get(2));
-        
+
         //servint_ships
         servIntShips_TEXT.setText(lines.get(servIntShips).get(2));
-        
+
         //servint_trains
         servIntTrains_TEXT.setText(lines.get(servIntTrains).get(2));
-        
+
         //servint_ispercent
         if (lines.get(servIntPer).get(2).equals("true")) {
             servIntPer_T.setSelected(true);
-        }
-        else {
+        } else {
             servIntPer_F.setSelected(true);
         }
-        
+
         //train_acceleration_model
-        if(lines.get(trainAcc).get(2).equals("0")) {
+        if (lines.get(trainAcc).get(2).equals("0")) {
             trainAcc_ORIG.setSelected(true);
-        }
-        else {
+        } else {
             trainAcc_REAL.setSelected(true);
         }
     }
@@ -3117,6 +3102,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
         return line;
     }
+
     private int getLineNum(String s, int i, int j) {
         int line = i;
         int length = j;
