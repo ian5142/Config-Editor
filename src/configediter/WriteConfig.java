@@ -50,7 +50,32 @@ public class WriteConfig {
     public boolean write(ArrayList<ArrayList<String>> lines) throws IOException {
         boolean success = false;
         int length = lines.size();
-        int index = 1;
+        System.out.println("Length: " + length);
+        int initLength = lines.size() - 1;
+        int index = 0;
+        
+        int spaces = 0;
+        int sizeData2 = lines.get(index).size();
+        while (length > 0) {
+            int indexI = 0;
+            if (index < lines.size()) {
+                sizeData2 = lines.get(index).size();
+            }
+            while (sizeData2 > 0) {
+                if (lines.get(index).get(indexI).contains("\n")) {
+                    lines.get(index).remove(indexI);
+                    lines.remove(index);
+                    spaces++;
+                }
+                indexI++;
+            }
+            length--;
+            System.out.println("Index: " + index);
+            index++;
+        }
+        
+        index = 1;
+        length = lines.size();
         File temp = new File(openTTDfolder2 + "\\temp.cfg");
         BufferedWriter bf = new BufferedWriter(new FileWriter(temp, false));;
 
@@ -67,19 +92,24 @@ public class WriteConfig {
                     bf.write(lines.get(index).get(indexI) + "");
                     sizeData--;
                     indexI++;
-                }
-                else {
+                } else {
                     bf.write(lines.get(index).get(indexI) + " ");
                     sizeData--;
                     indexI++;
                 }
-                
             }
-            bf.newLine();
-            index++;
             length--;
+            index++;
+            if (lines.get(index).get(0).contains("[")) {
+                bf.newLine();
+            }
+            System.out.println("Index: " + index);
+            if (!(index == initLength)) {
+                bf.newLine();
+            }
         }
         bf.close();
+        success = true;
         File config = new File(openTTDfolder);
         boolean delete = config.delete();
         Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
