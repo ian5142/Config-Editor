@@ -15,7 +15,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
 package configediter;
 
 import java.io.FileNotFoundException;
@@ -33,15 +32,17 @@ import javax.swing.filechooser.FileSystemView;
  * @author Ian Van Schaick
  */
 public class ReadConfig {
+
     String openTTDfolder;
     String openTTDfolder2;
+
     public ReadConfig() {
         JFileChooser fr = new JFileChooser();
         FileSystemView fw = fr.getFileSystemView();
         openTTDfolder = fw.getDefaultDirectory() + "\\OpenTTD\\openttd.cfg";
         openTTDfolder2 = fw.getDefaultDirectory() + "\\OpenTTD";
     }
-    
+
     public ArrayList<ArrayList<String>> fillArray(ArrayList<ArrayList<String>> lines) throws FileNotFoundException {
         FileReader fr = null;
         try {
@@ -56,8 +57,7 @@ public class ReadConfig {
                         array.add(lineScanner.next());
                     }
                     lines.add(array);
-                }
-                else {
+                } else {
                     line = "\n";
                     Scanner lineScanner = new Scanner(line).useDelimiter(" ");
                     ArrayList<String> array = new ArrayList<>();
@@ -66,7 +66,6 @@ public class ReadConfig {
                     }
                     lines.add(array);
                 }
-                
             }
         } finally {
             try {
