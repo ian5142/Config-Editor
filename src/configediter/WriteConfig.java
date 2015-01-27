@@ -82,10 +82,8 @@ public class WriteConfig {
         bf.close();
         File config = new File(openTTDfolder);
         boolean delete = config.delete();
-        System.out.println("The file was deleted: " + delete);
         Path source = FileSystems.getDefault().getPath("", openTTDfolder2 + "\\temp.cfg");
         Path move = Files.move(source, source.resolveSibling(openTTDfolder));
-        System.out.println("finished");
         return success;
     }
 }
