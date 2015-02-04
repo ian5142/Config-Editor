@@ -54,8 +54,10 @@ public class WriteConfig {
         int initLength = lines.size() - 1;
         int index = 0;
         
-        int spaces = 0;
         int sizeData2 = lines.get(index).size();
+        
+        ArrayList<Integer> spaces = new ArrayList<Integer>();
+        int removed = 0;
         while (length > 0) {
             int indexI = 0;
             if (index < lines.size()) {
@@ -66,20 +68,18 @@ public class WriteConfig {
                 if (lines.get(index).get(indexI).contains("\n")) {
                     lines.get(index).remove(indexI);
                     lines.remove(index);
-                    spaces++;
+                    spaces.add(index + removed);
+                    removed++;
                     sizeData2--;
                 }
-                
-                if (index <= 200) {
-                    int diff = sizeData2 - indexI;
-                    if (diff == 1) {
-                        System.out.print(lines.get(index).get(indexI)); 
-                    }
-                    else {
-                        System.out.print(lines.get(index).get(indexI) + " "); 
-                    }
+                int diff = sizeData2 - indexI;
+                if (diff == 1) {
+                    System.out.print(lines.get(index).get(indexI)); 
                 }
-                
+                else {
+                    System.out.print(lines.get(index).get(indexI) + " "); 
+                }
+
                 indexI++;
                 notEmpty = true;
             }
@@ -87,10 +87,9 @@ public class WriteConfig {
                 System.out.println("");
             }
             length--;
-//            System.out.println("Index: " + index);
+            System.out.println("Index: " + index);
             index++;
         }
-        
 //        index = 1;
 //        length = lines.size();
 //        File temp = new File(openTTDfolder2 + "\\temp.cfg");
