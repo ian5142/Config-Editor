@@ -2344,7 +2344,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Save: " + success);
         if (success) {
             JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
         }
@@ -2379,7 +2378,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Save2: " + success);
         if (success) {
             JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
         }
