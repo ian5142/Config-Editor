@@ -37,57 +37,57 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     ArrayList<ArrayList<String>> lines;
     //Variables for Difficulty tab, left side
-    private final int compSpd;
-    private final int constCost;
-    private final int diffLevel;
-    private final int disasters; //false and true
-    private final int economy; //false and true
-    private final int industDens;
-    private final int initInter;
-    private final int lineReverse; //false and true
-    private final int maxLoan;
-    private final int maxComp;
+    private int compSpd;
+    private int constCost;
+    private int diffLevel;
+    private int disasters; //false and true
+    private int economy; //false and true
+    private int industDens;
+    private int initInter;
+    private int lineReverse; //false and true
+    private int maxLoan;
+    private int maxComp;
     private int index2;
     private int index3;
     //Variables for Difficulty tab, right side
-    private final int towns;
+    private int towns;
     private int towns_CUSTOM;
-    private final int seas;
+    private int seas;
     private int seas_CUSTOM;
-    private final int subsidy;
-    private final int terrain;
-    private final int townCoun;
-    private final int vehicleBr;
-    private final int vehicleCost;
+    private int subsidy;
+    private int terrain;
+    private int townCoun;
+    private int vehicleBr;
+    private int vehicleCost;
 
     private String openTTDfolder;
     private String openTTDfolder2;
 
     //Variables for Vehicles tab, left side
-    private final int elecRail;
-    private final int dynaEng;
-    private final int vehiLife;
-    private final int freightTrains;
-    private final int maxAir;
-    private final int maxRoad;
-    private final int maxShips;
-    private final int maxTrainLen;
-    private final int maxTrains;
-    private final int nExpire;
+    private int elecRail;
+    private int dynaEng;
+    private int vehiLife;
+    private int freightTrains;
+    private int maxAir;
+    private int maxRoad;
+    private int maxShips;
+    private int maxTrainLen;
+    private int maxTrains;
+    private int nExpire;
 
     //Variables for Vehicles tab, right side
-    private final int planeCrash;
-    private final int planeSpd;
-    private final int roadSide;
-    private final int roadAccel;
-    private final int roadSlope;
+    private int planeCrash;
+    private int planeSpd;
+    private int roadSide;
+    private int roadAccel;
+    private int roadSlope;
     private boolean roadSlopeSet;
-    private final int servIntAir;
-    private final int servIntRoad;
-    private final int servIntShips;
-    private final int servIntTrains;
-    private final int servIntPer;
-    private final int trainAcc;
+    private int servIntAir;
+    private int servIntRoad;
+    private int servIntShips;
+    private int servIntTrains;
+    private int servIntPer;
+    private int trainAcc;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -105,56 +105,58 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //All below are between difficulty and game creation
-
-        int diff = getLineNum("[difficulty]");
-        int game = getLineNum("[game_creation]");
-        compSpd = getLineNum("competitor_speed", diff, game);
-        constCost = getLineNum("construction_cost", diff, game);
-        diffLevel = getLineNum("diff_level", diff, game);
-        disasters = getLineNum("disasters", diff, game);
-        economy = getLineNum("economy", diff, game);
-        industDens = getLineNum("industry_density", diff, game);
-        initInter = getLineNum("initial_interest", diff, game);
-        lineReverse = getLineNum("line_reverse_mode", diff, game);
-        maxLoan = getLineNum("max_loan", diff, game);
-        maxComp = getLineNum("max_no_competitors", diff, game);
-        towns = getLineNum("number_towns", diff, game);
-        if (towns == 4) {
-            towns_CUSTOM = getLineNum("custom_town_number", diff, game);
-        }
-        seas = getLineNum("quantity_sea_lakes", diff, game);
-        subsidy = getLineNum("subsidy_multiplier", diff, game);
-        terrain = getLineNum("terrain_type", diff, game);
-        townCoun = getLineNum("town_council_tolerance", diff, game);
-        vehicleBr = getLineNum("vehicle_breakdowns", diff, game);
-        vehicleCost = getLineNum("vehicle_costs", diff, game);
-
-        //All below are between vehicle and constuction
-        int vehicle = getLineNum("[vehicle]");
-        int constr = getLineNum("[construction]");
-        elecRail = getLineNum("disable_elrails", vehicle, constr);
-        dynaEng = getLineNum("dynamic_engines", vehicle, constr);
-        vehiLife = getLineNum("extend_vehicle_life", vehicle, constr);
-        freightTrains = getLineNum("freight_trains", vehicle, constr);
-        maxAir = getLineNum("max_aircraft", vehicle, constr);
-        maxRoad = getLineNum("max_roadveh", vehicle, constr);
-        maxShips = getLineNum("max_ships", vehicle, constr);
-        maxTrainLen = getLineNum("max_train_length", vehicle, constr);
-        maxTrains = getLineNum("max_trains", vehicle, constr);
-        nExpire = getLineNum("never_expire_vehicles", vehicle, constr);
-        planeCrash = getLineNum("plane_crashes", vehicle, constr);
-        planeSpd = getLineNum("plane_speed", vehicle, constr);
-        roadSide = getLineNum("road_side", vehicle, constr);
-        roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
-        roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
-        roadSlopeSet = false;
-        servIntAir = getLineNum("servint_aircraft", vehicle, constr);
-        servIntRoad = getLineNum("servint_roadveh", vehicle, constr);
-        servIntShips = getLineNum("servint_ships", vehicle, constr);
-        servIntTrains = getLineNum("servint_trains", vehicle, constr);
-        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
-        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
+        getIndexes();
+        
+//All below are between difficulty and game creation
+        
+//        int diff = getLineNum("[difficulty]");
+//        int game = getLineNum("[game_creation]");
+//        compSpd = getLineNum("competitor_speed", diff, game);
+//        constCost = getLineNum("construction_cost", diff, game);
+//        diffLevel = getLineNum("diff_level", diff, game);
+//        disasters = getLineNum("disasters", diff, game);
+//        economy = getLineNum("economy", diff, game);
+//        industDens = getLineNum("industry_density", diff, game);
+//        initInter = getLineNum("initial_interest", diff, game);
+//        lineReverse = getLineNum("line_reverse_mode", diff, game);
+//        maxLoan = getLineNum("max_loan", diff, game);
+//        maxComp = getLineNum("max_no_competitors", diff, game);
+//        towns = getLineNum("number_towns", diff, game);
+//        if (towns == 4) {
+//            towns_CUSTOM = getLineNum("custom_town_number", diff, game);
+//        }
+//        seas = getLineNum("quantity_sea_lakes", diff, game);
+//        subsidy = getLineNum("subsidy_multiplier", diff, game);
+//        terrain = getLineNum("terrain_type", diff, game);
+//        townCoun = getLineNum("town_council_tolerance", diff, game);
+//        vehicleBr = getLineNum("vehicle_breakdowns", diff, game);
+//        vehicleCost = getLineNum("vehicle_costs", diff, game);
+//
+//        //All below are between vehicle and constuction
+//        int vehicle = getLineNum("[vehicle]");
+//        int constr = getLineNum("[construction]");
+//        elecRail = getLineNum("disable_elrails", vehicle, constr);
+//        dynaEng = getLineNum("dynamic_engines", vehicle, constr);
+//        vehiLife = getLineNum("extend_vehicle_life", vehicle, constr);
+//        freightTrains = getLineNum("freight_trains", vehicle, constr);
+//        maxAir = getLineNum("max_aircraft", vehicle, constr);
+//        maxRoad = getLineNum("max_roadveh", vehicle, constr);
+//        maxShips = getLineNum("max_ships", vehicle, constr);
+//        maxTrainLen = getLineNum("max_train_length", vehicle, constr);
+//        maxTrains = getLineNum("max_trains", vehicle, constr);
+//        nExpire = getLineNum("never_expire_vehicles", vehicle, constr);
+//        planeCrash = getLineNum("plane_crashes", vehicle, constr);
+//        planeSpd = getLineNum("plane_speed", vehicle, constr);
+//        roadSide = getLineNum("road_side", vehicle, constr);
+//        roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
+//        roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
+//        roadSlopeSet = false;
+//        servIntAir = getLineNum("servint_aircraft", vehicle, constr);
+//        servIntRoad = getLineNum("servint_roadveh", vehicle, constr);
+//        servIntShips = getLineNum("servint_ships", vehicle, constr);
+//        servIntTrains = getLineNum("servint_trains", vehicle, constr);
+//        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
+//        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
 
         initComponents();
         // ButtonGroups for Difficulty tab, left side
@@ -3134,5 +3136,148 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             getLineNum(s);
         }
         return line;
+    }
+    
+    private void getIndexes() {
+        int length = lines.size() - 1;
+        int index = 0;
+        for(; index < length; index++) {
+            String line = lines.get(index).get(0);
+            if (line.contains("competitor_speed")) {
+                compSpd = index;
+            }
+            else if(line.contains("construction_cost")) {
+                constCost = index;
+            }
+            else if(line.contains("diff_level")) {
+                diffLevel = index;
+            }
+            else if(line.contains("disasters")) {
+                disasters = index;
+            }
+            else if(line.contains("economy") && (!line.contains("["))) {
+                economy = index;
+            }
+            else if(line.contains("industry_density")) {
+                industDens = index;
+            }
+            else if(line.contains("initial_interest")) {
+                initInter = index;
+            }
+            else if(line.contains("line_reverse_mode")) {
+                lineReverse = index;
+            }
+            else if(line.contains("max_loan")) {
+                maxLoan = index;
+            }
+            else if(line.contains("max_no_competitors")) {
+                maxComp = index;
+            }
+            else if(line.contains("number_towns")) {
+                towns = index;
+            }
+            else if(line.contains("custom_town_number")) {
+                towns_CUSTOM = index;
+            }
+            else if(line.contains("quantity_sea_lakes")) {
+                seas = index;
+            }
+            else if(line.contains("subsidy_multiplier")) {
+                subsidy = index;
+            }
+            else if(line.contains("terrain_type")) {
+                terrain = index;
+            }
+            else if(line.contains("town_council_tolerance")) {
+                townCoun = index;
+            }
+            else if(line.contains("vehicle_breakdowns")) {
+                vehicleBr = index;
+            }
+            else if(line.contains("vehicle_costs")) {
+                vehicleCost = index;
+            }
+            else if(line.contains("disable_elrails")) {
+                elecRail = index;
+            }
+            else if(line.contains("dynamic_engines")) {
+                dynaEng = index;
+            }
+            else if(line.contains("extend_vehicle_life")) {
+                vehiLife = index;
+            }
+            else if(line.contains("freight_trains")) {
+                freightTrains = index;
+            }
+            else if(line.contains("max_aircraft")) {
+                maxAir = index;
+            }
+            else if(line.contains("max_roadveh")) {
+                maxRoad = index;
+            }
+            else if(line.contains("max_ships")) {
+                maxShips = index;
+            }
+            else if(line.contains("max_train_length")) {
+                maxTrainLen = index;
+            }
+            else if(line.contains("max_trains")) {
+                maxTrains = index;
+            }
+            else if(line.contains("never_expire_vehicles")) {
+                nExpire = index;
+            }
+            else if(line.contains("plane_crashes")) {
+                planeCrash = index;
+            }
+            else if(line.contains("plane_speed")) {
+                planeSpd = index;
+            }
+            else if(line.contains("road_side")) {
+                roadSide = index;
+            }
+            else if(line.contains("roadveh_acceleration_model")) {
+                roadAccel = index;
+            }
+            else if(line.contains("roadveh_slope_steepness")) {
+                roadSlope = index;
+            }
+            else if(line.contains("servint_aircraft")) {
+                servIntAir = index;
+            }
+            else if(line.contains("servint_roadveh")) {
+                servIntRoad = index;
+            }
+            else if(line.contains("servint_ships")) {
+                servIntShips = index;
+            }
+            else if(line.contains("servint_trains")) {
+                servIntTrains = index;
+            }
+            else if(line.contains("servint_ispercent")) {
+                servIntPer = index;
+            }
+            else if(line.contains("train_acceleration_model")) {
+                trainAcc = index;
+            }
+//            else if(line.contains("")) {
+//                 = index;
+//            }
+        }
+        
+//        nExpire = getLineNum("never_expire_vehicles", vehicle, constr);
+//        planeCrash = getLineNum("plane_crashes", vehicle, constr);
+//        planeSpd = getLineNum("plane_speed", vehicle, constr);
+//        roadSide = getLineNum("road_side", vehicle, constr);
+//        roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
+//        roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
+//        roadSlopeSet = false;
+//        servIntAir = getLineNum("servint_aircraft", vehicle, constr);
+//        servIntRoad = getLineNum("servint_roadveh", vehicle, constr);
+//        servIntShips = getLineNum("servint_ships", vehicle, constr);
+//        servIntTrains = getLineNum("servint_trains", vehicle, constr);
+//        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
+//        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
+        roadSlopeSet = false;
     }
 }
