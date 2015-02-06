@@ -105,6 +105,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        long start = System.nanoTime();
         getIndexes();
         
 //All below are between difficulty and game creation
@@ -132,7 +134,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        vehicleBr = getLineNum("vehicle_breakdowns", diff, game);
 //        vehicleCost = getLineNum("vehicle_costs", diff, game);
 //
-//        //All below are between vehicle and constuction
+////        All below are between vehicle and constuction
 //        int vehicle = getLineNum("[vehicle]");
 //        int constr = getLineNum("[construction]");
 //        elecRail = getLineNum("disable_elrails", vehicle, constr);
@@ -157,7 +159,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 //        servIntTrains = getLineNum("servint_trains", vehicle, constr);
 //        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
 //        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
-
+                
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -253,6 +255,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         servIntPerGroup.add(servIntPer_F);
 
         setDisplay();
+        long end = System.nanoTime();
+        long duration = (end - start)/1000000;
+        System.out.println("The method took: " + duration);
     }
 
     /**
