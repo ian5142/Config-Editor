@@ -3155,8 +3155,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             else if(line.contains("disasters")) {
                 disasters = index;
             }
-            else if(line.contains("economy") && (!line.contains("["))) {
-                economy = index;
+            else if(line.equals("economy")) {
+                if (index < 60) {
+                    economy = index;
+                }
             }
             else if(line.contains("industry_density")) {
                 industDens = index;
