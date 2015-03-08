@@ -28,6 +28,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileSystemView;
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 
 /**
  *
@@ -88,6 +90,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private int servIntTrains;
     private int servIntPer;
     private int trainAcc;
+    
+    private ArrayList<Integer> indexList;
 
     /**
      * Creates new form ConfigEditerGUI
@@ -95,8 +99,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     public ConfigEditerGUI() {
 //        String setProperty = System.setProperty("nb.tabs.suppressCloseButton", "true");
         //start reading the config File
-        getMyDocuments();
-
+        getMyDocuments();;
         lines = new ArrayList<ArrayList<String>>();
         //readconfig obkect
         ReadConfig read = new ReadConfig();
@@ -105,8 +108,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ConfigEditerGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.PLAIN, 18)) );
         
         long start = System.nanoTime();
+        indexList = new ArrayList<>(100);
         getIndexes();
         
 //All below are between difficulty and game creation
@@ -3333,146 +3338,170 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     
     private void getIndexes() {
         int length = lines.size() - 1;
-        int index = 0;
-        for(; index < length; index++) {
+        for(int index = 0; index < length; index++) {
             String line = lines.get(index).get(0);
             if (line.contains("competitor_speed")) {
                 compSpd = index;
+                indexList.add(index);
             }
             else if(line.contains("construction_cost")) {
                 constCost = index;
+                indexList.add(index);
             }
             else if(line.contains("diff_level")) {
                 diffLevel = index;
+                indexList.add(index);
             }
             else if(line.contains("disasters")) {
                 disasters = index;
+                indexList.add(index);
             }
             else if(line.equals("economy")) {
                 if (index < 60) {
                     economy = index;
+                    indexList.add(index);
                 }
             }
             else if(line.contains("industry_density")) {
                 industDens = index;
+                indexList.add(index);
             }
             else if(line.contains("initial_interest")) {
                 initInter = index;
+                indexList.add(index);
             }
             else if(line.contains("line_reverse_mode")) {
                 lineReverse = index;
+                indexList.add(index);
             }
             else if(line.contains("max_loan")) {
                 maxLoan = index;
+                indexList.add(index);
             }
             else if(line.contains("max_no_competitors")) {
                 maxComp = index;
+                indexList.add(index);
             }
             else if(line.contains("number_towns")) {
                 towns = index;
+                indexList.add(index);
             }
             else if(line.contains("custom_town_number")) {
                 towns_CUSTOM = index;
+                indexList.add(index);
             }
             else if(line.contains("quantity_sea_lakes")) {
                 seas = index;
+                indexList.add(index);
             }
             else if(line.contains("subsidy_multiplier")) {
                 subsidy = index;
+                indexList.add(index);
             }
             else if(line.contains("terrain_type")) {
                 terrain = index;
+                indexList.add(index);
             }
             else if(line.contains("town_council_tolerance")) {
                 townCoun = index;
+                indexList.add(index);
             }
             else if(line.contains("vehicle_breakdowns")) {
                 vehicleBr = index;
+                indexList.add(index);
             }
             else if(line.contains("vehicle_costs")) {
                 vehicleCost = index;
+                indexList.add(index);
             }
             else if(line.contains("disable_elrails")) {
                 elecRail = index;
+                indexList.add(index);
             }
             else if(line.contains("dynamic_engines")) {
                 dynaEng = index;
+                indexList.add(index);
             }
             else if(line.contains("extend_vehicle_life")) {
                 vehiLife = index;
+                indexList.add(index);
             }
             else if(line.contains("freight_trains")) {
                 freightTrains = index;
+                indexList.add(index);
             }
             else if(line.contains("max_aircraft")) {
                 maxAir = index;
+                indexList.add(index);
             }
             else if(line.contains("max_roadveh")) {
                 maxRoad = index;
+                indexList.add(index);
             }
             else if(line.contains("max_ships")) {
                 maxShips = index;
+                indexList.add(index);
             }
             else if(line.contains("max_train_length")) {
                 maxTrainLen = index;
+                indexList.add(index);
             }
             else if(line.contains("max_trains")) {
                 maxTrains = index;
+                indexList.add(index);
             }
             else if(line.contains("never_expire_vehicles")) {
                 nExpire = index;
+                indexList.add(index);
             }
             else if(line.contains("plane_crashes")) {
                 planeCrash = index;
+                indexList.add(index);
             }
             else if(line.contains("plane_speed")) {
                 planeSpd = index;
+                indexList.add(index);
             }
             else if(line.contains("road_side")) {
                 roadSide = index;
+                indexList.add(index);
             }
             else if(line.contains("roadveh_acceleration_model")) {
                 roadAccel = index;
+                indexList.add(index);
             }
             else if(line.contains("roadveh_slope_steepness")) {
                 roadSlope = index;
+                indexList.add(index);
             }
             else if(line.contains("servint_aircraft")) {
                 servIntAir = index;
+                indexList.add(index);
             }
             else if(line.contains("servint_roadveh")) {
                 servIntRoad = index;
+                indexList.add(index);
             }
             else if(line.contains("servint_ships")) {
                 servIntShips = index;
+                indexList.add(index);
             }
             else if(line.contains("servint_trains")) {
                 servIntTrains = index;
+                indexList.add(index);
             }
             else if(line.contains("servint_ispercent")) {
                 servIntPer = index;
+                indexList.add(index);
             }
             else if(line.contains("train_acceleration_model")) {
                 trainAcc = index;
+                indexList.add(index);
             }
 //            else if(line.contains("")) {
 //                 = index;
 //            }
         }
-        
-//        nExpire = getLineNum("never_expire_vehicles", vehicle, constr);
-//        planeCrash = getLineNum("plane_crashes", vehicle, constr);
-//        planeSpd = getLineNum("plane_speed", vehicle, constr);
-//        roadSide = getLineNum("road_side", vehicle, constr);
-//        roadAccel = getLineNum("roadveh_acceleration_model", vehicle, constr);
-//        roadSlope = getLineNum("roadveh_slope_steepness", vehicle, constr);
-//        roadSlopeSet = false;
-//        servIntAir = getLineNum("servint_aircraft", vehicle, constr);
-//        servIntRoad = getLineNum("servint_roadveh", vehicle, constr);
-//        servIntShips = getLineNum("servint_ships", vehicle, constr);
-//        servIntTrains = getLineNum("servint_trains", vehicle, constr);
-//        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
-//        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
         roadSlopeSet = false;
     }
 }
