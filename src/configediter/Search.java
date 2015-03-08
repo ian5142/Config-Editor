@@ -20,13 +20,16 @@ package configediter;
 import java.util.ArrayList;
 
 /**
- *
+ *  Searches for a term or terms inside a given arraylist, returns the index using another arrayList
  * @author Ian Van Schaick
  */
 public class Search {
     private final ArrayList<String> list;
     private final ArrayList<Integer> indexes;
-    
+    /**
+     * Creates a Search object
+     * @param indexList The list of indexes in the Config file
+     */
     public Search (ArrayList<Integer> indexList) {
         indexes = indexList;
         list = new ArrayList<String>(indexes.size());
@@ -77,5 +80,20 @@ public class Search {
         list.add("service interval trains");
         list.add("service interval is percent");
         list.add("train acceleration model"); //end of vehicle tab
+    }
+    
+    /**
+     * Finds term in the list ArrayList, then returns all indexes of that term as an ArrayList<Integer>
+     * @param term
+     * @return Returns the results of the search, only returns the relevant indexes as an ArrayList 
+     */
+    public ArrayList<Integer> findTerm (String term) {
+        ArrayList<Integer> results = new ArrayList<>();
+        for (int index = 0 ; index < indexes.size();index++) {
+            if (list.get(index).contains(term) ) {
+                results.add(index);
+            }
+        }
+        return results;
     }
 }
