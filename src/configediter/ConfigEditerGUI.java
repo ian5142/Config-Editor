@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Ian Van Schaick
+ * Copyright (C) 2015 Ian Van Schaick
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -699,6 +699,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         trainAcc_ORIG = new javax.swing.JRadioButton();
         trainAcc_REAL = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jSeparator13 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -707,6 +711,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jTabbedPane1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        compSpd_VS.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         compSpd_VS.setText("very slow");
         compSpd_VS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -714,6 +721,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        compSpd_S.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         compSpd_S.setText("slow");
         compSpd_S.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -721,6 +729,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        compSpd_M.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         compSpd_M.setText("medium");
         compSpd_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -728,6 +737,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        compSpd_VF.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         compSpd_VF.setText("very fast");
         compSpd_VF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -735,6 +745,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        compSpd_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         compSpd_F.setText("fast");
         compSpd_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -742,10 +753,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel9.setText("Competitor");
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setText("Const. cost");
 
+        constCost_M.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         constCost_M.setText("medium");
         constCost_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -753,6 +767,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        constCost_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         constCost_L.setText("low");
         constCost_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -760,6 +775,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        constCost_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         constCost_H.setText("high");
         constCost_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -767,6 +783,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        disasters_OFF.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         disasters_OFF.setText("off");
         disasters_OFF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -774,6 +791,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        disasters_ON.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         disasters_ON.setText("on");
         disasters_ON.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -781,10 +799,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel12.setText("Disasters");
 
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel13.setText("Economy");
 
+        economy_VAR.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         economy_VAR.setText("recessions");
         economy_VAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -792,6 +813,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        economy_SM.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         economy_SM.setText("no recessions");
         economy_SM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -799,8 +821,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel14.setText("Indust. density");
 
+        industDens_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_L.setText("low");
         industDens_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -808,6 +832,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        industDens_MIN.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_MIN.setText("minimal");
         industDens_MIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -815,6 +840,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        industDens_NONE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_NONE.setText("none");
         industDens_NONE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -822,6 +848,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        industDens_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_H.setText("high");
         industDens_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -829,6 +856,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        industDens_VL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_VL.setText("very low");
         industDens_VL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -836,6 +864,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        industDens_N.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         industDens_N.setText("normal");
         industDens_N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -843,6 +872,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        initInter_4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         initInter_4.setText("4 %");
         initInter_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -850,6 +880,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        initInter_3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         initInter_3.setText("3 %");
         initInter_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -857,6 +888,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        initInter_2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         initInter_2.setText("2 %");
         initInter_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -864,10 +896,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel15.setText("Init. interest");
 
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel16.setText("Line reverse mode");
 
+        lineReverse_FALSE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lineReverse_FALSE.setText("no reversing at station");
         lineReverse_FALSE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -875,6 +910,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        lineReverse_TRUE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lineReverse_TRUE.setText("reversing at station");
         lineReverse_TRUE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -882,8 +918,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel17.setText("Max loan (100 000-500 000)");
 
+        maxLoan_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxLoan_TEXT.setText(maxLoan + "");
         maxLoan_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -891,8 +929,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel18.setText("Max # of compet. (0-14)");
 
+        maxComp_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxComp_TEXT.setText(maxComp + "");
         maxComp_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -900,8 +940,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel20.setText("# of towns");
 
+        towns_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         towns_H.setText("high");
         towns_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,6 +951,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        towns_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         towns_L.setText("low");
         towns_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -916,6 +959,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        towns_VL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         towns_VL.setText("very low");
         towns_VL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -923,6 +967,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        towns_CUST.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         towns_CUST.setText("custom");
         towns_CUST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -930,6 +975,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        towns_N.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         towns_N.setText("normal");
         towns_N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -937,8 +983,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel21.setText("# of seas / lakes");
 
+        seas_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         seas_H.setText("high");
         seas_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -946,6 +994,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        seas_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         seas_L.setText("low");
         seas_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -953,6 +1002,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        seas_VL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         seas_VL.setText("very low");
         seas_VL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -960,6 +1010,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        seas_CUST.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         seas_CUST.setText("custom");
         seas_CUST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -967,6 +1018,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        seas_M.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         seas_M.setText("medium");
         seas_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -974,6 +1026,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        subsidy_30.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         subsidy_30.setText("x 3.0");
         subsidy_30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -981,6 +1034,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        subsidy_20.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         subsidy_20.setText("x 2.0");
         subsidy_20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -988,6 +1042,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        subsidy_15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         subsidy_15.setText("x 1.5");
         subsidy_15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -995,8 +1050,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel22.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel22.setText("Subsidy multilplier");
 
+        subsidy_40.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         subsidy_40.setText("x 4.0");
         subsidy_40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1004,6 +1061,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        terrain_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         terrain_H.setText("hilly");
         terrain_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1011,6 +1069,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        terrain_VF.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         terrain_VF.setText("very flat");
         terrain_VF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1018,8 +1077,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel23.setText("Terrain type");
 
+        terrain_M.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         terrain_M.setText("mountainous");
         terrain_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1027,6 +1088,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        terrain_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         terrain_F.setText("flat");
         terrain_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1034,8 +1096,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel24.setText("Town council tolerance");
 
+        townCoun_PER.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         townCoun_PER.setText("permissive");
         townCoun_PER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1043,6 +1107,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        townCoun_TOL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         townCoun_TOL.setText("tolerant");
         townCoun_TOL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1050,6 +1115,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        townCoun_HOS.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         townCoun_HOS.setText("hostile");
         townCoun_HOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1057,6 +1123,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        towns_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         if (towns == 4) {
             towns_TEXT.setText(towns_CUSTOM + "");
         }
@@ -1069,6 +1136,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        seas_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         if (towns == 4) {
             seas_TEXT.setText(seas_CUSTOM + "");
         }
@@ -1081,9 +1149,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setFont(new Font("Arial", Font.PLAIN, 16));
         jLabel1.setText("<html><B><u>Clich Save Button before closing</B></html>");
 
+        save_Button.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         save_Button.setText("Save");
         save_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1091,8 +1161,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel31.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel31.setText("speed");
 
+        vehicleCost_H.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleCost_H.setText("high");
         vehicleCost_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1100,6 +1172,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        vehicleCost_M.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleCost_M.setText("medium");
         vehicleCost_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1107,6 +1180,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        vehicleCost_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleCost_L.setText("low");
         vehicleCost_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1114,10 +1188,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel26.setText("Vehicle cost");
 
+        jLabel25.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel25.setText("Vehicle breakdowns");
 
+        vehicleBr_NONE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleBr_NONE.setText("none");
         vehicleBr_NONE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1125,6 +1202,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        vehicleBr_RED.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleBr_RED.setText("reduced");
         vehicleBr_RED.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1132,6 +1210,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        vehicleBr_N.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleBr_N.setText("normal");
         vehicleBr_N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1227,98 +1306,100 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(save_Button))
+                    .addComponent(jSeparator8)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(townCoun_PER))
+                                .addComponent(save_Button))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(vehicleBr_NONE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(townCoun_TOL)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(townCoun_HOS))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(vehicleBr_RED)
-                                    .addComponent(vehicleCost_M))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(townCoun_PER))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(vehicleBr_NONE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vehicleCost_H)
-                                    .addComponent(vehicleBr_N)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel26)
-                        .addGap(64, 64, 64)
-                        .addComponent(vehicleCost_L))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(towns_H)
-                                .addComponent(towns_VL))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(towns_L)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(towns_N))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(towns_CUST)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jSeparator9)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel21)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(seas_H)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(seas_CUST)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(seas_VL)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seas_L)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seas_M))))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel23)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(terrain_M)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(terrain_VF)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(terrain_F)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(terrain_H))))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel22)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(subsidy_40)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(subsidy_15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(subsidy_20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(subsidy_30))))
-                        .addComponent(jSeparator8)
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(townCoun_TOL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(townCoun_HOS))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(vehicleBr_RED)
+                                            .addComponent(vehicleCost_M))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vehicleCost_H)
+                                            .addComponent(vehicleBr_N)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(64, 64, 64)
+                                .addComponent(vehicleCost_L))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(towns_H)
+                                    .addComponent(towns_VL))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(towns_L)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(towns_N))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(towns_CUST)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(seas_H)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(seas_CUST)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seas_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(seas_VL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seas_L)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seas_M))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(terrain_M)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(terrain_VF)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(terrain_F)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(terrain_H))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(subsidy_40)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(subsidy_15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(subsidy_20)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(subsidy_30)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator11)
+                    .addComponent(jSeparator9)
+                    .addComponent(jSeparator10))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1337,7 +1418,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(towns_CUST)
                             .addComponent(towns_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
@@ -1475,8 +1556,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Disable elec rails");
 
+        elecRail_T.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         elecRail_T.setText("True");
         elecRail_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1484,6 +1567,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        elecRail_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         elecRail_F.setText("False");
         elecRail_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1491,8 +1575,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Dynamic engines");
 
+        dynaEng_T.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         dynaEng_T.setText("True");
         dynaEng_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1500,6 +1586,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        dynaEng_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         dynaEng_F.setText("False");
         dynaEng_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1507,10 +1594,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("Extend vehicle life");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setText("default: 0 (0 - 100)");
 
+        vehicleLife_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         vehicleLife_TEXT.setText(vehiLife + "");
         vehicleLife_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1518,6 +1608,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        freightTrains_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         freightTrains_TEXT.setText(freightTrains + "");
         freightTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1525,10 +1616,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setText("default: 1 (1 - 255)");
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setText("Freight trains");
 
+        saveButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         saveButton2.setText("Save");
         saveButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1537,18 +1631,25 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new Font("Arial", Font.PLAIN, 16));
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel8.setText("<html><B><u>Click Save Button before closing</B></html>");
 
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel11.setText("Max aircraft");
 
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel19.setText("Max road vehicles");
 
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel27.setText("Max ships");
 
+        jLabel28.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel28.setText("Max train length");
 
+        jLabel29.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel29.setText("Max trains");
 
+        maxAir_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxAir_TEXT.setText(maxAir + "");
         maxAir_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1556,6 +1657,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        maxRoad_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxRoad_TEXT.setText(maxRoad + "");
         maxRoad_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1563,6 +1665,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        maxShips_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxShips_TEXT.setText(maxShips + "");
         maxShips_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1570,6 +1673,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        maxTrainLen_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxTrainLen_TEXT.setText(maxTrainLen + "");
         maxTrainLen_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1577,6 +1681,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        maxTrains_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxTrains_TEXT.setText(maxTrains + "");
         maxTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1584,12 +1689,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel30.setText("False, if you want elec rails");
 
+        jLabel32.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel32.setText("Max advisable vehicles per type is 500");
 
+        jLabel33.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel33.setText("Never expire vehiciles");
 
+        nExpire_T.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nExpire_T.setText("True");
         nExpire_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1597,6 +1706,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        nExpire_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nExpire_F.setText("False");
         nExpire_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1604,12 +1714,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel34.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel34.setText("Plane crashes");
 
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel35.setText("Plane speed (1-4)");
 
+        jLabel36.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel36.setText("Road side");
 
+        planeCrash_NONE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         planeCrash_NONE.setText("None");
         planeCrash_NONE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1617,6 +1731,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        planeCrash_RED.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         planeCrash_RED.setText("Reduced");
         planeCrash_RED.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1624,6 +1739,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        planeCrash_NORM.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         planeCrash_NORM.setText("Normal");
         planeCrash_NORM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1631,6 +1747,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        planeSpd_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         planeSpd_TEXT.setText(planeSpd + "");
         planeSpd_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1638,6 +1755,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        roadSide_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadSide_L.setText("Left");
         roadSide_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1645,6 +1763,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        roadSide_R.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadSide_R.setText("Right");
         roadSide_R.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1652,10 +1771,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel37.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel37.setText("default: 4");
 
+        jLabel38.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel38.setText("Road acceleration model");
 
+        roadAccel_ORIG.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadAccel_ORIG.setText("Original");
         roadAccel_ORIG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1663,6 +1785,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        roadAccel_REAL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadAccel_REAL.setText("Realistic");
         roadAccel_REAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1670,12 +1793,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        planeSpdCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         planeSpdCheck.setText("");
 
+        jLabel39.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel39.setText("Road slope steepness (1-10)");
 
+        jLabel40.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel40.setText("default: 7");
 
+        roadSlope_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadSlope_TEXT.setText(planeSpd + "");
         roadSlope_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1683,10 +1810,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        roadSlopeCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadSlopeCheck.setText("");
 
+        jLabel42.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel42.setText("Service interval aircraft (0, 5-800), days");
 
+        servIntAir_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntAir_TEXT.setText(servIntAir + "");
         servIntAir_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1694,8 +1824,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel43.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel43.setText("default: 150 days");
 
+        servIntRoad_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntRoad_TEXT.setText(servIntRoad + "");
         servIntRoad_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1703,10 +1835,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel44.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel44.setText("Service interval road (0, 5-800), days");
 
+        jLabel45.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel45.setText("default: 150 days");
 
+        servIntShips_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntShips_TEXT.setText(servIntShips + "");
         servIntShips_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1714,10 +1849,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel46.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel46.setText("Service interval ships (0, 5-800), days");
 
+        jLabel47.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel47.setText("default: 150 days");
 
+        servIntTrains_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntTrains_TEXT.setText(servIntTrains + "");
         servIntTrains_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1725,20 +1863,28 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel48.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel48.setText("Service interval trains (0, 5-800), days");
 
+        jLabel49.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel49.setText("default: 150 days");
 
+        servIntAirCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntAirCheck.setText("");
 
+        servIntRoadCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntRoadCheck.setText("");
 
+        servIntShipsCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntShipsCheck.setText("");
 
+        servIntTrainsCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntTrainsCheck.setText("");
 
+        jLabel50.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel50.setText("Service interval percent");
 
+        servIntPer_T.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntPer_T.setText("True");
         servIntPer_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1746,6 +1892,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        servIntPer_F.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         servIntPer_F.setText("False");
         servIntPer_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1753,8 +1900,10 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel41.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel41.setText("Train acceleration model");
 
+        trainAcc_ORIG.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         trainAcc_ORIG.setText("Original");
         trainAcc_ORIG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1762,6 +1911,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
 
+        trainAcc_REAL.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         trainAcc_REAL.setText("Realistic");
         trainAcc_REAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1995,11 +2145,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(jLabel33)
                             .addComponent(nExpire_T)
                             .addComponent(nExpire_F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(saveButton2))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 14, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel34)
@@ -2071,11 +2221,45 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                             .addComponent(servIntPer_F))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(78, Short.MAX_VALUE))))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
+
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextField1.setText("Type in your search query");
+
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton1.setText("Search");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator13)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(572, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Search", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2706,6 +2890,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton initInter_2;
     private javax.swing.JRadioButton initInter_3;
     private javax.swing.JRadioButton initInter_4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2758,10 +2943,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -2771,6 +2958,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.ButtonGroup lineReverseGroup;
     private javax.swing.JRadioButton lineReverse_FALSE;
     private javax.swing.JRadioButton lineReverse_TRUE;
