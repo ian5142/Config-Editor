@@ -705,8 +705,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         trainAcc_ORIG = new javax.swing.JRadioButton();
         trainAcc_REAL = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        searchBox = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2232,11 +2232,16 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Vehicle", jPanel1);
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField1.setText("Type in your search query");
+        searchBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        searchBox.setText("Type in your search query");
+        searchBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchBoxMouseClicked(evt);
+            }
+        });
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton1.setText("Search");
+        searchButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        searchButton.setText("Search");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -2247,9 +2252,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator13)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                        .addComponent(searchBox, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(searchButton)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -2257,8 +2262,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(searchBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(572, Short.MAX_VALUE))
@@ -2830,6 +2835,13 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void searchBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBoxMouseClicked
+        // TODO add your handling code here:
+        if (searchBox.getText().equals("Type in your search query")) {
+            searchBox.setText("");
+        }
+    }//GEN-LAST:event_searchBoxMouseClicked
     /**
      * @param args the command line arguments
      */
@@ -2895,7 +2907,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton initInter_2;
     private javax.swing.JRadioButton initInter_3;
     private javax.swing.JRadioButton initInter_4;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2963,7 +2974,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.ButtonGroup lineReverseGroup;
     private javax.swing.JRadioButton lineReverse_FALSE;
     private javax.swing.JRadioButton lineReverse_TRUE;
@@ -2993,6 +3003,8 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField roadSlope_TEXT;
     private javax.swing.JButton saveButton2;
     private javax.swing.JButton save_Button;
+    private javax.swing.JTextField searchBox;
+    private javax.swing.JButton searchButton;
     private javax.swing.ButtonGroup seasGroup;
     private javax.swing.JRadioButton seas_CUST;
     private javax.swing.JRadioButton seas_H;
