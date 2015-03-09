@@ -708,6 +708,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         searchBox = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jSeparator13 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultArea = new javax.swing.JTextArea();
+        searchLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -2239,9 +2242,24 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                 searchBoxMouseClicked(evt);
             }
         });
+        searchBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchBoxKeyTyped(evt);
+            }
+        });
 
         searchButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         searchButton.setText("Search");
+
+        resultArea.setBackground(new java.awt.Color(240, 240, 240));
+        resultArea.setColumns(20);
+        resultArea.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        resultArea.setRows(5);
+        resultArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(resultArea);
+
+        searchLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        searchLabel.setText("The results of your search: (D - Difficulty tab, V - Vehicle tab, L - left side, R - right side)");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -2250,11 +2268,15 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator13)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(searchBox, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton)))
+                        .addComponent(searchButton))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(searchLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -2266,7 +2288,11 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Search", jPanel3);
@@ -2842,6 +2868,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             searchBox.setText("");
         }
     }//GEN-LAST:event_searchBoxMouseClicked
+
+    private void searchBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBoxKeyTyped
+        // TODO add your handling code here:
+        String term = searchBox.getText();
+        resultArea.setEditable(false);
+        resultArea.setText("");
+        Search find = new Search(indexList);
+        ArrayList<String> results = find.findTerm(term);
+        for (String line : results) {
+            resultArea.append(line + "\n");
+        }
+    }//GEN-LAST:event_searchBoxKeyTyped
     /**
      * @param args the command line arguments
      */
@@ -2960,6 +2998,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -2993,6 +3032,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton planeCrash_RED;
     private javax.swing.JLabel planeSpdCheck;
     private javax.swing.JTextField planeSpd_TEXT;
+    private javax.swing.JTextArea resultArea;
     private javax.swing.ButtonGroup roadAccelGroup;
     private javax.swing.JRadioButton roadAccel_ORIG;
     private javax.swing.JRadioButton roadAccel_REAL;
@@ -3005,6 +3045,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private javax.swing.JButton save_Button;
     private javax.swing.JTextField searchBox;
     private javax.swing.JButton searchButton;
+    private javax.swing.JLabel searchLabel;
     private javax.swing.ButtonGroup seasGroup;
     private javax.swing.JRadioButton seas_CUST;
     private javax.swing.JRadioButton seas_H;
@@ -3358,10 +3399,6 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
             else if(line.contains("construction_cost")) {
                 constCost = index;
-                indexList.add(index);
-            }
-            else if(line.contains("diff_level")) {
-                diffLevel = index;
                 indexList.add(index);
             }
             else if(line.contains("disasters")) {
