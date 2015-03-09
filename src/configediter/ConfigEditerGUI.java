@@ -263,6 +263,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         long end = System.nanoTime();
         long duration = (end - start)/1000000;
         System.out.println("The method took: " + duration);
+        this.setResizable(false);
     }
 
     /**
@@ -2872,6 +2873,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
     private void searchBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBoxKeyTyped
         // TODO add your handling code here:
         String term = searchBox.getText();
+        term = term.toLowerCase();
         resultArea.setEditable(false);
         resultArea.setText("");
         Search find = new Search(indexList);
