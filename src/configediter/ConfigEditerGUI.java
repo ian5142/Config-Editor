@@ -2244,13 +2244,18 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
             }
         });
         searchBox.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchBoxKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBoxKeyReleased(evt);
             }
         });
 
         searchButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         resultArea.setBackground(new java.awt.Color(240, 240, 240));
         resultArea.setColumns(20);
@@ -2870,7 +2875,7 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchBoxMouseClicked
 
-    private void searchBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBoxKeyTyped
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
         String term = searchBox.getText();
         term = term.toLowerCase();
@@ -2881,7 +2886,20 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         for (String line : results) {
             resultArea.append(line + "\n");
         }
-    }//GEN-LAST:event_searchBoxKeyTyped
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void searchBoxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBoxKeyReleased
+        // TODO add your handling code here:
+        String term = searchBox.getText();
+        term = term.toLowerCase();
+        resultArea.setEditable(false);
+        resultArea.setText("");
+        Search find = new Search(indexList);
+        ArrayList<String> results = find.findTerm(term);
+        for (String line : results) {
+            resultArea.append(line + "\n");
+        }
+    }//GEN-LAST:event_searchBoxKeyReleased
     /**
      * @param args the command line arguments
      */
