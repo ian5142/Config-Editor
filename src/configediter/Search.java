@@ -40,60 +40,64 @@ public class Search {
      * fills the list ArrayList with names of all variables
      */
     private void fillArray() {
-        list.add("competitor speed"); //start of difficulty tab
-        list.add("construction cost");
-        list.add("difficulty level");
-        list.add("disasters");
-        list.add("economy");
-        list.add("industry density");
-        list.add("initial interest");
-        list.add("line reverse mode - reverse at stations");
-        list.add("maximum loan");
-        list.add("maximum number of competitors");
-        list.add("number of industries");
-        list.add("number of towns");
-        list.add("custom town number");
-        list.add("quantity of seas and lakes - number of seas and lakes");
-        list.add("subsidy multiplier");
-        list.add("terrain type");
-        list.add("town council tolerance");
-        list.add("vehicle breakdowns");
-        list.add("vehicle costs"); //end of difficulty tab, start of vehicle tab
-        list.add("disable elrails - disable electric rails");
-        list.add("dynamic engines");
-        list.add("extend vehicle life");
-        list.add("freight trains");
-        list.add("maximum aircraft");
-        list.add("maximum road vehicles");
-        list.add("maximum ships");
-        list.add("maximum train length");
-        list.add("maximum trains");
-        list.add("never expire vehicles");
-        list.add("plane crashes");
-        list.add("plane speed");
-        list.add("road side");
-        list.add("road vehicle acceleration model");
-        list.add("road vehicle slope steepness");
-        list.add("service interval aircraft");
-        list.add("service interval road vehicle");
-        list.add("service interval ships");
-        list.add("service interval trains");
-        list.add("service interval is percent");
-        list.add("train acceleration model"); //end of vehicle tab
+        list.add("competitor speed, D-L"); //start of difficulty tab
+        list.add("construction cost, D-L");
+        list.add("disasters, D-L");
+        list.add("economy, D-L");
+        list.add("industry density, D-L");
+        list.add("initial interest, D-L");
+        list.add("line reverse mode - reverse at stations, D-L");
+        list.add("maximum loan, D-L");
+        list.add("maximum number of competitors, D-L");
+        list.add("number of towns, D-R");
+        list.add("custom town number, D-R");
+        list.add("quantity of seas and lakes - number of seas and lakes, D-R");
+        list.add("subsidy multiplier, D-R");
+        list.add("terrain type, D-R");
+        list.add("town council tolerance, D-R");
+        list.add("vehicle breakdowns, D-R");
+        list.add("vehicle costs, D-R"); //end of difficulty tab, start of vehicle tab
+        list.add("disable elrails - disable electric rails, V-L");
+        list.add("dynamic engines, V-L");
+        list.add("extend vehicle life, V-L");
+        list.add("freight trains, V-L");
+        list.add("maximum aircraft, V-L");
+        list.add("maximum road vehicles, V-L");
+        list.add("maximum ships, V-L");
+        list.add("maximum train length, V-L");
+        list.add("maximum trains, V-L");
+        list.add("never expire vehicles, V-L");
+        list.add("plane crashes, V-R");
+        list.add("plane speed, V-R");
+        list.add("road side, V-R");
+        list.add("road vehicle acceleration model, V-R");
+        list.add("road vehicle slope steepness, V-R");
+        list.add("service interval aircraft, V-R");
+        list.add("service interval road vehicle, V-R");
+        list.add("service interval ships, V-R");
+        list.add("service interval trains, V-R");
+        list.add("service interval is percent, V-R");
+        list.add("train acceleration model, V-L"); //end of vehicle tab
     }
     
     /**
-     * Finds term in the list ArrayList, then returns all indexes of that term as an ArrayList<Integer>
+     * Finds term in the list ArrayList, then returns all of the results as an ArrayList<Stirng>
      * @param term
-     * @return Returns the results of the search, only returns the relevant indexes as an ArrayList 
+     * @return Returns the results of the search, in a new ArrayList<String>
      */
-    public ArrayList<Integer> findTerm (String term) {
+    public ArrayList<String> findTerm (String term) {
         ArrayList<Integer> results = new ArrayList<>();
-        for (int index = 0 ; index < indexes.size();index++) {
+        for (int index = 0 ; index < indexes.size() ; index++) {
             if (list.get(index).contains(term) ) {
                 results.add(index);
             }
         }
-        return results;
+        
+        ArrayList<String> resultString = new ArrayList<>();
+        for (int i : results) {
+            String line = list.get(i);
+            resultString.add(line);
+        }
+        return resultString;
     }
 }
