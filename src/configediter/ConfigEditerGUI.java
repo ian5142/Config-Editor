@@ -2359,12 +2359,12 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
 
     private void disasters_ONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_ONActionPerformed
         // TODO add your handling code here:
-        lines.get(disasters).set(2, "1");
+        lines.get(disasters).set(2, "true");
     }//GEN-LAST:event_disasters_ONActionPerformed
 
     private void disasters_OFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disasters_OFFActionPerformed
         // TODO add your handling code here:
-        lines.get(disasters).set(2, "0");
+        lines.get(disasters).set(2, "false");
     }//GEN-LAST:event_disasters_OFFActionPerformed
 
     private void economy_SMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economy_SMActionPerformed
@@ -3150,9 +3150,9 @@ public class ConfigEditerGUI extends javax.swing.JFrame {
         }
 
         //disasters
-        if (lines.get(disasters).get(2).equals("0")) {
+        if (lines.get(disasters).get(2).equals("false")) {
             disasters_OFF.setSelected(true);
-        } else if (lines.get(disasters).get(2).equals("1")) {
+        } else if (lines.get(disasters).get(2).equals("true")) {
             disasters_ON.setSelected(true);
         }
 
