@@ -2469,6 +2469,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private void towns_CUSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_towns_CUSTActionPerformed
         // TODO add your handling code here:
         lines.get(towns).set(2, "4");
+        if(towns_CUST.getText().equals("custom")) {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please set a custom value for towns, cursor moved");
+        }
     }//GEN-LAST:event_towns_CUSTActionPerformed
 
     private void seas_VLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seas_VLActionPerformed
@@ -2734,7 +2737,12 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private void towns_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_towns_TEXTCaretUpdate
         // TODO add your handling code here:
         String str3 = towns_TEXT.getText();
-        lines.get(towns_CUSTOM).set(2, str3);
+        if (str3.equals("custom") || (str3.)) {
+            towns_TEXT.setText("");
+        }
+        else { 
+            lines.get(towns_CUSTOM).set(2, str3);
+        }
     }//GEN-LAST:event_towns_TEXTCaretUpdate
 
     private void seas_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_seas_TEXTCaretUpdate
