@@ -1158,6 +1158,11 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                 towns_TEXTCaretUpdate(evt);
             }
         });
+        towns_TEXT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                towns_TEXTKeyReleased(evt);
+            }
+        });
 
         seas_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         if (towns == 4) {
@@ -2736,12 +2741,20 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
     private void towns_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_towns_TEXTCaretUpdate
         // TODO add your handling code here:
-        String str3 = towns_TEXT.getText();
-        if (str3.equals("custom") || (str3.)) {
-            towns_TEXT.setText("");
+        String str3 = towns_TEXT.getText();;
+        if (towns_CUST.isSelected()) {
+            if (str3.equals("custom")) {
+                towns_TEXT.setText("");
+            } else if ((!(isInteger(str3))) && (!str3.equals(""))) {
+                int index = str3.length() - 1;
+                String str4 = str3.substring(index);
+                towns_TEXT.setText(str4);
+            } else {
+                lines.get(towns_CUSTOM).set(2, str3);
+            }
         }
-        else { 
-            lines.get(towns_CUSTOM).set(2, str3);
+        else {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
         }
     }//GEN-LAST:event_towns_TEXTCaretUpdate
 
@@ -2922,6 +2935,22 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             resultArea.append(line + "\n");
         }
     }//GEN-LAST:event_searchBoxKeyReleased
+
+    private void towns_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_towns_TEXTKeyReleased
+        // TODO add your handling code here:
+        String str3 = towns_TEXT.getText();;
+        if (str3.equals("custom") ) {
+            towns_TEXT.setText("");
+        }
+        else if ((!(isInteger(str3)) ) && (!str3.equals("")) ) {
+            int index = str3.length() -1;
+            String str4 = str3.substring(index);
+            towns_TEXT.setText(str4);
+        }
+        else {
+            lines.get(towns_CUSTOM).set(2, str3);
+        }
+    }//GEN-LAST:event_towns_TEXTKeyReleased
     /**
      * @param args the command line arguments
      */
@@ -3601,5 +3630,34 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 //            }
         }
         roadSlopeSet = false;
+    }
+    
+    /**
+     * Checks to see if a String is an int
+     * @param str The string to be tested
+     * @return Returns true if the string contains only an int, false if not.
+     */
+    public static boolean isInteger(String str) {
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return false;
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c <= '/' || c >= ':') {
+                return false;
+            }
+        }
+        return true;
     }
 }
