@@ -18,6 +18,11 @@
 package configeditor;
 
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -109,6 +114,15 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             Logger.getLogger(ConfigEditorGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.PLAIN, 18)) );
+        
+        // adds an icon and sets the title
+        JFileChooser fr = new JFileChooser();
+        FileSystemView fw = fr.getFileSystemView();
+        Image icon = Toolkit.getDefaultToolkit().getImage(fw.getDefaultDirectory() + ("\\\\OpenTTD\\\\openttd.png") );
+        this.setIconImage(icon);
+        this.setSize(100, 100);
+        this.setLocation(200, 200);
+        this.setTitle("OpenTTD Config Editor");
         
         long start = System.nanoTime();
         indexList = new ArrayList<>(100);
@@ -258,7 +272,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         servIntPerGroup.add(servIntPer_T);
         servIntPerGroup.add(servIntPer_F);
-
+        
         setDisplay();
         long end = System.nanoTime();
         long duration = (end - start)/1000000;
