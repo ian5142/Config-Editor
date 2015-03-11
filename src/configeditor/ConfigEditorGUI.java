@@ -460,9 +460,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             lineReverse_TRUE = new javax.swing.JRadioButton();
         }
         jLabel17 = new javax.swing.JLabel();
-        maxLoan_TEXT = new javax.swing.JTextField();
+        maxLoan_TEXT = new javax.swing.JTextField("", 5);
         jLabel18 = new javax.swing.JLabel();
-        maxComp_TEXT = new javax.swing.JTextField();
+        maxComp_TEXT = new javax.swing.JTextField("", 2);
         jLabel20 = new javax.swing.JLabel();
         if(towns == 3) {
             towns_H = new javax.swing.JRadioButton("3", true);
