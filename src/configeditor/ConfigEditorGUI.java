@@ -2475,7 +2475,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         lines.get(towns).set(2, "4");
         if(towns_CUST.getText().equals("custom")) {
-            JOptionPane.showMessageDialog(jTabbedPane1, "Please set a custom value for towns, cursor moved");
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please set a custom value for towns, cursor not moved");
         }
     }//GEN-LAST:event_towns_CUSTActionPerformed
 
@@ -2746,14 +2746,17 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             if (str3.equals("custom")) {
                 towns_TEXT.setText("");
             } else if ((!(isInteger(str3))) && (!str3.equals(""))) {
-                int index = str3.length() - 1;
-                String str4 = str3.substring(index);
-                towns_TEXT.setText(str4);
+                if (str3.length() == 1) {
+                    towns_TEXT.setText("");
+                } else {
+                    int index = str3.length() - 1;
+                    String str4 = str3.substring(index);
+                    towns_TEXT.setText(str4);
+                }
             } else {
                 lines.get(towns_CUSTOM).set(2, str3);
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
         }
     }//GEN-LAST:event_towns_TEXTCaretUpdate
@@ -2939,16 +2942,22 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private void towns_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_towns_TEXTKeyReleased
         // TODO add your handling code here:
         String str3 = towns_TEXT.getText();;
-        if (str3.equals("custom") ) {
-            towns_TEXT.setText("");
-        }
-        else if ((!(isInteger(str3)) ) && (!str3.equals("")) ) {
-            int index = str3.length() -1;
-            String str4 = str3.substring(index);
-            towns_TEXT.setText(str4);
-        }
-        else {
-            lines.get(towns_CUSTOM).set(2, str3);
+        if (towns_CUST.isSelected()) {
+            if (str3.equals("custom")) {
+                towns_TEXT.setText("");
+            } else if ((!(isInteger(str3))) && (!str3.equals(""))) {
+                if (str3.length() == 1) {
+                    towns_TEXT.setText("");
+                } else {
+                    int index = str3.length() - 1;
+                    String str4 = str3.substring(index);
+                    towns_TEXT.setText(str4);
+                }
+            } else {
+                lines.get(towns_CUSTOM).set(2, str3);
+            }
+        } else {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
         }
     }//GEN-LAST:event_towns_TEXTKeyReleased
     /**
