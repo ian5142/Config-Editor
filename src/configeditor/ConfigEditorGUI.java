@@ -1153,9 +1153,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         else {
             towns_TEXT.setText("custom");
         }
-        towns_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                towns_TEXTCaretUpdate(evt);
+        towns_TEXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                towns_TEXTMouseClicked(evt);
             }
         });
         towns_TEXT.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2739,28 +2739,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         lines.get(maxComp).set(2, str2);
     }//GEN-LAST:event_maxComp_TEXTCaretUpdate
 
-    private void towns_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_towns_TEXTCaretUpdate
-        // TODO add your handling code here:
-        String str3 = towns_TEXT.getText();;
-        if (towns_CUST.isSelected()) {
-            if (str3.equals("custom")) {
-                towns_TEXT.setText("");
-            } else if ((!(isInteger(str3))) && (!str3.equals(""))) {
-                if (str3.length() == 1) {
-                    towns_TEXT.setText("");
-                } else {
-                    int index = str3.length() - 1;
-                    String str4 = str3.substring(index);
-                    towns_TEXT.setText(str4);
-                }
-            } else {
-                lines.get(towns_CUSTOM).set(2, str3);
-            }
-        } else {
-            JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
-        }
-    }//GEN-LAST:event_towns_TEXTCaretUpdate
-
     private void seas_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_seas_TEXTCaretUpdate
         // TODO add your handling code here:
         String str4 = seas_TEXT.getText();
@@ -2892,16 +2870,24 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         int response = JOptionPane.showConfirmDialog(jTabbedPane1, "Do you want to save your changes?", "Save Changes",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
-            WriteConfig wc = new WriteConfig();
-            boolean success = false;
-            try {
-                success = wc.write(lines);
-            } catch (IOException ex) {
-                Logger.getLogger(ConfigEditorGUI.class.getName()).log(Level.SEVERE, null, ex);
+            if (towns_CUST.isSelected()) {
+                String str = towns_TEXT.getText();
+                if (isInteger(str)) {
+                    WriteConfig wc = new WriteConfig();
+                    boolean success = false;
+                    try {
+                        success = wc.write(lines);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConfigEditorGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (success) {
+                        JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
+                        System.exit(0);
+                    }
+                }
             }
-            if (success) {
-                JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
-                System.exit(0);
+            else {
+                JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for custom towns.");
             }
         }
     }//GEN-LAST:event_formWindowClosing
@@ -2941,7 +2927,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
     private void towns_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_towns_TEXTKeyReleased
         // TODO add your handling code here:
-        String str3 = towns_TEXT.getText();;
+        String str3 = towns_TEXT.getText();
         if (towns_CUST.isSelected()) {
             if (str3.equals("custom")) {
                 towns_TEXT.setText("");
@@ -2950,7 +2936,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                     towns_TEXT.setText("");
                 } else {
                     int index = str3.length() - 1;
-                    String str4 = str3.substring(index);
+                    String str4 = str3.substring(0,index);
                     towns_TEXT.setText(str4);
                 }
             } else {
@@ -2960,6 +2946,28 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
         }
     }//GEN-LAST:event_towns_TEXTKeyReleased
+
+    private void towns_TEXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_towns_TEXTMouseClicked
+        // TODO add your handling code here:
+        String str3 = towns_TEXT.getText();
+        if (towns_CUST.isSelected()) {
+            if (str3.equals("custom")) {
+                towns_TEXT.setText("");
+            } else if ((!(isInteger(str3))) && (!str3.equals(""))) {
+                if (str3.length() == 1) {
+                    towns_TEXT.setText("");
+                } else {
+                    int index = str3.length() - 1;
+                    String str4 = str3.substring(0,index);
+                    towns_TEXT.setText(str4);
+                }
+            } else {
+                lines.get(towns_CUSTOM).set(2, str3);
+            }
+        } else {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
+        }
+    }//GEN-LAST:event_towns_TEXTMouseClicked
     /**
      * @param args the command line arguments
      */
