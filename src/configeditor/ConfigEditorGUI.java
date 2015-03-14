@@ -2870,24 +2870,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         int response = JOptionPane.showConfirmDialog(jTabbedPane1, "Do you want to save your changes?", "Save Changes",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
-            if (towns_CUST.isSelected()) {
-                String str = towns_TEXT.getText();
-                if (isInteger(str)) {
-                    WriteConfig wc = new WriteConfig();
-                    boolean success = false;
-                    try {
-                        success = wc.write(lines);
-                    } catch (IOException ex) {
-                        Logger.getLogger(ConfigEditorGUI.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    if (success) {
-                        JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
-                        System.exit(0);
-                    }
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for custom towns.");
+            if(error) {
+                //stop closing
             }
         }
     }//GEN-LAST:event_formWindowClosing
@@ -3654,7 +3638,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
      * @param str The string to be tested
      * @return Returns true if the string contains only an int, false if not.
      */
-    public static boolean isInteger(String str) {
+    private boolean isInteger(String str) {
         if (str == null) {
             return false;
         }
@@ -3676,5 +3660,41 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         }
         return true;
+    }
+    
+    private boolean closingCheck () {
+        boolean error = false;
+        if (!isInteger(maxLoan_TEXT.getText())) {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for max loan.");
+        }
+        if (!isInteger(maxComp_TEXT.getText())) {
+            JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for max competitors.");
+        }
+        if (towns_CUST.isSelected()) {
+            String str = towns_TEXT.getText();
+            if (!isInteger(str)) {
+                JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for custom towns.");
+            }
+        }
+        if (seas_CUST.isSelected()) {
+            String str = seas_TEXT.getText();
+            if (!isInteger(str)) {
+                JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for custom seas.");
+            }
+        }
+            
+        
+//        WriteConfig wc = new WriteConfig();
+//                    boolean success = false;
+//                    try {
+//                        success = wc.write(lines);
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(ConfigEditorGUI.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                    if (success) {
+//                        JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
+//                        System.exit(0);
+//                    }
+        return error
     }
 }
