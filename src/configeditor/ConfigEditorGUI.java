@@ -210,6 +210,16 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         lineReverseGroup.add(lineReverse_TRUE);
         lineReverseGroup.add(lineReverse_FALSE);
+        
+        
+        for (int i = 100000; i <= 500000;) {
+            maxLoan_COMBO.addItem(i + "");
+            i += 100000;
+        }
+        
+        for (int i = 1; i <= 14; i++) {
+            maxComp_COMBO.addItem(i + "");
+        }
 
         //Buttongroups for difficulty tab, right side
         townsGroup.add(towns_VL);
@@ -460,9 +470,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             lineReverse_TRUE = new javax.swing.JRadioButton();
         }
         jLabel17 = new javax.swing.JLabel();
-        maxLoan_TEXT = new javax.swing.JTextField("", 5);
         jLabel18 = new javax.swing.JLabel();
-        maxComp_TEXT = new javax.swing.JTextField("", 2);
         jLabel20 = new javax.swing.JLabel();
         if(towns == 3) {
             towns_H = new javax.swing.JRadioButton("3", true);
@@ -645,6 +653,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        maxLoan_COMBO = new javax.swing.JComboBox();
+        maxComp_COMBO = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         elecRail_T = new javax.swing.JRadioButton();
@@ -920,7 +930,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel15.setText("Init. interest");
+        jLabel15.setText("Initial interest");
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel16.setText("Line reverse mode");
@@ -942,26 +952,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         });
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel17.setText("Max loan (100 000-500 000)");
-
-        maxLoan_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        maxLoan_TEXT.setText(maxLoan + "");
-        maxLoan_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                maxLoan_TEXTCaretUpdate(evt);
-            }
-        });
+        jLabel17.setText("Max loan");
 
         jLabel18.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel18.setText("Max # of compet. (0-14)");
-
-        maxComp_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        maxComp_TEXT.setText(maxComp + "");
-        maxComp_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                maxComp_TEXTCaretUpdate(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel20.setText("# of towns");
@@ -1246,6 +1240,20 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
+        maxLoan_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
+        maxLoan_COMBO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxLoan_COMBOActionPerformed(evt);
+            }
+        });
+
+        maxComp_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
+        maxComp_COMBO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxComp_COMBOActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1292,13 +1300,13 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(constCost_H))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(maxLoan_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(maxLoan_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxComp_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1574,12 +1582,12 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(maxLoan_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(maxLoan_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(maxComp_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(maxComp_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Difficulty", jPanel2);
@@ -2727,18 +2735,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         lines.get(freightTrains).set(2, str4);
     }//GEN-LAST:event_freightTrains_TEXTCaretUpdate
 
-    private void maxLoan_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxLoan_TEXTCaretUpdate
-        // TODO add your handling code here:
-        String str = maxLoan_TEXT.getText();
-        lines.get(maxLoan).set(2, str);
-    }//GEN-LAST:event_maxLoan_TEXTCaretUpdate
-
-    private void maxComp_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_maxComp_TEXTCaretUpdate
-        // TODO add your handling code here:
-        String str2 = maxComp_TEXT.getText();
-        lines.get(maxComp).set(2, str2);
-    }//GEN-LAST:event_maxComp_TEXTCaretUpdate
-
     private void seas_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_seas_TEXTCaretUpdate
         // TODO add your handling code here:
         String str4 = seas_TEXT.getText();
@@ -2952,6 +2948,16 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jTabbedPane1, "Please select Custom first.");
         }
     }//GEN-LAST:event_towns_TEXTMouseClicked
+
+    private void maxLoan_COMBOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxLoan_COMBOActionPerformed
+        // TODO add your handling code here:
+        lines.get(maxLoan).set(2, (String) maxLoan_COMBO.getSelectedItem());
+    }//GEN-LAST:event_maxLoan_COMBOActionPerformed
+
+    private void maxComp_COMBOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_COMBOActionPerformed
+        // TODO add your handling code here:
+        lines.get(maxComp).set(2, (String) maxComp_COMBO.getSelectedItem());
+    }//GEN-LAST:event_maxComp_COMBOActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -3096,8 +3102,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton lineReverse_FALSE;
     private javax.swing.JRadioButton lineReverse_TRUE;
     private javax.swing.JTextField maxAir_TEXT;
-    private javax.swing.JTextField maxComp_TEXT;
-    private javax.swing.JTextField maxLoan_TEXT;
+    private javax.swing.JComboBox maxComp_COMBO;
+    private javax.swing.JComboBox maxLoan_COMBO;
     private javax.swing.JTextField maxRoad_TEXT;
     private javax.swing.JTextField maxShips_TEXT;
     private javax.swing.JTextField maxTrainLen_TEXT;
@@ -3254,10 +3260,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         }
 
         //max_loan
-        maxLoan_TEXT.setText(lines.get(maxLoan).get(2));
+        maxLoan_COMBO.setSelectedItem(lines.get(maxLoan).get(2));
 
         //max_no_competitors
-        maxComp_TEXT.setText(lines.get(maxComp).get(2));
+        maxComp_COMBO.setSelectedItem(lines.get(maxComp).get(2));
 
         //number_towns
         if (lines.get(towns).get(2).equals("0")) {
@@ -3662,6 +3668,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         return true;
     }
     
+    /**
+     * Checks if all textboxes contain an 
+     * @return 
+     */
     private boolean closingCheck () {
         boolean error = false;
         if (!isInteger(maxLoan_TEXT.getText())) {
