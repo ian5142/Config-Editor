@@ -220,7 +220,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         for (int i = 1; i <= 14; i++) {
             maxComp_COMBO.addItem(i + "");
         }
-
+        
         //Buttongroups for difficulty tab, right side
         townsGroup.add(towns_VL);
         townsGroup.add(towns_L);
@@ -1240,6 +1240,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
+        maxLoan_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxLoan_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
         maxLoan_COMBO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1247,6 +1248,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
+        maxComp_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxComp_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
         maxComp_COMBO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3254,7 +3256,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         //line_reverse_mode
         if (lines.get(lineReverse).get(2).equals("0")) {
-            lineReverse_FALSE.setSelected(true);
+            lineReverse_FALSE.setSelected(true); 
         } else if (lines.get(lineReverse).get(2).equals("1")) {
             lineReverse_TRUE.setSelected(true);
         }
@@ -3263,9 +3265,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         maxLoan_COMBO.setSelectedItem(lines.get(maxLoan).get(2));
         
         System.out.println("Line number for Max Comp: " + maxComp);
-        System.out.println(lines.get(maxComp).get(2));
+        lines.get(maxComp).set(2 ,"6");
         //max_no_competitors
-        maxComp_COMBO.setSelectedItem(lines.get(maxComp).get(2));
+        maxComp_COMBO.setSelectedItem((String) lines.get(maxComp).get(2));
 
         //number_towns
         if (lines.get(towns).get(2).equals("0")) {
