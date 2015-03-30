@@ -3261,7 +3261,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         //max_loan
         maxLoan_COMBO.setSelectedItem(lines.get(maxLoan).get(2));
-
+        
+        System.out.println("Line number for Max Comp: " + maxComp);
+        System.out.println(lines.get(maxComp).get(2));
         //max_no_competitors
         maxComp_COMBO.setSelectedItem(lines.get(maxComp).get(2));
 
