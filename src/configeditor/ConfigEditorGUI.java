@@ -2866,7 +2866,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         int response = JOptionPane.showConfirmDialog(jTabbedPane1, "Do you want to save your changes?", "Save Changes",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
-            if(error) {
+            if(closingCheck()) {
                 //stop closing
             }
         }
@@ -3674,12 +3674,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
      */
     private boolean closingCheck () {
         boolean error = false;
-        if (!isInteger(maxLoan_TEXT.getText())) {
-            JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for max loan.");
-        }
-        if (!isInteger(maxComp_TEXT.getText())) {
-            JOptionPane.showMessageDialog(jTabbedPane1, "Please input a number for max competitors.");
-        }
         if (towns_CUST.isSelected()) {
             String str = towns_TEXT.getText();
             if (!isInteger(str)) {
@@ -3705,6 +3699,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 //                        JOptionPane.showMessageDialog(jTabbedPane1, "Changes saved successfully");
 //                        System.exit(0);
 //                    }
-        return error
+        return error;
     }
 }
