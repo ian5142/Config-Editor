@@ -1543,7 +1543,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxLoan_COMBOActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="maxLoan_COMBOItemStateChanged"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="maxComp_COMBO">
@@ -1556,7 +1556,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxComp_COMBOActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="maxComp_COMBOItemStateChanged"/>
               </Events>
             </Component>
           </SubComponents>

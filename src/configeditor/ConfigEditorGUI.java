@@ -53,7 +53,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private int initInter;
     private int lineReverse; //false and true
     private int maxLoan;
+    private boolean maxLoan_set;
     private int maxComp;
+    private boolean maxComp_set;
     private int index2;
     private int index3;
     //Variables for Difficulty tab, right side
@@ -178,7 +180,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 //        servIntTrains = getLineNum("servint_trains", vehicle, constr);
 //        servIntPer = getLineNum("servint_ispercent", vehicle, constr);
 //        trainAcc = getLineNum("train_acceleration_model", vehicle, constr);
-                
+        
+        maxComp_set = false;
+        maxLoan_set = false;
+        
         initComponents();
         // ButtonGroups for Difficulty tab, left side
         compSpdGroup.add(compSpd_VS);
@@ -217,7 +222,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             i += 100000;
         }
         
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 0; i <= 14; i++) {
             maxComp_COMBO.addItem(i + "");
         }
         
@@ -1242,17 +1247,17 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         maxLoan_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxLoan_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
-        maxLoan_COMBO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxLoan_COMBOActionPerformed(evt);
+        maxLoan_COMBO.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                maxLoan_COMBOItemStateChanged(evt);
             }
         });
 
         maxComp_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         maxComp_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
-        maxComp_COMBO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxComp_COMBOActionPerformed(evt);
+        maxComp_COMBO.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                maxComp_COMBOItemStateChanged(evt);
             }
         });
 
@@ -2951,15 +2956,19 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_towns_TEXTMouseClicked
 
-    private void maxLoan_COMBOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxLoan_COMBOActionPerformed
+    private void maxLoan_COMBOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_maxLoan_COMBOItemStateChanged
         // TODO add your handling code here:
-        lines.get(maxLoan).set(2, (String) maxLoan_COMBO.getSelectedItem());
-    }//GEN-LAST:event_maxLoan_COMBOActionPerformed
+        if (maxLoan_set) {
+            lines.get(maxLoan).set(2, (String) maxLoan_COMBO.getSelectedItem());
+        }
+    }//GEN-LAST:event_maxLoan_COMBOItemStateChanged
 
-    private void maxComp_COMBOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxComp_COMBOActionPerformed
+    private void maxComp_COMBOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_maxComp_COMBOItemStateChanged
         // TODO add your handling code here:
-        lines.get(maxComp).set(2, (String) maxComp_COMBO.getSelectedItem());
-    }//GEN-LAST:event_maxComp_COMBOActionPerformed
+        if (maxComp_set) {
+            lines.get(maxComp).set(2, (String) maxComp_COMBO.getSelectedItem());
+        }
+    }//GEN-LAST:event_maxComp_COMBOItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -3263,11 +3272,11 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
         //max_loan
         maxLoan_COMBO.setSelectedItem(lines.get(maxLoan).get(2));
+        maxLoan_set = true;
         
-        System.out.println("Line number for Max Comp: " + maxComp);
-        lines.get(maxComp).set(2 ,"6");
         //max_no_competitors
-        maxComp_COMBO.setSelectedItem((String) lines.get(maxComp).get(2));
+        maxComp_COMBO.setSelectedItem(lines.get(maxComp).get(2));
+        maxComp_set = true;
 
         //number_towns
         if (lines.get(towns).get(2).equals("0")) {
