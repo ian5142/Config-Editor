@@ -91,7 +91,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private int roadSide;
     private int roadAccel;
     private int roadSlope;
-    private boolean roadSlopeSet;
+    private boolean roadSlope_set;
     private int servIntAir;
     private int servIntRoad;
     private int servIntShips;
@@ -185,6 +185,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         maxComp_set = false;
         maxLoan_set = false;
         planeSpd_set = false;
+        roadSlope_set = false;
         
         initComponents();
         // ButtonGroups for Difficulty tab, left side
@@ -285,7 +286,11 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         planeCrashGroup.add(planeCrash_NONE);
         planeCrashGroup.add(planeCrash_RED);
         planeCrashGroup.add(planeCrash_NORM);
-
+        
+        for (int i = 1; i <= 10; i++) {
+            roadSlope_COMBO.addItem(i + "");
+        }
+        
         roadSideGroup.add(roadSide_L);
         roadSideGroup.add(roadSide_R);
 
@@ -714,8 +719,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         roadAccel_REAL = new javax.swing.JRadioButton();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        roadSlope_TEXT = new javax.swing.JTextField();
-        roadSlopeCheck = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
         jLabel42 = new javax.swing.JLabel();
         servIntAir_TEXT = new javax.swing.JTextField(4);
@@ -740,6 +743,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         trainAcc_ORIG = new javax.swing.JRadioButton();
         trainAcc_REAL = new javax.swing.JRadioButton();
         planeSpd_COMBO = new javax.swing.JComboBox();
+        roadSlope_COMBO = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         searchBox = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
@@ -1835,21 +1839,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         });
 
         jLabel39.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel39.setText("Road slope steepness (1-10)");
+        jLabel39.setText("Road slope steepness");
 
         jLabel40.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel40.setText("default: 7");
-
-        roadSlope_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        roadSlope_TEXT.setText(planeSpd + "");
-        roadSlope_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                roadSlope_TEXTCaretUpdate(evt);
-            }
-        });
-
-        roadSlopeCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        roadSlopeCheck.setText("");
 
         jLabel42.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel42.setText("Service interval aircraft (0, 5-800), days");
@@ -1965,6 +1958,14 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
+        roadSlope_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        roadSlope_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
+        roadSlope_COMBO.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                roadSlope_COMBOItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -2070,9 +2071,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                                         .addGap(49, 49, 49)
                                         .addComponent(jLabel40)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(roadSlopeCheck))
+                                .addComponent(roadSlope_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel44)
@@ -2121,7 +2120,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton2)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2216,12 +2215,10 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                             .addComponent(roadAccel_ORIG)
                             .addComponent(roadAccel_REAL))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(roadSlope_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(roadSlopeCheck))
-                            .addComponent(jLabel39))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addComponent(roadSlope_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel40)
                         .addGap(14, 14, 14)
                         .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2746,24 +2743,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         lines.get(roadAccel).set(2, "1");
     }//GEN-LAST:event_roadAccel_REALActionPerformed
 
-    private void roadSlope_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_roadSlope_TEXTCaretUpdate
-        // TODO add your handling code here:
-        String str4 = roadSlope_TEXT.getText();
-        int slope;
-        Scanner input = new Scanner(str4);
-        if (input.hasNextInt()) {
-            slope = input.nextInt();
-        } else {
-            slope = -1;
-        }
-        if (slope >= 0 && slope <= 10) {
-            lines.get(roadSlope).set(2, str4);
-            roadSlopeCheck.setText("");
-        } else {
-            roadSlopeCheck.setText("<html><B><u>Please Check</B></html>");
-        }
-    }//GEN-LAST:event_roadSlope_TEXTCaretUpdate
-
     private void servIntAir_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_servIntAir_TEXTCaretUpdate
         // TODO add your handling code here:
         String str4 = servIntAir_TEXT.getText();
@@ -2960,7 +2939,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 
     private void planeSpd_COMBOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_planeSpd_COMBOItemStateChanged
         // TODO add your handling code here:
-        if (maxComp_set) {
+        if (planeSpd_set) {
             String s = (String) planeSpd_COMBO.getSelectedItem();
             if (s.equals("1/4")) {
                 s = "4";
@@ -2974,6 +2953,13 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             lines.get(planeSpd).set(2, s);
         }
     }//GEN-LAST:event_planeSpd_COMBOItemStateChanged
+
+    private void roadSlope_COMBOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_roadSlope_COMBOItemStateChanged
+        // TODO add your handling code here:
+        if (roadSlope_set) {
+            lines.get(roadSlope).set(2, (String) roadSlope_COMBO.getSelectedItem());
+        }
+    }//GEN-LAST:event_roadSlope_COMBOItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -3139,8 +3125,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup roadSideGroup;
     private javax.swing.JRadioButton roadSide_L;
     private javax.swing.JRadioButton roadSide_R;
-    private javax.swing.JLabel roadSlopeCheck;
-    private javax.swing.JTextField roadSlope_TEXT;
+    private javax.swing.JComboBox roadSlope_COMBO;
     private javax.swing.JButton saveButton2;
     private javax.swing.JButton save_Button;
     private javax.swing.JTextField searchBox;
@@ -3428,8 +3413,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         }
 
         //roadveh_slope_steepness
-        roadSlope_TEXT.setText(lines.get(roadSlope).get(2));
-        roadSlopeSet = true;
+        roadSlope_COMBO.setSelectedItem(lines.get(roadSlope).get(2));
+        roadSlope_set = true;
 
         //servint_aircraft
         servIntAir_TEXT.setText(lines.get(servIntAir).get(2));
@@ -3654,7 +3639,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
 //                 = index;
 //            }
         }
-        roadSlopeSet = false;
     }
     
     /**
