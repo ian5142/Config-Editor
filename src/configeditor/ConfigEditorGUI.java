@@ -1761,7 +1761,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         jLabel34.setText("Plane crashes");
 
         jLabel35.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel35.setText("Plane speed (1-4)");
+        jLabel35.setText("Plane speed divisor (1-4)");
 
         jLabel36.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel36.setText("Road side");
