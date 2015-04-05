@@ -712,7 +712,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         roadAccel_ORIG = new javax.swing.JRadioButton();
         roadAccel_REAL = new javax.swing.JRadioButton();
-        planeSpdCheck = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         roadSlope_TEXT = new javax.swing.JTextField();
@@ -1835,9 +1834,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
-        planeSpdCheck.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        planeSpdCheck.setText("");
-
         jLabel39.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel39.setText("Road slope steepness (1-10)");
 
@@ -2059,9 +2055,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel37)
                                     .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeSpd_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(planeSpdCheck))
+                                .addComponent(planeSpd_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel36)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2208,7 +2202,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                             .addComponent(planeCrash_NORM))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel35)
-                            .addComponent(planeSpdCheck)
                             .addComponent(planeSpd_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addComponent(jLabel37)
@@ -3138,7 +3131,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton planeCrash_NONE;
     private javax.swing.JRadioButton planeCrash_NORM;
     private javax.swing.JRadioButton planeCrash_RED;
-    private javax.swing.JLabel planeSpdCheck;
     private javax.swing.JComboBox planeSpd_COMBO;
     private javax.swing.JTextArea resultArea;
     private javax.swing.ButtonGroup roadAccelGroup;
