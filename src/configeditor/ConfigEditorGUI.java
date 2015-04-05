@@ -87,6 +87,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     //Variables for Vehicles tab, right side
     private int planeCrash;
     private int planeSpd;
+    private boolean planeSpd_set;
     private int roadSide;
     private int roadAccel;
     private int roadSlope;
@@ -183,6 +184,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         
         maxComp_set = false;
         maxLoan_set = false;
+        planeSpd_set = false;
         
         initComponents();
         // ButtonGroups for Difficulty tab, left side
@@ -275,6 +277,11 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         trainAccGroup.add(trainAcc_REAL);
 
         //Button Groups for Vehicle tab, right side
+        
+        for (int i = 1; i <= 4; i++) {
+            planeSpd_COMBO.addItem("1/" + i);
+        }
+        
         planeCrashGroup.add(planeCrash_NONE);
         planeCrashGroup.add(planeCrash_RED);
         planeCrashGroup.add(planeCrash_NORM);
@@ -699,7 +706,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         planeCrash_NONE = new javax.swing.JRadioButton();
         planeCrash_RED = new javax.swing.JRadioButton();
         planeCrash_NORM = new javax.swing.JRadioButton();
-        planeSpd_TEXT = new javax.swing.JTextField();
         roadSide_L = new javax.swing.JRadioButton();
         roadSide_R = new javax.swing.JRadioButton();
         jLabel37 = new javax.swing.JLabel();
@@ -734,6 +740,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         trainAcc_ORIG = new javax.swing.JRadioButton();
         trainAcc_REAL = new javax.swing.JRadioButton();
+        planeSpd_COMBO = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         searchBox = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
@@ -1761,7 +1768,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         jLabel34.setText("Plane crashes");
 
         jLabel35.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel35.setText("Plane speed divisor (1-4)");
+        jLabel35.setText("Plane speed");
 
         jLabel36.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel36.setText("Road side");
@@ -1790,14 +1797,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
-        planeSpd_TEXT.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        planeSpd_TEXT.setText(planeSpd + "");
-        planeSpd_TEXT.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                planeSpd_TEXTCaretUpdate(evt);
-            }
-        });
-
         roadSide_L.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         roadSide_L.setText("Left");
         roadSide_L.addActionListener(new java.awt.event.ActionListener() {
@@ -1815,7 +1814,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         });
 
         jLabel37.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel37.setText("default: 4");
+        jLabel37.setText("default: 1/4");
 
         jLabel38.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel38.setText("Road acceleration model");
@@ -1962,6 +1961,14 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             }
         });
 
+        planeSpd_COMBO.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        planeSpd_COMBO.setModel(new javax.swing.DefaultComboBoxModel());
+        planeSpd_COMBO.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                planeSpd_COMBOItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -2052,8 +2059,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel37)
                                     .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(planeSpd_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
                                 .addComponent(planeSpdCheck))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel36)
@@ -2120,7 +2127,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2201,9 +2208,9 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
                             .addComponent(planeCrash_NORM))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel35)
-                            .addComponent(planeSpd_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(planeSpdCheck))
-                        .addGap(5, 5, 5)
+                            .addComponent(planeSpdCheck)
+                            .addComponent(planeSpd_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
                         .addComponent(jLabel37)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2678,18 +2685,6 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         lines.get(planeCrash).set(2, "2");
     }//GEN-LAST:event_planeCrash_NORMActionPerformed
 
-    private void planeSpd_TEXTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_planeSpd_TEXTCaretUpdate
-        // TODO add your handling code here:
-        String str4 = planeSpd_TEXT.getText();
-        if (str4.equals("0") || str4.equals("1") || str4.equals("2")
-                || str4.equals("3") || str4.equals("4")) {
-            lines.get(planeSpd).set(2, str4);
-            planeSpdCheck.setText("");
-        } else {
-            planeSpdCheck.setText("<html><B><u>Please Check</B></html>");
-        }
-    }//GEN-LAST:event_planeSpd_TEXTCaretUpdate
-
     private void roadSide_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roadSide_LActionPerformed
         // TODO add your handling code here:
         lines.get(roadSide).set(2, "left");
@@ -2969,6 +2964,23 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
             lines.get(maxComp).set(2, (String) maxComp_COMBO.getSelectedItem());
         }
     }//GEN-LAST:event_maxComp_COMBOItemStateChanged
+
+    private void planeSpd_COMBOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_planeSpd_COMBOItemStateChanged
+        // TODO add your handling code here:
+        if (maxComp_set) {
+            String s = (String) planeSpd_COMBO.getSelectedItem();
+            if (s.equals("1/4")) {
+                s = "4";
+            } else if (s.equals("1/3")) {
+                s = "3";
+            } else if (s.equals("1/2")) {
+                s = "2";
+            } else if (s.equals("1/1")) {
+                s = "1";
+            }
+            lines.get(planeSpd).set(2, s);
+        }
+    }//GEN-LAST:event_planeSpd_COMBOItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -3127,7 +3139,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton planeCrash_NORM;
     private javax.swing.JRadioButton planeCrash_RED;
     private javax.swing.JLabel planeSpdCheck;
-    private javax.swing.JTextField planeSpd_TEXT;
+    private javax.swing.JComboBox planeSpd_COMBO;
     private javax.swing.JTextArea resultArea;
     private javax.swing.ButtonGroup roadAccelGroup;
     private javax.swing.JRadioButton roadAccel_ORIG;
@@ -3406,7 +3418,8 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
         }
 
         //plane_speed
-        planeSpd_TEXT.setText(lines.get(planeSpd).get(2));
+        planeSpd_COMBO.setSelectedItem("1/" + lines.get(planeSpd).get(2));
+        planeSpd_set = true;
 
         //road_side
         if (lines.get(roadSide).get(2).equals("left")) {
@@ -3683,7 +3696,7 @@ public class ConfigEditorGUI extends javax.swing.JFrame {
     
     /**
      * Checks if all textboxes contain an 
-     * @return 
+     * @return Returns true if there is an error, false otherwise
      */
     private boolean closingCheck () {
         boolean error = false;
